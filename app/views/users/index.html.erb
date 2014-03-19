@@ -1,0 +1,10 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+	<%= render @users %> <!-- ref: hartl 9.3.4 -->
+</ul>
+
+<%= will_paginate %>
