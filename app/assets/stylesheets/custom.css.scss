@@ -164,11 +164,11 @@ input {
 }
 
 
-/* User home */
+/* Dashboard Profile */
 
 .profile_name {
-  font-size: 2em;
-  margin: 10px 0 5px 3px;
+  font-size: 1.8em;
+  margin: 20px 0 5px 3px;
 }
 
 .profile_pic {
@@ -181,6 +181,35 @@ input {
     padding: 5px 0;
     margin: 0 0 0 -30px;
   }
+}
+
+/* Tours table */
+
+.tours_title {
+  float: left;
+  font-size: 2em;
+  text-align: left;
+}
+
+.create_tour_btn {
+  float: right;
+  margin: 20px 150px 0 0;
+}
+
+.tours {
+  clear: both;
+  th, td { 
+    padding: 8px;
+   }
+   td {
+    border-top: 1px solid #e8e8e8;
+   }
+}
+
+.no_tours_found {
+  margin-top: 4em;
+  clear: both;
+  font-size: 2em;
 }
 
 /* Users index */

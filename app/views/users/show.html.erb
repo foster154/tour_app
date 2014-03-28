@@ -13,4 +13,26 @@
 			<%= link_to "Edit Profile", edit_user_path, class: "btn btn-default btn-sm" %>
 		</section>
 	</aside>
+
+	<div class="col-md-9">
+    <h1 class="tours_title">My Tours (<%= @user.tours.count %>)</h1>
+    <%= link_to "Create New Tour", new_tour_path(user_id: @user.id), class: "btn btn-info create_tour_btn" %>
+      <% if @user.tours.any? %>
+      <table class="tours">
+      	<tr>
+      		<th>Created</th>
+      		<th>Address</th>
+      		<th>City</th>
+      		<th>State</th>
+      		<th>Zip</th>
+      		<th>Price</th>
+      	</tr>
+      
+        <%= render @tours %>
+      </table>
+      <%= will_paginate @tours %>
+      <% else %>
+      <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id) %></h1>
+      <% end %>
+  </div>
 </div>
