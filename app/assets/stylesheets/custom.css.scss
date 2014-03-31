@@ -164,18 +164,18 @@ input {
 }
 
 
-/* Dashboard Profile */
+/* Dashboard */
 
-.profile_name {
+.profile-name {
   font-size: 1.8em;
   margin: 20px 0 5px 3px;
 }
 
-.profile_pic {
+.profile-pic {
   margin: 10px 0;
 }
 
-.profile_info {
+.profile-info {
   color: $grayLight; 
   li {
     padding: 5px 0;
@@ -183,17 +183,32 @@ input {
   }
 }
 
-/* Tours table */
+.dashboard-btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 30px 0;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+.glyphicon-lg {
+  font-size: 2em;
+}
+
+.dashboard-btn-text {
+}
+
+.dashboard-tours {
+  clear: both;  
+  margin-top: 30px;
+}
+
+/* Dashboard tours table */
 
 .tours_title {
   float: left;
   font-size: 2em;
   text-align: left;
-}
-
-.create_tour_btn {
-  float: right;
-  margin: 20px 150px 0 0;
 }
 
 .tours {
@@ -209,7 +224,34 @@ input {
 .no_tours_found {
   margin-top: 4em;
   clear: both;
-  font-size: 2em;
+  font-size: 1.5em;
+  letter-spacing: normal;
+}
+
+/* Manage Tours table */
+
+.col-created {
+  width: 30px;
+}
+
+.col-address {
+  width: 250px;
+}
+
+.col-city {
+  width: 150px;
+}
+
+.col-state {
+  width: 30px;
+}
+
+.col-zip {
+  width: 40px;
+}
+
+.col-price {
+  width: 100px;
 }
 
 /* Users index */

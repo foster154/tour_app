@@ -1,0 +1,23 @@
+<% provide(:title, 'Manage Tours') %>
+<div class="container">
+	<div class="dashboard-tours">
+	    <h1 class="tours_title">Manage Tours</h1>
+        <% if @user.tours.any? %>
+        <table class="tours">
+        	<tr>
+        		<th><div class="col-created">Created</div></th>
+        		<th><div class="col-address">Address</div></th>
+        		<th><div class="col-city">City</div></th>
+        		<th><div class="col-state">State</div></th>
+        		<th><div class="col-zip">Zip</div></th>
+        		<th><div class="col-price">Price</div></th>
+        	</tr>
+        
+          <%= render @tours %>
+        </table>
+        <%= will_paginate @tours %>
+        <% else %>
+        <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id) %></h1>
+        <% end %>
+	</div>
+</div>

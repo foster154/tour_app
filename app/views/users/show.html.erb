@@ -2,9 +2,9 @@
 <div class="row">
 	<aside class="col-md-3">
 		<section>
-			<h1 class="profile_name"><%= @user.name %></h1>
-			<div><%= image_tag("blank-person-180x120.jpg", class: "profile_pic") %>
-			<ul class="profile_info">
+			<h1 class="profile-name"><%= @user.name %></h1>
+			<div><%= image_tag("blank-person-180x120.jpg", class: "profile-pic") %>
+			<ul class="profile-info">
 				<li><%= @user.company %></li>
 				<li><%= @user.email %></li>
 				<li><%= @user.phone %></li>
@@ -15,24 +15,62 @@
 	</aside>
 
 	<div class="col-md-9">
-    <h1 class="tours_title">My Tours (<%= @user.tours.count %>)</h1>
-    <%= link_to "Create New Tour", new_tour_path(user_id: @user.id), class: "btn btn-info create_tour_btn" %>
-      <% if @user.tours.any? %>
-      <table class="tours">
-      	<tr>
-      		<th>Created</th>
-      		<th>Address</th>
-      		<th>City</th>
-      		<th>State</th>
-      		<th>Zip</th>
-      		<th>Price</th>
-      	</tr>
-      
-        <%= render @tours %>
-      </table>
-      <%= will_paginate @tours %>
-      <% else %>
-      <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id) %></h1>
-      <% end %>
+    <div class="row">
+
+      <div class="col-sm-3 col-xs-6">
+        <%= link_to new_tour_path(user_id: @user.id), class: "btn btn-default dashboard-btn" do %>
+          <i class="glyphicon-lg glyphicon glyphicon-plus-sign"></i>
+          <br /><br />
+          Create New Tour
+        <% end %>
+      </div>
+
+      <div class="col-sm-3 col-xs-6">
+        <%= link_to tours_path(user_id: @user.id), class: "btn btn-default dashboard-btn" do %>
+          <i class="glyphicon-lg glyphicon glyphicon-home"></i>
+          <br /><br />
+          Manage Tours
+        <% end %>
+      </div>
+
+      <div class="col-sm-3 col-xs-6">
+        <%= link_to edit_user_path, class: "btn btn-default dashboard-btn" do %>
+          <i class="glyphicon-lg glyphicon glyphicon-user"></i>
+          <br /><br />
+          Edit Profile
+        <% end %>
+      </div>
+
+      <div class="col-sm-3 col-xs-6">
+        <%= link_to '/support', class: "btn btn-default dashboard-btn" do %>
+          <i class="glyphicon-lg glyphicon glyphicon-wrench"></i>
+          <br /><br />
+          Support
+        <% end %>
+      </div>
+
+    </div>
+    <div class="dashboard-tours">
+      <h1 class="tours_title">Most Recent Tours</h1>
+        <% if @user.tours.any? %>
+        <table class="tours">
+        	<tr>
+        		<th>Created</th>
+        		<th>Address</th>
+        		<th>City</th>
+        		<th>State</th>
+        		<th>Zip</th>
+        		<th>Price</th>
+        	</tr>
+        
+          <%= render @tours %>
+          <tr>
+            <td colspan="6"><%= link_to "See & Manage All Tours ->", tours_path(user_id: @user.id) %></td>
+          </tr>
+        </table>
+        <% else %>
+        <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id) %></h1>
+        <% end %>
+    </div>
   </div>
 </div>

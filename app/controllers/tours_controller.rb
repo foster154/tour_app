@@ -3,6 +3,8 @@ class ToursController < ApplicationController
 	# before_action :correct_user,  	except: :show
 
 	def index
+		@user = User.find(params[:user_id])
+		@tours = @user.tours.paginate(page: params[:page])
 	end
 
 	def show
@@ -33,7 +35,7 @@ class ToursController < ApplicationController
 		@tour = Tour.find(params[:id])
 	    if @tour.update_attributes(tour_params)
 	      flash[:success] = "Tour for '#{@tour.address}' updated!"
-	      redirect_to root_url
+	      redirect_to :back
 	    else
 	      render('edit')
 	    end
@@ -43,7 +45,7 @@ class ToursController < ApplicationController
 		@tour = Tour.find(params[:id])
 		@tour.destroy
 		flash[:success] = "'#{@tour.address}' tour deleted!"
-		redirect_to user_path(@tour.user_id)
+		redirect_to :back
 	end
 
 	private
