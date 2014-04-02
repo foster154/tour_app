@@ -3,13 +3,14 @@
 	<aside class="col-md-3">
 		<section>
 			<h1 class="profile-name"><%= @user.name %></h1>
-			<div><%= image_tag("blank-person-180x120.jpg", class: "profile-pic") %>
-			<ul class="profile-info">
-				<li><%= @user.company %></li>
-				<li><%= @user.email %></li>
-				<li><%= @user.phone %></li>
-				<li><%= @user.user_url %></li>
-			</ul>
+			<div>
+          <%= render partial: 'user_image' %>
+  			 <ul class="profile-info">
+  				<li><%= @user.company %></li>
+  				<li><%= @user.email %></li>
+  				<li><%= @user.phone %></li>
+  				<li><%= @user.user_url %></li>
+  			</ul>
 			<%= link_to "Edit Profile", edit_user_path, class: "btn btn-default btn-sm" %>
 		</section>
 	</aside>

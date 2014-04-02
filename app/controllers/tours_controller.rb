@@ -29,13 +29,14 @@ class ToursController < ApplicationController
 
 	def edit
 		@tour = Tour.find(params[:id])
+		@user = @tour.user_id
 	end
 
 	def update
 		@tour = Tour.find(params[:id])
 	    if @tour.update_attributes(tour_params)
 	      flash[:success] = "Tour for '#{@tour.address}' updated!"
-	      redirect_to :back
+	      redirect_to user_path(@tour.user_id)
 	    else
 	      render('edit')
 	    end
