@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :tours, dependent: :destroy
 	has_secure_password
-	has_attached_file :user_image, :styles => { :medium => "180x120>"}
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 
@@ -11,9 +10,8 @@ class User < ActiveRecord::Base
 							format: { with: VALID_EMAIL_REGEX },
 							uniqueness: { case_sensitive: false }
 	validates :password, length: { minimum: 6 }, :if => :password
-	# do_not_validate_attachment_file_type :user_image
-	validates_attachment_size :user_image, less_than: 2.megabytes
-	validates_attachment_content_type :user_image, content_type: ['image/jpeg', 'image/png']
+
+	mount_uploader :user_image, UserImageUploader
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64

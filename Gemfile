@@ -9,7 +9,8 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
-gem "paperclip", "~> 4.1"
+gem "carrierwave"
+gem 'mini_magick', '~> 3.7.0'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
