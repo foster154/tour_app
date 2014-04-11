@@ -153,10 +153,9 @@ footer {
 input, textarea, select, .uneditable-input {
   border: 1px solid #CFCFCF;
   border-radius: 5px;
-  width: 100%;
   padding: 5px;
   margin-bottom: 15px;
-  @include box_sizing;
+  /* @include box_sizing; */
 } 
 
   

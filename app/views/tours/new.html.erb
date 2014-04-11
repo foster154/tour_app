@@ -6,14 +6,16 @@
 	<!-- Begin 'Tour Info' Column -->
 
 	<div class="col-md-4">
-		<h3> Tour info: </h3>
+		<h3> Tour Info </h3>
 		<br />
-		<%= form_for(@tour, user_id: @user.id) do |f| %>
+		<%= bootstrap_form_for(@tour, user_id: @user.id) do |f| %>
 			<%= render 'shared/tour_error_messages' %>
 
 			<%= render(:partial => "form", :locals => {:f => f}) %>
 
-			<%= f.submit "Create Tour", class: "btn btn-large btn-primary" %>
+			<br />
+
+			<%= f.submit "Save Tour Info", class: "btn btn-large btn-primary center" %>
 		<% end %>
 	</div>
 
