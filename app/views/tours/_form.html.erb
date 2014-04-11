@@ -1,8 +1,7 @@
-<%= f.label :address %>
-<%= f.text_field :address %>
+<h4>Address</h4>
+<%= f.text_field :address, class: 'form-control', placeholder: 'Street Address' %>
 
-<%= f.label :city %>
-<%= f.text_field :city %>
+<%= f.text_field :city, class: 'form-control', placeholder: 'City' %>
 
 <%= f.label :state %>
 <%= f.select :state, [

@@ -1,4 +1,6 @@
 TourApp::Application.routes.draw do
+  resources :photos
+
   resources :users
   resources :tours
   resources :sessions, only: [:new, :create, :destroy]

@@ -21,11 +21,6 @@ class User < ActiveRecord::Base
 		Digest::SHA1.hexdigest(token.to_s)
 	end
 
-	def delete_user_image
-    	@user.user_image = nil
-    	@user.save
-  	end
-
 	private
 
 		def create_remember_token

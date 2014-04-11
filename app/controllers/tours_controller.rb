@@ -21,7 +21,7 @@ class ToursController < ApplicationController
 		@tour = current_user.tours.build(tour_params)
 		if @tour.save
 			flash[:success] = "Tour for '#{@tour.address}' created!"
-			redirect_to user_path(@tour.user_id)
+			redirect_to new_photo_path(tour_id: @tour.id)
 		else
 			render('new')
 		end
