@@ -20,15 +20,17 @@ class ToursController < ApplicationController
 	def create
 		@tour = current_user.tours.build(tour_params)
 		if @tour.save
-			flash[:success] = "Tour for '#{@tour.address}' created!"
-			redirect_to new_photo_path(tour_id: @tour.id)
+			flash[:success] = "Tour created for '#{@tour.address}'. Next, let's add some photos!"
+			redirect_to edit_tour_path(id: @tour.id)
 		else
-			render('new')
+			flash[:danger] = 'Could not create tour.'
+			redirect_to :back
 		end
 	end
 
 	def edit
 		@tour = Tour.find(params[:id])
+		@photo = Photo.new({tour_id: @tour.id})
 		@user = @tour.user_id
 	end
 
@@ -36,9 +38,10 @@ class ToursController < ApplicationController
 		@tour = Tour.find(params[:id])
 	    if @tour.update_attributes(tour_params)
 	      flash[:success] = "Tour for '#{@tour.address}' updated!"
-	      redirect_to user_path(@tour.user_id)
+	      redirect_to edit_tour_path(id: @tour.id)
 	    else
-	      render('edit')
+	      flash[:danger] = 'Could not update tour.'
+		  redirect_to :back
 	    end
 	end
 

@@ -1,7 +1,6 @@
 <h4>Address:</h4>
 <%= f.text_field :address, hide_label: true, placeholder: 'Street Address' %>
 
-<%= f.form_group do %>
 <%= f.text_field :city, layout: :inline, hide_label: true, placeholder: 'City' %>
 
 <%= f.select :state, [
@@ -62,8 +61,6 @@
 %>
 
 <%= f.text_field :zip, layout: :inline, hide_label: true, placeholder: 'Zip' %>
-
-<% end %>
 
 <br />
 

@@ -1,11 +1,50 @@
 <% provide(:title, 'Edit Tour') %>
-<h1>Edit a Tour</h1>
+<h1><%= @tour.address %></h1>
 
 <div class="row">
-	<div class="col-md-4 col-md-offset-4">
-		<%= form_for(@tour) do |f| %>
+
+	<!-- Begin 'Tour Info' Column -->
+
+	<div class="col-md-4 col-md-offset-1">
+		<h3 class="grey">Tour Info:</h3>
+		<%= bootstrap_form_for(@tour) do |f| %>
+			<%= render 'shared/tour_error_messages' %>
 			<%= render 'form', f: f %>
-			<%= f.submit "Update Tour", class: "btn btn-large btn-primary" %>
+			<br />
+			<%= f.submit "Update Tour Info", class: "btn btn-large btn-primary" %>
 		<% end %>
+	</div>
+
+	<!-- Begin 'Photos' Column -->
+
+	<div class="col-md-6 col-md-offset-1">
+		<h3 class="grey">Add a Photo:</h3>
+		<%= render 'shared/photo_error_messages' %>
+		<%= bootstrap_form_for(@photo, :tour_id => @tour.id, :html => {:multipart => true}, hide_label: true, layout: :inline) do |f| %>
+			<%= render(:partial => "photos/form", :locals => {:f => f}) %>
+		<% end %>
+		<br />
+
+		<h3 class="grey">Current Photos:</h3>
+		<% if @tour.photos.any? %>
+			<% for photo in @tour.photos %>
+				<div class="photo-preview">
+					<div class="photo-preview-photo"><%= image_tag photo.photo_url(:thumb).to_s %></div>
+					<div class="photo-preview-title">
+						<% unless photo.title.blank? %>
+							<%= photo.title %>
+							<span class="photo-preview-filename"> | </span>
+						<% end %>
+						<span class="photo-preview-filename"><%= truncate(photo.photo.file.filename, lenght: 25) %></span>
+					</div>
+					<%= link_to "X", photo, method: :delete, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger btn-sm photo-delete-btn" %>
+					<div class="photo-preview-description"><%= photo.description %></div>
+					<div class="clear"></div>
+				</div>
+			<% end %>
+		<% else %>
+			<p>There are no photos!</p>
+		<% end %>
+
 	</div>
 </div>

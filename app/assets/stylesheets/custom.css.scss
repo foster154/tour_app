@@ -37,6 +37,10 @@ textarea {
   }
 }
 
+.clear {
+  clear: both;
+}
+
 ul {
   list-style: none;
 }
@@ -64,6 +68,10 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+.grey {
+  color: $grayLight;
 }
 
 .small-grey {
@@ -154,7 +162,7 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #CFCFCF;
   border-radius: 5px;
   padding: 5px;
-  margin-bottom: 15px;
+  margin: 7px 0;
   /* @include box_sizing; */
 } 
 
@@ -291,6 +299,49 @@ input {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+/* Edit Tour */
+
+.photo-preview {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 0;
+}
+
+.photo-preview-photo {
+  float: left;
+  margin-right: 20px;
+}
+
+.photo-placeholder {
+  height: 60px;
+  width: 80px;
+  background-color: #CCC;
+  float: left;
+  margin-right: 20px;
+}
+
+.photo-preview-filename {
+  color: $grayLight;
+  font-weight: normal;
+  font-size: .8em;
+}
+
+.photo-preview-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  float: left;
+}
+
+.photo-preview-description {
+  width: 320px;
+  color: $grayLight;
+  float: left;
+}
+
+.photo-delete-btn {
+  margin-top: 10px;
+  float: right;
 }
 
 /* miscellaneous */

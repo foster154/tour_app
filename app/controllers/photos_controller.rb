@@ -23,10 +23,10 @@ class PhotosController < ApplicationController
     # @photo = @tour.photos.build(photo_params)
     if @photo.save
       flash[:success] = 'Photo added!'
-      redirect_to root_url
+      redirect_to :back
     else
-      flash[:success] = 'Something went wrong.'
-      redirect_to root_url
+      flash[:danger] = 'Could not add photo.'
+      redirect_to :back
     end
   end
 
@@ -49,7 +49,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to photos_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

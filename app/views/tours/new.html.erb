@@ -3,25 +3,94 @@
 
 <div class="row">
 
-	<!-- Begin 'Tour Info' Column -->
+	<%= bootstrap_form_for(@tour, user_id: @user.id) do |f| %>
+	<%= render 'shared/tour_error_messages' %>
 
 	<div class="col-md-4">
-		<h3> Tour Info </h3>
-		<br />
-		<%= bootstrap_form_for(@tour, user_id: @user.id) do |f| %>
-			<%= render 'shared/tour_error_messages' %>
-
-			<%= render(:partial => "form", :locals => {:f => f}) %>
-
+			<h3 class="center">Address:</h3>
 			<br />
-
-			<%= f.submit "Save Tour Info", class: "btn btn-large btn-primary center" %>
-		<% end %>
+			<%= f.text_field :address, hide_label: true, placeholder: 'Street Address' %>
+			<%= f.text_field :city, layout: :inline, hide_label: true, placeholder: 'City' %>
+			<%= f.select :state, [
+		      ['(select)', ' '],
+		      ['Alabama', 'AL'],
+		      ['Alaska', 'AK'],
+		      ['Arizona', 'AZ'],
+		      ['Arkansas', 'AR'],
+		      ['California', 'CA'],
+		      ['Colorado', 'CO'],
+		      ['Connecticut', 'CT'],
+		      ['Delaware', 'DE'],
+		      ['District of Columbia', 'DC'],
+		      ['Florida', 'FL'],
+		      ['Georgia', 'GA'],
+		      ['Hawaii', 'HI'],
+		      ['Idaho', 'ID'],
+		      ['Illinois', 'IL'],
+		      ['Indiana', 'IN'],
+		      ['Iowa', 'IA'],
+		      ['Kansas', 'KS'],
+		      ['Kentucky', 'KY'],
+		      ['Louisiana', 'LA'],
+		      ['Maine', 'ME'],
+		      ['Maryland', 'MD'],
+		      ['Massachusetts', 'MA'],
+		      ['Michigan', 'MI'],
+		      ['Minnesota', 'MN'],
+		      ['Mississippi', 'MS'],
+		      ['Missouri', 'MO'],
+		      ['Montana', 'MT'],
+		      ['Nebraska', 'NE'],
+		      ['Nevada', 'NV'],
+		      ['New Hampshire', 'NH'],
+		      ['New Jersey', 'NJ'],
+		      ['New Mexico', 'NM'],
+		      ['New York', 'NY'],
+		      ['North Carolina', 'NC'],
+		      ['North Dakota', 'ND'],
+		      ['Ohio', 'OH'],
+		      ['Oklahoma', 'OK'],
+		      ['Oregon', 'OR'],
+		      ['Pennsylvania', 'PA'],
+		      ['Puerto Rico', 'PR'],
+		      ['Rhode Island', 'RI'],
+		      ['South Carolina', 'SC'],
+		      ['South Dakota', 'SD'],
+		      ['Tennessee', 'TN'],
+		      ['Texas', 'TX'],
+		      ['Utah', 'UT'],
+		      ['Vermont', 'VT'],
+		      ['Virginia', 'VA'],
+		      ['Washington', 'WA'],
+		      ['West Virginia', 'WV'],
+		      ['Wisconsin', 'WI'],
+		      ['Wyoming', 'WY']
+		    ], layout: :inline, hide_label: true
+		%>
+		<%= f.text_field :zip, layout: :inline, hide_label: true, placeholder: 'Zip' %>
 	</div>
 
-	<!-- Begin 'Add Photos' Column -->
+	<div class="col-md-4">
+		<h3 class="center">Description:</h3>
+		<br />
+		<%= f.text_area :description, size: "24x6", hide_label: true %>
+	</div>
 
-	<div class="col-md-7 col-md-offset-1">
-		<h3> Add Photos: </h3>
+	<div class="col-md-4">
+		<h3 class="center">Other Info:</h3>
+		<br />
+		<%= f.number_field :price, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
+		<%= f.text_field :beds, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
+		<%= f.text_field :baths, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
+		<%= f.number_field :home_size, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
+		<%= f.text_field :lot_size, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
+		<%= f.text_field :year_built, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="center">
+			<%= f.submit "Save Tour Info", class: "btn btn-large btn-primary" %>
+		<% end %>
 	</div>
 </div>
