@@ -9,7 +9,7 @@ class ToursController < ApplicationController
 
 	def show
 		@tour = Tour.find(params[:id])
-		render layout: 'tour'
+		render layout: 'tour-default'
 	end
 
 	def new
