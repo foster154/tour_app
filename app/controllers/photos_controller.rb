@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  # GET /photos/1
-  # GET /photos/1.json
+
+
   def show
   end
 
@@ -52,6 +52,13 @@ class PhotosController < ApplicationController
       format.html { redirect_to :back }
       format.json { head :no_content }
     end
+  end
+
+  def sort
+    params[:photo].each_with_index do |id, index| 
+      Photo.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
   end
 
   private

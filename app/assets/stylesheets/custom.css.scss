@@ -4,7 +4,7 @@
 
 $grayMediumLight: #777;
 $grayLight: #777;
-$grayLighter: #777;
+$grayLighter: #DEDEDE;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -72,6 +72,10 @@ p {
 
 .grey {
   color: $grayLight;
+}
+
+.light-grey {
+  color: $grayLighter;
 }
 
 .small-grey {
@@ -303,9 +307,18 @@ input {
 
 /* Edit Tour */
 
-.photo-preview {
+#photo-preview-list li {
   border-bottom: 1px solid #e8e8e8;
   padding: 10px 0;
+  margin-left: -38px;
+  background-color: white;
+}
+
+.drag-handle {
+  float: left;
+  height: 100%;
+  margin: 15px 5px 0 0;
+  cursor: move;
 }
 
 .photo-preview-photo {

@@ -31,6 +31,7 @@ class ToursController < ApplicationController
 	def edit
 		@tour = Tour.find(params[:id])
 		@photo = Photo.new({tour_id: @tour.id})
+		@photos = @tour.photos.order(:position)
 		@user = @tour.user_id
 	end
 

@@ -27,8 +27,12 @@
 
 		<h3 class="grey">Current Photos:</h3>
 		<% if @tour.photos.any? %>
-			<% for photo in @tour.photos %>
-				<div class="photo-preview">
+			<ul id="photo-preview-list" data-update-url="<%= sort_photos_url %>">
+				<% @photos.each do |photo| %>
+				<%= content_tag_for :li, photo do %>
+					<div class="drag-handle">
+						<i class="light-grey glyphicon-lg glyphicon glyphicon-resize-vertical"></i>
+					</div>
 					<div class="photo-preview-photo"><%= image_tag photo.photo_url(:thumb).to_s %></div>
 					<div class="photo-preview-title">
 						<% unless photo.title.blank? %>
@@ -40,8 +44,9 @@
 					<%= link_to "X", photo, method: :delete, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger btn-sm photo-delete-btn" %>
 					<div class="photo-preview-description"><%= photo.description %></div>
 					<div class="clear"></div>
-				</div>
-			<% end %>
+				<% end %>
+				<% end %>
+			</ul>
 		<% else %>
 			<p>There are no photos!</p>
 		<% end %>
