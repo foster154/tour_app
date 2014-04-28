@@ -9,6 +9,7 @@ class ToursController < ApplicationController
 
 	def show
 		@tour = Tour.find(params[:id])
+		@photos = @tour.photos.order(:position)
 		render layout: 'tour-default'
 	end
 

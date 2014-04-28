@@ -20,3 +20,21 @@ $(document).ready(function(){
 		$(".panel-label").text("School Info")
 	});
 });
+
+$(document).ready(function() {
+	$(".fancybox-button").fancybox({
+		padding			: '0',
+		prevEffect		: 'none',
+		nextEffect		: 'none',
+		autoPlay		: true,
+		closeBtn		: true,
+		arrows			: true,
+		helpers		: {
+			title	: { type : 'inside' },
+			buttons	: { position : 'bottom' }
+		}
+	});
+
+	$(".fancybox")
+
+});

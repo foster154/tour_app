@@ -2,19 +2,30 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag "tours/tour-default", media: "all", "data-turbolinks-track" => true %>
+  
+  <!-- tour main -->
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "tours/tour-default/tour-default", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "tours/tour-default", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "tours/tour-default/tour-default", "data-turbolinks-track" => true %>
+
+  <!-- Fancybox -->
+  <%= stylesheet_link_tag "tours/tour-default/jquery.fancybox", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "tours/tour-default/jquery.fancybox-buttons", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "tours/tour-default/jquery.fancybox.pack", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "tours/tour-default/jquery.fancybox-buttons", "data-turbolinks-track" => true %>
+
+  <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Cabin:700,400' rel='stylesheet' type='text/css'>
+
+  <!-- Other -->
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
-<body>
-  
-  <%= render 'layouts/tour-default/header' %>
 
-  <div class="container">
+<body>
+  <%= render 'layouts/tour-default/header' %>
+  <div class="container-fluid">
     <div class="row">
     
     <%= render 'layouts/tour-default/info_panels' %>
@@ -22,9 +33,6 @@
 
     </div>
   </div>
-
-
-
 
 		<%= yield %>
 		<% # debug(params) if Rails.env.development? %>

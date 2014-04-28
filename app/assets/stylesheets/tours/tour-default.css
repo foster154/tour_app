@@ -100,7 +100,7 @@ h3 {
 
 .side-panel {
 	clear: both;
-	margin: 15px 0 0 0;
+	margin: 15px 20px 0 50px;
 }
 
 .description {
@@ -118,9 +118,14 @@ h3 {
 	padding-left: 5px;
 }
 
+/* Gallery */
 
+.photo-board li {
+	float: left;
+	margin: 8px;
+}
 
-
-
-
+.photo-board img {
+	width: 200px;
+}
 

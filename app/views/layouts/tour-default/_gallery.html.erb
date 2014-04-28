@@ -1,8 +1,9 @@
 <div class="col-md-8 col-sm-7 col-xs-12 top-pad" > 
 	<div id="gallery-container">
-		<ul class="items--small">
-			<li class="item"><a href="#"><%= image_tag @tour.photos.first %></a></li>
-
+		<ul class="photo-board">
+			<% @photos.each do | photo | %>
+			<li class="item"><a class="fancybox-button" rel="fancybox-button" href="<%= photo.photo_url(:full).to_s %>"><%= image_tag photo.photo_url(:preview).to_s %></a></li>
+			<% end %>
 		</ul>
 	</div>
 </div>
