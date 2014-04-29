@@ -100,7 +100,7 @@ h3 {
 
 .side-panel {
 	clear: both;
-	margin: 15px 20px 0 50px;
+	margin: 15px 10px 0 10px;
 }
 
 .description {
@@ -116,6 +116,11 @@ h3 {
 
 .home-specs-value {
 	padding-left: 5px;
+}
+
+#map {
+	height: 350px;
+	width: 100%;
 }
 
 /* Gallery */

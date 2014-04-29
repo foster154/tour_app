@@ -6,7 +6,8 @@ $(document).ready(function(){
 	}); 
 	$("#map-icon").on('click', function(){
 		$(".side-panel").hide();
-		$("#map").fadeIn();
+		$("#map-panel").fadeIn();
+		initializeMap();
 		$(".panel-label").text("Map")
 	});
 	$("#mortgage-calc-icon").on('click', function(){

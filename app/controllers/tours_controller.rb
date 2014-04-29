@@ -10,6 +10,10 @@ class ToursController < ApplicationController
 	def show
 		@tour = Tour.find(params[:id])
 		@photos = @tour.photos.order(:position)
+		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
+  			marker.lat tour.latitude
+  			marker.lng tour.longitude
+		end
 		render layout: 'tour-default'
 	end
 

@@ -13,6 +13,8 @@ gem 'carrierwave'
 gem 'mini_magick', '~> 3.7.0'
 gem 'bootstrap_form', '2.1.0'
 gem 'acts_as_list', '~> 0.4.0'
+gem 'geocoder', '~> 1.2.0'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'

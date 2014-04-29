@@ -16,3 +16,5 @@
 //= require bootstrap
 //= require turbolinks
 //= require custom
+//= require underscore
+//= require gmaps/google
