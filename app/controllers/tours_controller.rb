@@ -43,6 +43,11 @@ class ToursController < ApplicationController
 	def update
 		@tour = Tour.find(params[:id])
 	    if @tour.update_attributes(tour_params)
+	    	if params[:photos]
+		    	params[:photos]['photo'].each do |photo|
+		    		@photo = @tour.photos.create!(:photo => photo, :tour_id => @tour.id)
+		    	end
+		    end
 	      flash[:success] = "Tour for '#{@tour.address}' updated!"
 	      redirect_to edit_tour_path(id: @tour.id)
 	    else
@@ -61,7 +66,7 @@ class ToursController < ApplicationController
 	private
 
 		def tour_params
-	  		params.require(:tour).permit(:user_id, :address, :city, :state, :zip, :description, :price, :beds, :baths, :home_size, :lot_size, :year_built)
+	  		params.require(:tour).permit(:user_id, :address, :city, :state, :zip, :description, :price, :beds, :baths, :home_size, :lot_size, :year_built, photos_attributes: [:id, :tour_id, :photo])
 	  	end
 
 end

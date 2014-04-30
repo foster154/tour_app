@@ -1,0 +1,9 @@
+<%= render 'shared/photo_error_messages' %>
+<%= bootstrap_form_for(@tour, :html => { :multipart => true }) do |f| %> <!-- PHOTO UPLOAD FORM -->
+	<%= render 'shared/tour_error_messages' %>
+	<%= f.fields_for :photo do |p| %>
+			<%= p.file_field :photo, hide_label: true, :multiple => true, name: "photos[photo][]", class: "upload-btn indent" %>
+	<% end %>
+	<%= f.hidden_field :tour_id, :value => @tour.id %>
+	<%= f.submit "Upload Selected Photos", class: "btn btn-large btn-primary indent" %>
+<% end %>

@@ -45,6 +45,10 @@ ul {
   list-style: none;
 }
 
+.indent {
+  margin-left: 35px;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -170,7 +174,9 @@ input, textarea, select, .uneditable-input {
   /* @include box_sizing; */
 } 
 
-  
+.upload-btn {
+  border: none;
+}
   
   
 
