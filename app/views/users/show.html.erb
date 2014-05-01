@@ -52,9 +52,11 @@
 
     </div>
     <div class="dashboard-tours">
-      <h1 class="tours_title">Most Recent Tours</h1>
+      <h1 class="tours_title">Recently Added Tours</h1>
         <% if @user.tours.any? %>
-        <table class="tours">
+        <div class="table-responsive">
+        <table class="tours table table-striped">
+          <thead>
         	<tr>
         		<th>Created</th>
         		<th>Address</th>
@@ -62,13 +64,18 @@
         		<th>State</th>
         		<th>Zip</th>
         		<th>Price</th>
+            <th> </th>
+            <th> </th>
+            <th> </th>
         	</tr>
-        
+          </thead>
+          
+          <tbody>
           <%= render @tours %>
-          <tr>
-            <td colspan="6"><%= link_to "See & Manage All Tours ->", tours_path(user_id: @user.id) %></td>
-          </tr>
+          </tbody>
         </table>
+        </div>
+        <%= link_to "All Tours ->", tours_path(user_id: @user.id) %>
         <% else %>
         <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id) %></h1>
         <% end %>

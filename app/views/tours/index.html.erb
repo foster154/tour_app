@@ -3,18 +3,27 @@
 	<div class="dashboard-tours">
 	    <h1 class="tours_title">Manage Tours</h1>
         <% if @user.tours.any? %>
-        <table class="tours">
-        	<tr>
-        		<th><div class="col-created">Created</div></th>
-        		<th><div class="col-address">Address</div></th>
-        		<th><div class="col-city">City</div></th>
-        		<th><div class="col-state">State</div></th>
-        		<th><div class="col-zip">Zip</div></th>
-        		<th><div class="col-price">Price</div></th>
-        	</tr>
-        
-          <%= render @tours %>
-        </table>
+        <div class="table-responsive">
+            <table class="tours table table-striped">
+                <thead>
+            	<tr>
+            		<th>Created</th>
+            		<th>Address</th>
+            		<th>City</th>
+            		<th>State</th>
+            		<th>Zip</th>
+            		<th>Price</th>
+                    <th> </th>
+                    <th> </th>
+                    <th> </th>
+            	</tr>
+                </thead>
+                
+                <tbody>
+                <%= render @tours %>
+                </tbody>
+            </table>
+        </div>
         <%= will_paginate @tours %>
         <% else %>
         <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id) %></h1>

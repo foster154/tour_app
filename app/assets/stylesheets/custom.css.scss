@@ -49,6 +49,14 @@ ul {
   margin-left: 35px;
 }
 
+.top-pad15 {
+  padding-top: 15px;
+}
+
+.margin-top {
+  margin-top: 10px;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -260,32 +268,6 @@ input {
   clear: both;
   font-size: 1.5em;
   letter-spacing: normal;
-}
-
-/* Manage Tours table */
-
-.col-created {
-  width: 30px;
-}
-
-.col-address {
-  width: 250px;
-}
-
-.col-city {
-  width: 150px;
-}
-
-.col-state {
-  width: 30px;
-}
-
-.col-zip {
-  width: 40px;
-}
-
-.col-price {
-  width: 100px;
 }
 
 /* Edit User */

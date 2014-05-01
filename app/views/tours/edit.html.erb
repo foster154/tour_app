@@ -10,8 +10,7 @@
 		<%= bootstrap_form_for(@tour, :html => { :multipart => true }) do |f| %> <!-- TOUR INFO FORM -->
 			<%= render 'shared/tour_error_messages' %>
 			<%= render 'form', f: f %>
-			<br />
-			<%= f.submit "Update Tour Info", class: "btn btn-large btn-primary" %>
+			<%= f.submit "Save", class: "btn btn-large btn-primary margin-top" %>
 		<% end %>
 	</div>
 
