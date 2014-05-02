@@ -88,7 +88,7 @@
       <form method="get" id="schoolfinderSearchForm" name="schoolfinderSearchForm" action="http://www.education.com/schoolfinder/searchresult/">
       <h3>Find Local Schools</h3>
       <span style="float:left;">
-      <input type="text" id="searchTerms" name="searchTerms" value="Enter ZIP or City & State" onfocus="javascript:this.value='';" onblur="javascript:if(this.value=='')this.value='Enter ZIP or City & State';"/>
+      <input type="text" id="searchTerms" name="searchTerms" value="<%= @tour.zip %>" onfocus="javascript:this.value='';" onblur="javascript:if(this.value=='')this.value='Enter ZIP or City & State';"/>
       <input type="hidden" id="searchType" name="searchType" value="simple" />
       </span>
       <a class="button-orange" href="#" onclick="javascript:document.schoolfinderSearchForm.submit();" >

@@ -14,7 +14,7 @@ class ToursController < ApplicationController
   			marker.lat tour.latitude
   			marker.lng tour.longitude
 		end
-		render layout: 'tour-default'
+		render layout: 'tour-default/tour-default'
 	end
 
 	def new

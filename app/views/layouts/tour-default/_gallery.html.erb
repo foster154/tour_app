@@ -1,9 +1,27 @@
 <div class="col-md-8 col-sm-7 col-xs-12 top-pad60" > 
 	<div id="gallery-container">
 		<ul class="photo-board">
+
+			<!-- Photos -->
 			<% @photos.each do | photo | %>
 			<li class="item"><a class="fancybox-button" rel="fancybox-button" href="<%= photo.photo_url(:full).to_s %>"><%= image_tag photo.photo_url(:preview).to_s %></a></li>
 			<% end %>
+
+			<!-- Social Share Buttons -->
+			<li class="item">
+				<div class="social-share-wrapper">
+					<div id="social-label" class="center">Share this Tour:</div>
+					<div id="facebook" class="social-icon">
+						<a href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>" target="_blank"><%= image_tag "tour-default/facebook.png" %></a>
+					</div>
+					<div id="twitter" class="social-icon">
+						<a target="_blank" href="http://twitter.com/share?text=Love%20this%20home!&url=<%= request.original_url %>"><%= image_tag "tour-default/twitter.png" %></a>
+					</div>
+					<div id="email" class="social-icon">
+						<a target="_blank" href="mailto:?subject=Love this home!&body=<%= request.original_url %>"><%= image_tag "tour-default/email.png" %></a>
+					</div>
+				</div>
+			</li>
 		</ul>
 	</div>
 </div>

@@ -5,9 +5,10 @@
   <td><%= tour.state %></td>
   <td><%= tour.zip %></td>
   <td><%= number_to_currency(tour.price, precision: 0) %></td>
-  <td><%= link_to "Edit", edit_tour_path(tour.id), class: "btn btn-info btn-xs" %></td>
-  <td><%= link_to "View", tour_path(tour.id), class: "btn btn-warning btn-xs" %></td>
   <td>
+    <%= link_to "Edit", edit_tour_path(tour.id), class: "btn btn-info btn-xs" %>
+    <%= link_to "View", tour_path(tour.id), class: "btn btn-warning btn-xs" %>
   	<% @delete_object = tour %>
-  	<%= link_to "X", @delete_object, method: :delete, data: { confirm: "Are you sure you want to permanenently delete the tour for #{tour.address}?" }, title: @delete_object.address, class: "btn btn-danger btn-xs" %></td>
+  	<%= link_to "X", @delete_object, method: :delete, data: { confirm: "Are you sure you want to permanenently delete the tour for #{tour.address}?" }, title: @delete_object.address, class: "btn btn-danger btn-xs" %>
+    </td>
 </tr>

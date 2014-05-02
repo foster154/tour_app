@@ -134,3 +134,29 @@ h3 {
 	width: 200px;
 }
 
+/* Social Share Btns */
+
+.social-share-wrapper {
+	height: 150px;
+	width: 200px;
+}
+
+#social-label {
+	margin-top: 25px;
+	font-weight: bold;
+	font-family: 'Cabin', sans-serif;
+	font-size: 1.2em;
+	color: #322f31;
+}
+
+.social-icon img {
+	height: 47px;
+	width: 47px;
+	float: left;
+	margin: 10px 5px 0 5px;
+}
+
+#facebook {
+	margin-left: 15px;
+}
+
