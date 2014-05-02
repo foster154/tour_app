@@ -5,16 +5,21 @@
 			<div class="drag-handle">
 				<i class="light-grey glyphicon-lg glyphicon glyphicon-resize-vertical"></i>
 			</div>
+
+			<!-- photo -->
 			<div class="photo-preview-photo"><%= image_tag photo.photo_url(:thumb).to_s %></div>
+
+			<!-- title -->
 			<div class="photo-preview-title">
-				<% unless photo.title.blank? %>
-					<%= photo.title %>
-					<span class="photo-preview-filename"> | </span>
-				<% end %>
 				<span class="photo-preview-filename"><%= truncate(photo.photo.file.filename, lenght: 25) %></span>
 			</div>
+
+			<!-- delete -->
 			<%= link_to "X", photo, method: :delete, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger btn-sm photo-delete-btn" %>
-			<div class="photo-preview-description"><%= photo.description %></div>
+
+			<!-- description -->
+			<div class="photo-preview-description"><%= photo.label %></div>
+
 			<div class="clear"></div>
 		<% end %>
 		<% end %>
