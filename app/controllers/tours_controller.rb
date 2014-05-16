@@ -38,10 +38,6 @@ class ToursController < ApplicationController
 		@photo = Photo.new({tour_id: @tour.id})
 		@photos = @tour.photos.order(:position)
 		@user = @tour.user_id
-		respond_to do |type|
-	      type.html
-	      type.json {render :json => @photo}
-	    end
 	end
 
 	def update
@@ -52,11 +48,8 @@ class ToursController < ApplicationController
 		    		@photo = @tour.photos.create!(:photo => photo, :tour_id => @tour.id)
 		    	end
 		    end
-		  respond_to do |format|
-		    flash[:success] = "Tour for '#{@tour.address}' updated!"
-	        format.html { redirect_to edit_tour_path(id: @tour.id) }
-	        format.json { render :json => @photo }
-	      end
+	    flash[:success] = "Tour for '#{@tour.address}' updated!"
+        redirect_to edit_tour_path(id: @tour.id)
 	    else
 	      flash[:danger] = 'Could not update tour.'
 		  redirect_to :back

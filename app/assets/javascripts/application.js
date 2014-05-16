@@ -13,7 +13,7 @@
 //= require jquery
 //= require 'rest_in_place'
 //= require jquery.turbolinks
-//= require jquery.ui.all
+//= require jquery.ui.sortable
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
