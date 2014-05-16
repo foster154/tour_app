@@ -17,9 +17,11 @@
 			<!-- delete -->
 			<%= link_to "X", photo, method: :delete, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger btn-sm photo-delete-btn" %>
 
-			<!-- description -->
-			<div class="photo-preview-description">
-				<a href="#" id="label" data-type="text" data-pk="<%= photo.id %>" data-url="/post" data-title="(add label)">Add Label</a>
+			<!-- label -->
+			<div class="photo-preview-label">
+				<span class="rest-in-place" data-url="/photos/<%= photo.id %>" data-object="photo" data-attribute="label">
+				<%= photo.label || "(add label)" %>
+				</span>
 			</div>
 
 			<div class="clear"></div>
