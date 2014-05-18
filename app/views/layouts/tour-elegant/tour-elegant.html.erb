@@ -27,7 +27,9 @@
         thumbsOnMarginTop:11,
         thumbsWrapperMarginTop: -110,
         autoHideBottomNav:true,
-        autoPlay: 4
+        autoPlay: 4,
+        showOnInitBottomNav: false,
+        showOnInitNavArrows: false
       });   
       
       
@@ -52,6 +54,10 @@
   <div class="container-fluid">
     <div class="row">
       <%= render 'layouts/tour-elegant/gallery' %>
+    </div>
+
+    <div class="row">
+      <%= render 'layouts/tour-elegant/share' %>
     </div>
 
     <div class="row">
