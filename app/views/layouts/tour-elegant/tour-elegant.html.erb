@@ -57,7 +57,11 @@
     </div>
 
     <div class="row">
-      <%= render 'layouts/tour-elegant/share' %>
+      <% if @branded == true %>
+        <%= render 'layouts/tour-elegant/agent_and_share' %>
+      <% else %>
+        <%= render 'layouts/tour-elegant/share' %>
+      <% end %>
     </div>
 
     <div class="row">

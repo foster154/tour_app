@@ -1,0 +1,34 @@
+
+<div class="col-lg-3 col-lg-offset-3
+			col-md-4 col-md-offset-2 
+			col-sm-12 
+			col-xs-12">
+	<div id="agent-info-wrapper">
+		<% unless @tour.user.user_image.blank? %>
+			<%= image_tag @tour.user.user_image_url, class: "tour-user-image" %>
+		<% end %>
+
+		<div id="agent-contact-info">
+			<div id="agent-name" class="agent-info"><%= @tour.user.name %></div>
+			<div class="agent-info"><%= @tour.user.phone %></div>
+			<div class="agent-info"><%= @tour.user.email %></div>
+			<div class="agent-info"><%= @tour.user.user_url %></div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-2 col-md-offset-1 col-sm-12 col-xs-12">
+	<div id="social-label">Share:</div>
+
+	<div id="social-icons-wrapper">
+		<div id="facebook" class="social-icon">
+			<a href="http://www.facebook.com/sharer.php?u=<%= request.original_url %>" target="_blank"><%= image_tag "tour-default/facebook.png" %></a>
+		</div>
+		<div id="twitter" class="social-icon">
+			<a target="_blank" href="http://twitter.com/share?text=Love%20this%20home!&url=<%= request.original_url %>"><%= image_tag "tour-default/twitter.png" %></a>
+		</div>
+		<div id="email" class="social-icon">
+			<a target="_blank" href="mailto:?subject=Love this home!&body=<%= request.original_url %>"><%= image_tag "tour-default/email.png" %></a>
+		</div>
+	</div>
+</div>

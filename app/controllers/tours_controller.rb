@@ -17,6 +17,17 @@ class ToursController < ApplicationController
 		render layout: 'tour-elegant/tour-elegant'
 	end
 
+	def show_branded
+		@tour = Tour.find(params[:id])
+		@photos = @tour.photos.order(:position)
+		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
+  			marker.lat tour.latitude
+  			marker.lng tour.longitude
+		end
+		@branded = true
+		render layout: 'tour-elegant/tour-elegant'
+	end
+
 	def new
 		@user = User.find(params[:user_id])
 		@tour = Tour.new({:user_id => @user.id})

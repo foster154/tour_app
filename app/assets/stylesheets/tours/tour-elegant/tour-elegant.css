@@ -146,6 +146,10 @@ h3 {
 	line-height: 1.3em;
 }
 
+.home-specs {
+	margin-bottom: 120px;
+}
+
 .home-specs li {
 	width: 100%;
 
@@ -160,8 +164,32 @@ h3 {
 	width: 100%;
 }
 
+/* Agent Info */
 
+#agent-info-wrapper {
+	width: 400px;
+	height: 50px;
+	margin: 15px auto 0 auto;
+}
 
+.tour-user-image {
+	float: left;
+}
+
+#agent-contact-info {
+	float: left;
+	margin: 10px 0 0 10px;
+	font-family: 'Cabin', sans-serif;
+	font-size: 1.1em;
+}
+
+.agent-info {
+	margin: 2px 0 0 10px;
+}
+
+#agent-name {
+	font-size: 1.1em;
+}
 
 /* Social Share Btns */
 

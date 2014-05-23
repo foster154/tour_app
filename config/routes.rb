@@ -1,8 +1,7 @@
 TourApp::Application.routes.draw do
   resources :photos
 
-  resources :users
-  resources :tours
+  resources :users, :tours
   resources :photos do
     collection { post :sort }  # from railscasts #147... not sure if I need this
   end
@@ -14,6 +13,7 @@ TourApp::Application.routes.draw do
   match '/signout',   to: 'sessions#destroy',     via: 'delete'
   match '/support',   to: 'static_pages#support', via: 'get'
   match '/about',     to: 'static_pages#about',   via: 'get'
+  match 'tours/b/:id', to: 'tours#show_branded',  via: 'get'        
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
