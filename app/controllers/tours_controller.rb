@@ -4,7 +4,7 @@ class ToursController < ApplicationController
 
 	def index
 		@user = User.find(params[:user_id])
-		@tours = @user.tours.paginate(page: params[:page])
+		@tours = @user.tours.page(params[:page]).per_page(20)
 	end
 
 	def show

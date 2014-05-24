@@ -37,6 +37,10 @@ textarea {
   }
 }
 
+.float-right {
+  float: right;
+}
+
 .clear {
   clear: both;
 }
@@ -101,6 +105,10 @@ p {
 .btn {
   a:link {color:#FF0000;}
   a:visited {color:#00FF00;}
+}
+
+.btn-spacer {
+  margin-top: 5px;
 }
 
 /* header */

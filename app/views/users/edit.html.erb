@@ -2,39 +2,37 @@
 <h1>Edit Profile</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-9 col-md-offset-2">
     <h2>This information is shown on every 'branded' tour, and is how people will get in touch with you. Remember to keep it up to date! Changes will be applied to all of your past tours, as well as to any new tours you create.</h2>
     <%= render 'shared/error_messages' %>
   </div>
 </div>
 <br />
 <div class="row">
-  <div class="col-md-4 col-md-offset-2">
+  <div class="col-md-4 col-md-offset-2
+              col-sm-5
+              col-xm-10 col-xs-offset-1">
     <h3>Your Information:</h3>
     <br />
-    <%= form_for @user do |f| %>
+    <%= bootstrap_form_for @user, layout: :horizontal do |f| %>
 
-      <%= f.label :name %>
       <%= f.text_field :name %>
 
-      <%= f.label :email %>
       <%= f.text_field :email %>
 
-      <%= f.label :phone %>
       <%= f.text_field :phone %>
 
-      <%= f.label :company, "Company/Agency" %>
-      <%= f.text_field :company %>
+      <%= f.text_field :company, label: "Company/Agency", layout: :default %>
 
-      <%= f.label :user_url, "Homepage/Website" %>
-      <%= f.text_field :user_url %>
+      <%= f.text_field :user_url, label: "Homepage/Website", layout: :default %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 
   </div>
 
-  <div class="col-md-4 col-md-offset-1">
+  <div class="col-md-4 col-md-offset-1
+              col-sm-5 col-sm-offset-1">
     <h3>Profile Image:</h3>
     <p class="small-grey">This can be your photo, logo, or a combination of the two. The preferred image dimensions are 180x120; your image will be scaled to fit within that size.</p>
     <%= render partial: 'user_image' %>
@@ -45,12 +43,11 @@
     <% end %>
     <br />
     <h3>Change Password:</h3>
-    <%= form_for @user do |f| %>
-      <%= f.label :password, "New Password" %>
-      <%= f.password_field :password %>
+    <%= bootstrap_form_for @user, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" do |f| %>
 
-      <%= f.label :password_confirmation, "Confirm New Password" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password, label: "New Password" %>
+
+      <%= f.password_field :password_confirmation, label: "Confirm New Password" %>
 
       <%= f.submit "Update Password", class: "btn btn-primary" %>
     <% end %>

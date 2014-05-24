@@ -2,6 +2,7 @@
 <div class="container">
 	<div class="dashboard-tours">
 	    <h1 class="tours_title">Manage Tours</h1>
+        <%= link_to "Create New Tour", new_tour_path(user_id: @user.id), class: "btn btn-primary btn-lg float-right", :'data-no-turbolink' => "true" %>
         <% if @user.tours.any? %>
         <div class="table-responsive">
             <table class="tours table table-striped">
@@ -10,9 +11,8 @@
             		<th>Created</th>
             		<th>Address</th>
             		<th>City</th>
-            		<th>State</th>
-            		<th>Zip</th>
             		<th>Price</th>
+                    <th>Tour URLs</th>
                     <th> </th>
             	</tr>
                 </thead>
@@ -22,9 +22,9 @@
                 </tbody>
             </table>
         </div>
-        <%= will_paginate @tours %>
+        <%= will_paginate @tours, renderer: BootstrapPagination::Rails %>
         <% else %>
-        <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id) %></h1>
+        <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id), :'data-no-turbolink' => "true" %></h1>
         <% end %>
 	</div>
 </div>

@@ -17,6 +17,7 @@ gem 'geocoder', '~> 1.2.0'
 gem 'gmaps4rails'
 gem 'jquery-turbolinks'
 gem 'rest_in_place'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
