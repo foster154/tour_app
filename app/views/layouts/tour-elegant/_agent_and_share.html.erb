@@ -9,7 +9,7 @@
 		<% end %>
 
 		<div id="agent-contact-info">
-			<div id="agent-name" class="agent-info"><%= @tour.user.name %></div>
+			<div id="agent-name" class="agent-info"><%= "#{@tour.user.first_name} #{@tour.user.last_name}" %></div>
 			<div class="agent-info"><%= @tour.user.phone %></div>
 			<div class="agent-info"><%= mail_to @tour.user.email %></div>
 			<div class="agent-info"><%= link_to @tour.user.user_url.to_s, @tour.user.user_url.to_s %></div>

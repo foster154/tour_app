@@ -18,6 +18,7 @@ gem 'gmaps4rails'
 gem 'jquery-turbolinks'
 gem 'rest_in_place'
 gem 'will_paginate-bootstrap'
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'

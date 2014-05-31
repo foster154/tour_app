@@ -1,11 +1,11 @@
 TourApp::Application.routes.draw do
+  devise_for :users
   resources :photos
 
   resources :users, :tours
   resources :photos do
     collection { post :sort }  # from railscasts #147... not sure if I need this
   end
-  resources :sessions, only: [:new, :create, :destroy]
 
   root  'static_pages#home'
   match '/signup',    to: 'users#new',            via: 'get'

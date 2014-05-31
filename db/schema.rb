@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502044623) do
+ActiveRecord::Schema.define(version: 20140529123900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,22 +51,30 @@ ActiveRecord::Schema.define(version: 20140502044623) do
   add_index "tours", ["user_id", "created_at"], name: "index_tours_on_user_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email",           limit: 50
-    t.boolean  "active",                      default: true
-    t.boolean  "paying",                      default: false
-    t.boolean  "admin",                       default: false
-    t.string   "phone",           limit: 25
-    t.string   "company",         limit: 50
-    t.string   "user_url",        limit: 100
-    t.string   "password_digest"
-    t.string   "remember_token"
+    t.boolean  "active",                             default: true
+    t.boolean  "paying",                             default: false
+    t.boolean  "admin",                              default: false
+    t.string   "phone",                  limit: 25
+    t.string   "company",                limit: 50
+    t.string   "user_url",               limit: 100
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "user_image"
+    t.string   "email",                              default: "",    null: false
+    t.string   "encrypted_password",                 default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                      default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

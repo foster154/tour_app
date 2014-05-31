@@ -1,6 +1,4 @@
 class ToursController < ApplicationController
-	before_action :signed_in_user,  except: :show
-	# before_action :correct_user,  	except: :show
 
 	def index
 		@user = User.find(params[:user_id])
