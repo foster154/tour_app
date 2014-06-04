@@ -19,6 +19,7 @@ gem 'jquery-turbolinks'
 gem 'rest_in_place'
 gem 'will_paginate-bootstrap'
 gem 'devise'
+gem "fog", "~> 1.3.1"
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'

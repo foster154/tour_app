@@ -11,7 +11,7 @@
 
 			<!-- title -->
 			<div class="photo-preview-title">
-				<span class="photo-preview-filename"><%= truncate(photo.photo.file.filename, lenght: 25) %></span>
+				<span class="photo-preview-filename"><%= truncate(File.basename(photo.photo.path), length: 25) %></span>
 			</div>
 
 			<!-- delete -->
