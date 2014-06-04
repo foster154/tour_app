@@ -1,12 +1,15 @@
 class ToursController < ApplicationController
 
+	before_action :authenticate_user!, :except => [:show, :show_branded]
+	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destory]
+	before_action :find_user, :only => [:index, :new]
+	before_action :correct_user, :except => [:create, :show, :show_branded]
+
 	def index
-		@user = User.find(params[:user_id])
 		@tours = @user.tours.page(params[:page]).per_page(20)
 	end
 
 	def show
-		@tour = Tour.find(params[:id])
 		@photos = @tour.photos.order(:position)
 		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
   			marker.lat tour.latitude
@@ -16,7 +19,6 @@ class ToursController < ApplicationController
 	end
 
 	def show_branded
-		@tour = Tour.find(params[:id])
 		@photos = @tour.photos.order(:position)
 		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
   			marker.lat tour.latitude
@@ -27,7 +29,6 @@ class ToursController < ApplicationController
 	end
 
 	def new
-		@user = User.find(params[:user_id])
 		@tour = Tour.new({:user_id => @user.id})
 	end
 
@@ -43,14 +44,12 @@ class ToursController < ApplicationController
 	end
 
 	def edit
-		@tour = Tour.find(params[:id])
+		# @user = @tour.user_id
 		@photo = Photo.new({tour_id: @tour.id})
 		@photos = @tour.photos.order(:position)
-		@user = @tour.user_id
 	end
 
 	def update
-		@tour = Tour.find(params[:id])
 	    if @tour.update_attributes(tour_params)
 	    	if params[:photos]
 		    	params[:photos]['photo'].each do |photo|
@@ -66,7 +65,6 @@ class ToursController < ApplicationController
 	end
 
 	def destroy
-		@tour = Tour.find(params[:id])
 		@tour.destroy
 		flash[:success] = "'#{@tour.address}' tour deleted!"
 		redirect_to :back
@@ -77,5 +75,22 @@ class ToursController < ApplicationController
 		def tour_params
 	  		params.require(:tour).permit(:user_id, :address, :city, :state, :zip, :description, :price, :beds, :baths, :home_size, :lot_size, :year_built, photos_attributes: [:id, :tour_id, :photo])
 	  	end
+
+	  	def find_tour
+      		@tour = Tour.find(params[:id])
+    	end
+
+	  	def find_user
+	  		@user = User.find(params[:user_id])
+    	end
+
+    	def correct_user
+			if params.has_key?(:user_id)
+	  			@user_compare = User.find(params[:user_id]).id
+	  		else
+	  			@user_compare = Tour.find(params[:id]).user_id
+	  		end
+	  		redirect_to(tours_path(user_id: current_user.id)) unless current_user.id == @user_compare
+		end
 
 end
