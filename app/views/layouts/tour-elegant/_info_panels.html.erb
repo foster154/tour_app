@@ -21,26 +21,40 @@
       <br />
       <div class="home-specs">
         <ul class="left">
+          <% if @tour.beds? %>
           <li>
             <strong class="home-specs-label">Bedrooms:</strong>
             <span class="home-specs-value"><%= @tour.beds %></span>
           </li>
+          <% end %>
+
+          <% if @tour.baths? %>
           <li>
             <strong class="home-specs-label">Bathrooms:</strong>
             <span class="home-specs-value"><%= @tour.baths %></span>
           </li>
+          <% end %>
+
+          <% if @tour.home_size? %>
           <li>
             <strong class="home-specs-label">Home size:</strong>
             <span class="home-specs-value"><%= "#{number_with_delimiter(@tour.home_size)} sq ft" %></span>
           </li>
+          <% end %>
+
+          <% if @tour.lot_size? %>
           <li>
             <strong class="home-specs-label">Lot size:</strong>
             <span class="home-specs-value"><%= "#{number_with_delimiter(@tour.lot_size)} sq ft" %></span>
           </li>
+          <% end %>
+
+          <% if @tour.year_built? %>
           <li>
             <strong class="home-specs-label">Year built:</strong>
             <span class="home-specs-value"><%= @tour.year_built %></span>
           </li>
+          <% end %>
         </ul>
       </div>
     </div>
