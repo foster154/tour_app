@@ -24,5 +24,11 @@ $(document).ready(function(){
 		$("#school-info").fadeIn();
 		$(".panel-label-switch").text("School Info")
 	});
+
+	$('a').click(function(){
+    	$('html, body').animate({
+        	scrollTop: $( $(this).attr('href') ).offset().top}, 700);
+    	return false;
+	});
 });
 

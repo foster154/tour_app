@@ -1,7 +1,10 @@
-<div class="header">
-  <div class="address">
-    <h1><%= @tour.address %></h1>
-    <div class="subhead center"><%= "#{@tour.city}, #{@tour.state}  #{@tour.zip}" %>
-    </div>
-  </div>
+
+<div class="address header">
+	<%= image_tag("tour-elegant/ribbon.png", class: "ribbon") %>
+	<h1><%= @tour.address %></h1>
+	<div class="subhead center"><%= "#{@tour.city}, #{@tour.state}  #{@tour.zip}" %></div>
+	<a href="#info" rel="" id="infoanchor">
+		<%= image_tag("tour-elegant/info-icn-rev.png", class: "info-icn-header") %>
+	</a>
 </div>
+<div class="clear">
