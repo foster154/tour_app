@@ -1,12 +1,12 @@
 class ToursController < ApplicationController
 
 	before_action :authenticate_user!, :except => [:show, :show_branded]
-	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destory]
+	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
 	before_action :find_user, :only => [:index, :new]
 	before_action :correct_user, :except => [:create, :show, :show_branded]
 
 	def index
-		@tours = @user.tours.page(params[:page]).per_page(20)
+		@tours = @user.tours.where(active: true).page(params[:page]).per_page(20)
 	end
 
 	def show
@@ -65,8 +65,10 @@ class ToursController < ApplicationController
 	end
 
 	def destroy
-		@tour.destroy
-		flash[:success] = "'#{@tour.address}' tour deleted!"
+		@tour.active = false
+		@tour.save
+		@tour.delay.destroy
+		flash[:success] = "'#{@tour.address}' tour has been deleted."
 		redirect_to :back
 	end
 

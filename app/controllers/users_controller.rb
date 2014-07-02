@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @tours = @user.tours.limit(5)
+    @tours = @user.tours.where(active: true).limit(5)
   end
 
   def new
