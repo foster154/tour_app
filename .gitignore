@@ -17,5 +17,6 @@
 
 # Ignore other unneeded files.
 database.yml
+aws.yml
 public/uploads/photo
 public/uploads/user

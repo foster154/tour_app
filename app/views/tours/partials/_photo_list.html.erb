@@ -6,15 +6,19 @@
 		</div>
 
 		<!-- photo -->
-		<div class="photo-preview-photo"><%= image_tag photo.photo_url(:thumb).to_s %></div>
+		<% if photo.processed %>
+		<div class="photo-preview-photo"><%= image_tag photo.upload.url(:thumb) %></div>
+		<% else %>
+		<div class="photo-preview-photo"><%= image_tag "photo-processing.png" %></div>
+		<% end %>
 
 		<!-- title -->
 		<div class="photo-preview-title">
-			<span class="photo-preview-filename"><%= truncate(File.basename(photo.photo.path), length: 25) %></span>
+			<span class="photo-preview-filename"><%= photo.upload.original_filename %></span>
 		</div>
 
 		<!-- delete -->
-		<%= link_to "X", photo, method: :delete, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger btn-sm photo-delete-btn" %>
+		<%= link_to "X", tour_photo_path(tour_id: photo.tour.id, id: photo.id), method: :delete, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger btn-sm photo-delete-btn" %>
 
 		<!-- label -->
 		<div class="photo-preview-label">

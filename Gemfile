@@ -4,6 +4,14 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.3'
 gem 'pg', '0.15.1'
+gem 'sass-rails', '4.0.1'
+gem 'uglifier', '2.1.1'
+gem 'coffee-rails', '4.0.1'
+gem 'jquery-rails', '3.0.4'
+gem 'jquery-ui-rails', '4.2.1'
+gem 'turbolinks', '~> 2.2.1'
+gem 'jbuilder', '1.0.2'
+gem 'sprockets', '2.10.0'
 gem 'bootstrap-sass', '3.1.1.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
@@ -20,6 +28,10 @@ gem 'rest_in_place'
 gem 'will_paginate-bootstrap'
 gem 'devise'
 gem "fog", "~> 1.3.1"
+gem 'aws-sdk' # S3 API
+gem 'paperclip' # file attachment syntax and callbacks
+gem 's3_direct_upload' # direct upload form helper and assets
+gem 'delayed_job_active_record'
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
@@ -48,15 +60,6 @@ group :test do
   # gem 'win32console', '1.3.2'
   # gem 'wdm', '0.1.0'
 end
-
-gem 'sass-rails', '4.0.1'
-gem 'uglifier', '2.1.1'
-gem 'coffee-rails', '4.0.1'
-gem 'jquery-rails', '3.0.4'
-gem 'jquery-ui-rails', '4.2.1'
-gem 'turbolinks', '~> 2.2.1'
-gem 'jbuilder', '1.0.2'
-gem 'sprockets', '2.10.0'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

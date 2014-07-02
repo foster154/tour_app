@@ -1,9 +1,15 @@
 <%= render 'shared/photo_error_messages' %>
-<%= bootstrap_form_for(@tour, :html => { :multipart => true }) do |f| %> <!-- PHOTO UPLOAD FORM -->
-	<%= render 'shared/tour_error_messages' %>
-	<%= f.fields_for :photo do |p| %>
-			<%= p.file_field :photo, hide_label: true, :multiple => true, name: "photos[photo][]", class: "upload-btn indent" %>
-	<% end %>
-	<%= f.hidden_field :tour_id, :value => @tour.id %>
-	<%= f.submit "Upload Selected Photos", class: "btn btn-large btn-primary indent" %>
+<%= s3_uploader_form callback_url: tour_photos_url(tour_id: @tour.id),
+  id: "s3_uploader",
+	callback_param: "photo[direct_upload_url]",
+	expiration: 24.hours.from_now.utc.iso8601,
+	max_file_size: 100.megabytes do %>
+	<%= file_field_tag :file, multiple: true %>
 <% end %>
+<div id="uploads_container"></div>
+<script id="template-upload" type="text/x-tmpl">
+<div id="upload_{%=o.unique_id%}" class="upload">
+  <h5>{%=o.name%}</h5>
+  <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>

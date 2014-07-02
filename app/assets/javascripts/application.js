@@ -16,8 +16,10 @@
 //= require jquery.ui.sortable
 //= require jquery.ui.all
 //= require jquery_ujs
+//= require s3_direct_upload
 //= require bootstrap
 //= require turbolinks
 //= require custom
+//= require custom2
 //= require underscore
 //= require gmaps/google

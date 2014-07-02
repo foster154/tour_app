@@ -1,8 +1,10 @@
 TourApp::Application.routes.draw do
   devise_for :users
-  resources :photos
+  resources :users
+  resources :tours do
+    resources :photos, only: [:new, :create, :destroy] 
+  end
 
-  resources :users, :tours
   resources :photos do
     collection { post :sort }  # from railscasts #147... not sure if I need this
   end

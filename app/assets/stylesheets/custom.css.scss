@@ -357,6 +357,25 @@ input {
 
 /* Edit Tour */
 
+/* upload progress bars */
+.upload {
+  border-top: solid 1px #CCC;
+  width: 400px;
+  padding-top: 10px;
+  margin-top: 10px;
+
+  .progress {
+    margin-top: 8px;
+    border: solid 1px #555;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    .bar {
+      height: 20px;
+      background: #4997E6;
+    }
+  }
+}
+
 #photo-preview-list li {
   border-bottom: 1px solid #e8e8e8;
   padding: 10px 0;
@@ -374,6 +393,7 @@ input {
 .photo-preview-photo {
   float: left;
   margin-right: 20px;
+  width: 140px;
 }
 
 .photo-placeholder {

@@ -4,7 +4,7 @@
 	    <!-- CONTENT -->
 	    <ul class="bannerscollection_zoominout_list">
 	    <% @photos.each do | photo | %>	
-	    	<li data-initialZoom="1" data-finalZoom="0.74" data-text-id="#bannerscollection_zoominout_photoText<%= photo.id %>" data-bottom-thumb="<%= photo.photo_url(:preview).to_s %>" ><img src="<%= photo.photo_url(:full).to_s %>" alt="" width="1280" height="960" /></li>
+	    	<li data-initialZoom="1" data-finalZoom="0.74" data-text-id="#bannerscollection_zoominout_photoText<%= photo.id %>" data-bottom-thumb="<%= photo.upload.url(:thumb).to_s %>" ><img src="<%= photo.upload.url(:slider).to_s %>" alt="" width="1280" height="960" /></li>
 	    <% end %>
 		</ul>
 		       
