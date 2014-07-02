@@ -10,7 +10,7 @@ class ToursController < ApplicationController
 	end
 
 	def show
-		@photos = @tour.photos.order(:position)
+		@photos = @tour.photos.where(processed: true).order(:position)
 		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
   			marker.lat tour.latitude
   			marker.lng tour.longitude
@@ -19,7 +19,7 @@ class ToursController < ApplicationController
 	end
 
 	def show_branded
-		@photos = @tour.photos.order(:position)
+		@photos = @tour.photos.where(processed: true).order(:position)
 		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
   			marker.lat tour.latitude
   			marker.lng tour.longitude
