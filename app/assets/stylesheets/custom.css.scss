@@ -376,11 +376,29 @@ input {
   }
 }
 
+#new-photos-processing-wrapper {
+  display: none;
+}
+
+#new-photos-processing li {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 0;
+  margin-left: -5px;
+  background-color: white;
+  height: 106px;
+}
+
+.photo-preview-processing-label {
+  float: left;
+  margin: 20px 0 0 0;
+}
+
 #photo-preview-list li {
   border-bottom: 1px solid #e8e8e8;
   padding: 10px 0;
   margin-left: -38px;
   background-color: white;
+  clear: both;
 }
 
 .drag-handle {

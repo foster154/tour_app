@@ -8,7 +8,15 @@ $(function() {
   $('#s3_uploader').bind('s3_upload_failed', function(e, content) {
     return alert(content.filename + ' failed to upload');
   });
-  $(document).bind('s3_uploads_complete', function(e) {
-    $("#photo-preview-list").append("Done!")
-  });
+    $('#s3_uploader').bind('s3_upload_complete', function(e, content) {
+	//insert any post progress bar complete stuff here.
+	$('#new-photos-processing-wrapper').show();
+	$('#new-photos-processing').append(
+		'<li>' + 
+		'<div class="photo-preview-photo"><img src="/assets/photo-processing.png"></div>' + 
+		'<div class="photo-preview-filename">' + content.filename + '</div>' + 
+		'</li>'
+
+		);
+	});
 });
