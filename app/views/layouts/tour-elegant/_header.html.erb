@@ -2,7 +2,15 @@
 <div class="address header">
 	<%= image_tag("tour-elegant/ribbon.png", class: "ribbon") %>
 	<h1><%= @tour.address %></h1>
-	<div class="subhead center"><%= "#{@tour.city}, #{@tour.state}  #{@tour.zip}" %></div>
+	<div class="subhead center">
+	<% if @tour.city.blank? && @tour.state.blank? && @tour.zip.blank? %>
+      	(location coming soon)
+    <% elsif @tour.city.blank? | @tour.state.blank? %>
+    	<%= "#{@tour.city} #{@tour.state} #{@tour.zip}" %>
+    <% else %>
+      <%= "#{@tour.city}, #{@tour.state} #{@tour.zip}" %>
+    <% end %>
+	</div>
 	<a href="#info" rel="" id="infoanchor">
 		<%= image_tag("tour-elegant/info-icn-rev.png", class: "info-icn-header") %>
 	</a>

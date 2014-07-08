@@ -10,7 +10,8 @@ $(function() {
   });
     $('#s3_uploader').bind('s3_upload_complete', function(e, content) {
 	//insert any post progress bar complete stuff here.
-	$('#new-photos-processing-wrapper').show();
+	$('#no-photos-found').hide();
+  $('#new-photos-processing-wrapper').show();
 	$('#new-photos-processing').append(
 		'<li>' + 
 		'<div class="photo-preview-photo"><img src="/assets/photo-processing.png"></div>' + 

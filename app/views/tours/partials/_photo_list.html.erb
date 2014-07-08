@@ -1,8 +1,13 @@
-<!-- New Photos Processing Message -->
+<!-- New Photos Processing -->
 <div id="new-photos-processing-wrapper">
 	<div class="alert alert-notice">After all photos have uploaded, refresh the page.</div>
 	<ul id="new-photos-processing"></ul>
 </div>
+
+<!-- if no photos have been added -->
+<% unless @tour.photos.any? %>
+	<div id="no-photos-found">No photos found.</div>
+<% end %>
 
 <!-- list of uploaded photos -->
 <ul id="photo-preview-list" data-update-url="<%= sort_photos_url %>">

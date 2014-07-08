@@ -1,13 +1,22 @@
 <tr>
   <td><%= tour.created_at.strftime("%m/%d/%y") %></td>
   <td><%= tour.address %></td>
-  <td><%= "#{tour.city}, #{tour.state} #{tour.zip}"%></td>
-  <td><%= number_to_currency(tour.price, precision: 0) %></td>
   <td>
-    Unbranded: <%= link_to "http://www.tourapp.com/tours/#{tour.id}", tour_path(tour.id), :target => '_blank' %> <br />
-    Branded:  <%= link_to "http://www.tourapp.com/tours/b/#{tour.id}", "../tours/b/#{tour.id}", :target => '_blank' %>
+    <% if tour.city.blank? | tour.state.blank? %>
+      <%= "#{tour.city} #{tour.state} #{tour.zip}" %>
+    <% else %>
+      <%= "#{tour.city}, #{tour.state} #{tour.zip}" %>
+    <% end %>
   </td>
-
+  <td><%= number_to_currency(tour.price, precision: 0) %></td>
+  <% if tour.photos.any? %>
+    <td>
+      Unbranded: <%= link_to "http://www.tourapp.com/tours/#{tour.id}", tour_path(tour.id), :target => '_blank' %> <br />
+      Branded:  <%= link_to "http://www.tourapp.com/tours/b/#{tour.id}", "../tours/b/#{tour.id}", :target => '_blank' %>
+    </td>
+  <% else %>
+    <td>(add photos to create tour links)</td>
+  <% end %>
   <td>
     <%= link_to "Edit", edit_tour_path(tour.id), class: "btn btn-info btn-xs btn-spacer" %>
   	<% @delete_object = tour %>
