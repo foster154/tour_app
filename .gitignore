@@ -16,7 +16,7 @@
 /tmp
 
 # Ignore other unneeded files.
-database.yml
-aws.yml
+config/database.yml
+config/secrets.yml
 public/uploads/photo
 public/uploads/user

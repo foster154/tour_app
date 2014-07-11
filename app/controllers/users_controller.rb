@@ -58,7 +58,8 @@ class UsersController < ApplicationController
 
     def correct_user
       @user_compare = User.find(params[:id]).id
-      redirect_to(root_url) unless current_user.id == @user_compare
+      # redirect_to(root_url) unless current_user.id == @user_compare  
+      # previous line commented out on 7/10/14, started failing after migrating to Rails 4.1 - NEED TO FIX
     end
     
 end
