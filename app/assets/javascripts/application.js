@@ -23,4 +23,4 @@
 //= require custom2
 //= require underscore
 //= require gmaps/google
-//= require tree .
+//= require_tree .
