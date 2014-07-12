@@ -17,6 +17,5 @@
 
 # Ignore other unneeded files.
 config/database.yml
-config/secrets.yml
 public/uploads/photo
 public/uploads/user
