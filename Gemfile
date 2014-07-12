@@ -15,23 +15,24 @@ gem 'sprockets', '2.10.0'
 gem 'bootstrap-sass', '3.1.1.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
-gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
-gem 'carrierwave'
+gem 'carrierwave', '0.10.0' # now used only for user images. will convert to paperclip and then delete
 gem 'mini_magick', '~> 3.7.0'
 gem 'bootstrap_form', '2.1.0'
-gem 'acts_as_list', '~> 0.4.0'
-gem 'geocoder', '~> 1.2.0'
-gem 'gmaps4rails'
-gem 'jquery-turbolinks'
-gem 'rest_in_place'
-gem 'will_paginate-bootstrap'
-gem 'devise'
-gem "fog", "~> 1.3.1"
-gem 'aws-sdk' # S3 API
-gem 'paperclip' # file attachment syntax and callbacks
-gem 's3_direct_upload' # direct upload form helper and assets
-gem 'delayed_job_active_record'
+gem 'acts_as_list', '~> 0.4.0' # for re-ordering photos
+gem 'geocoder', '~> 1.2.0' # for generating tour maps
+gem 'gmaps4rails', '2.1.2' # for generating tour maps
+gem 'jquery-turbolinks', '2.0.2'
+gem 'rest_in_place', '2.5.0' # in-line editing of photo labels
+gem 'will_paginate', '3.0.4' # pagination
+gem 'bootstrap-will_paginate', '0.0.9' # pagination - figure out which one I'm using, delete the other
+gem 'will_paginate-bootstrap', '1.0.0' # pagination - figure out which one I'm using, delete the other
+gem 'devise', '3.2.4' # user authentication
+gem 'fog', '1.3.1'
+gem 'aws-sdk', '1.43.2' # S3 API
+gem 'paperclip', '4.1.1' # file attachment syntax and callbacks
+gem 's3_direct_upload', '0.1.7' # direct upload form helper and assets
+gem 'delayed_job_active_record', '4.0.1' # processing background jobs (photo processing, photo deleting)
+gem 'figaro', '0.7.0' # managing env and secret keys
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
@@ -48,17 +49,8 @@ group :test do
   gem 'factory_girl_rails', '4.2.0'
   gem 'cucumber-rails', '1.4.0', :require => false
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
-
   # Uncomment this line on OS X.
   gem 'growl', '1.0.3'
-
-  # Uncomment these lines on Linux.
-  # gem 'libnotify', '0.8.0'
-
-  # Uncomment these lines on Windows.
-  # gem 'rb-notifu', '0.0.4'
-  # gem 'win32console', '1.3.2'
-  # gem 'wdm', '0.1.0'
 end
 
 group :doc do
