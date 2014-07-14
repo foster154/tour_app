@@ -1,7 +1,7 @@
 
 <div class="address header">
 	<%= image_tag("tour-elegant/ribbon.png", class: "ribbon") %>
-	<h1 class="tour"><%= @tour.address %></h1>
+	<h1 class="tour-title"><%= @tour.address %></h1>
 	<div class="subhead center">
 	<% if @tour.city.blank? && @tour.state.blank? && @tour.zip.blank? %>
       	(location coming soon)
