@@ -55,7 +55,13 @@ ul {
 }
 
 hr {
-  margin: 5px 0;
+    border: 0;
+    margin: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
 }
 
 .indent {
@@ -64,6 +70,10 @@ hr {
 
 .top-pad15 {
   padding-top: 15px;
+}
+
+.margin-top5 {
+  margin-top: 5px;
 }
 
 .margin-top {
@@ -231,7 +241,6 @@ footer {
   }
 }
 
-/* tables */
 
 
 /* forms */
@@ -302,12 +311,15 @@ input {
 .dashboard-btn-text {
 }
 
+/* Tours tables */
+
 .dashboard-tours {
   clear: both;  
   margin-top: 30px;
+  /* background-color: white;
+  padding: 0 10px 10px 10px;
+  border-radius:3px; */
 }
-
-/* Dashboard tours table */
 
 .tours_title {
   float: left;
@@ -320,9 +332,22 @@ input {
   th, td { 
     padding: 8px;
    }
-   td {
+  td {
     border-top: 1px solid #e8e8e8;
-   }
+  }
+  tr {
+    border-radius: 3px;
+  }
+  tr:nth-child(even) {
+    background-color:white;
+  }
+  tr:nth-child(odd) {
+    background-color:#F2F2F2;
+  }
+}
+
+#no-background {
+  background-color: transparent;
 }
 
 .no_tours_found {
@@ -356,6 +381,16 @@ input {
 }
 
 /* Edit Tour */
+
+.tour-edit-subhead {
+  background-color: white;
+  padding: 8px 0;
+  width: 100%;
+}
+
+.tour-edit-body {
+  margin-top: 15px;
+}
 
 /* upload progress bars */
 .upload {
@@ -435,7 +470,7 @@ input {
 }
 
 .photo-delete-btn {
-  margin-top: 10px;
+  margin: 10px 10px 0 0;
   float: right;
 }
 

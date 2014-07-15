@@ -5,14 +5,14 @@
         <%= link_to "Create New Tour", new_tour_path(user_id: @user.id), class: "btn btn-primary btn-lg float-right", :'data-no-turbolink' => "true" %>
         <% if @user.tours.any? %>
         <div class="table-responsive">
-            <table class="tours table table-striped">
+            <table class="tours table">
                 <thead>
-            	<tr>
+            	<tr id="no-background">
             		<th>Created</th>
             		<th>Address</th>
             		<th>City</th>
             		<th>Price</th>
-                    <th>Tour URLs</th>
+                    <th>Tour Links</th>
                     <th> </th>
             	</tr>
                 </thead>

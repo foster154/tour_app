@@ -1,7 +1,7 @@
 <% provide(:title, 'Edit Tour') %>
 <h1><%= @tour.address %></h1>
 <hr />
-<div class="row">
+<div class="row tour-edit-subhead">
 	<div class="col-sm-1 col-xs-offset-1 margin-top">
 		<%= link_to "<- Back to All Tours", tours_path(user_id: @tour.user_id), class: "btn" %>
 	</div>
@@ -25,7 +25,8 @@
 </div>
 <hr />
 
-<div class="row">
+
+<div class="row tour-edit-body">
 
 	<!-- Begin 'Tour Info' Column -->
 
