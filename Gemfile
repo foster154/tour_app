@@ -36,6 +36,7 @@ gem 'figaro', '0.7.0' # managing env and secret keys
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
+  gem 'better_errors'
   # The following optional lines are part of the advanced setup.
   # gem 'guard-rspec', '2.5.0'
   # gem 'spork-rails', '4.0.0'
