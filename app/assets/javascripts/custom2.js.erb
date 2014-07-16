@@ -14,7 +14,7 @@ $(function() {
   $('#new-photos-processing-wrapper').show();
 	$('#new-photos-processing').append(
 		'<li>' + 
-		'<div class="photo-preview-photo"><img src="/assets/photo-processing.png"></div>' + 
+		'<div class="photo-preview-photo"><%= image_tag("photo-processing.png") %></div>' + 
 		'<div class="photo-preview-filename">' + content.filename + '</div>' + 
 		'</li>'
 
