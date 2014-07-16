@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
  
 
 
-  BUCKET_NAME = "tourbrewer2-development"
+  BUCKET_NAME = ENV["S3_BUCKET_NAME"]
 
   # Environment-specific direct upload url verifier screens for malicious posted upload locations.
   DIRECT_UPLOAD_URL_FORMAT = %r{\Ahttps:\/\/s3\.amazonaws\.com\/#{BUCKET_NAME}\/(?<path>uploads\/.+\/(?<filename>.+))\z}.freeze
