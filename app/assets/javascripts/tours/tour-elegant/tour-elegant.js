@@ -1,5 +1,5 @@
 $(document).ready(function(){ 
-	initializeMap();
+	
 	$("#map-icon").on('click', function(){
 		$(".info-panel-switch").hide();
 		$(this).siblings("li").removeClass("info_btn_active");
@@ -25,6 +25,7 @@ $(document).ready(function(){
 		$(".panel-label-switch").text("School Info")
 	});
 
+	/* For the slide-down effect when clicking on the tour show info icon */
 	$('a').click(function(){
     	$('html, body').animate({
         	scrollTop: $( $(this).attr('href') ).offset().top}, 700);
