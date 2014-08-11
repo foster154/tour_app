@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
+<% end %>
+
 <h1>Change Password</h1>
 
 <div class="row">

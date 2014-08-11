@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :admin_user,      only: [:destroy, :index]
-  before_action :correct_user,    only: [:edit, :show, :update]
 
   def index
     @users = User.paginate(page: params[:page])
@@ -55,11 +54,5 @@ class UsersController < ApplicationController
   	def user_params
   		params.require(:user).permit(:first_name, :last_name, :email, :phone, :company, :user_url, :password, :password_confirmation, :user_image)
   	end
-
-    def correct_user
-      @user_compare = User.find(params[:id]).id
-      # redirect_to(root_url) unless current_user.id == @user_compare  
-      # previous line commented out on 7/10/14, started failing after migrating to Rails 4.1 - NEED TO FIX
-    end
     
 end

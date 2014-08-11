@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.2'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.1.0'
@@ -27,12 +27,15 @@ gem 'will_paginate', '3.0.4' # pagination
 gem 'bootstrap-will_paginate', '0.0.9' # pagination - figure out which one I'm using, delete the other
 gem 'will_paginate-bootstrap', '1.0.0' # pagination - figure out which one I'm using, delete the other
 gem 'devise', '3.2.4' # user authentication
+gem 'cancancan', '~> 1.9' # authorization
+gem 'rolify', '3.4.0' # subscription roles (for future use)
 gem 'fog', '1.3.1'
 gem 'aws-sdk', '1.43.2' # S3 API
 gem 'paperclip', '4.1.1' # file attachment syntax and callbacks
 gem 's3_direct_upload', '0.1.7' # direct upload form helper and assets
 gem 'delayed_job_active_record', '4.0.1' # processing background jobs (photo processing, photo deleting)
 gem 'figaro', '0.7.0' # managing env and secret keys
+gem 'stripe', '1.14.0' # payment processing
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'

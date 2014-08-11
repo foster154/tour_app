@@ -3,7 +3,6 @@ class ToursController < ApplicationController
 	before_action :authenticate_user!, :except => [:show, :show_branded]
 	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
 	before_action :find_user, :only => [:index, :new]
-	before_action :correct_user, :except => [:create, :show, :show_branded]
 
 	def index
 		@tours = @user.tours.where(active: true).page(params[:page]).per_page(20)
@@ -85,14 +84,5 @@ class ToursController < ApplicationController
 	  	def find_user
 	  		@user = User.find(params[:user_id])
     	end
-
-    	def correct_user
-			if params.has_key?(:user_id)
-	  			@user_compare = User.find(params[:user_id]).id
-	  		else
-	  			@user_compare = Tour.find(params[:id]).user_id
-	  		end
-	  		redirect_to(tours_path(user_id: current_user.id)) unless current_user.id == @user_compare
-		end
 
 end
