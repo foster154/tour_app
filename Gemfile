@@ -12,7 +12,7 @@ gem 'jquery-ui-rails', '4.2.1'
 gem 'turbolinks', '~> 2.2.1'
 gem 'jbuilder', '1.0.2'
 gem 'sprockets', '2.10.0'
-gem 'bootstrap-sass', '3.1.1.0'
+gem 'bootstrap-sass', '3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 gem 'carrierwave', '0.10.0' # now used only for user images. will convert to paperclip and then delete

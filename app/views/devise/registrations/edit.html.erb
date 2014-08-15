@@ -2,12 +2,12 @@
   <%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
 <% end %>
 
-<h1>Change Password</h1>
-
 <div class="row">
   <div class="col-md-4 col-md-offset-4
         col-sm-6 col-sm-offset-3
         col-xs-10 col-xs-offset-1">
+
+    <h2>Change Password</h2>
 
     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
@@ -27,5 +27,56 @@
         </div>
     <% end %>
 
+    <hr class="margin-top25" />
+
+    <h2 class="top-pad15">Update Billing Info</h2>
+    <p>
+      Using card ending with <%= @user.last_4_digits %>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#cardData" style="margin-left: 5%;">
+        Change Card
+      </button>
+    </p>
+
+    <hr class="margin-top25" />
+
+    <p class="top-pad15">To cancel your account, please contact: <a href="mailto:support@tourapp.com">support@tourapp.com</a></p>
+
   </div>
 </div>
+
+<!-- ========= UPDATE CARD INFO MODAL =========== -->
+<div id="cardData" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <%= bootstrap_form_for resource, :as => resource_name, :url => update_card_path, :html => {:method => :put, :class => 'form-horizontal card_form' } do |f| %>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a class="close" data-dismiss="modal">&#215;</a>
+          <h2 class="modal-title">Change Credit Card</h2>
+        </div>
+        <div class="modal-body">
+          <div class="field">
+            <%= label_tag :card_number, "Credit Card Number" %>
+            <%= text_field_tag :card_number, nil, name: nil %>
+          </div>
+          <div class="field">
+            <%= label_tag :card_code, "Card Security Code (CVV)" %>
+            <%= text_field_tag :card_code, nil, name: nil %>
+          </div>
+          <div class="field">
+            <%= label_tag :card_month, "Card Expiration" %>
+            <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}%>
+            <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, {name: nil, id: "card_year"}%>
+          </div>
+          <%= f.hidden_field :first_name %>
+          <%= f.hidden_field :last_name %>
+          <%= f.hidden_field :email %>
+          <%= f.hidden_field :stripe_token %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Change Credit Card", :class => "btn btn-primary" %>
+          <a class="btn" data-dismiss="modal" href="#">Close</a>
+        </div>
+      </div> <!-- / .modal-content -->
+    </div> <!-- / .modal-dialog -->
+  <% end %>
+</div>  <!-- ========= / UPDATE CARD INFO MODAL =========== -->

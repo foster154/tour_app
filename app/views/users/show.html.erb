@@ -1,4 +1,4 @@
-<% provide(:title, "#{@user.first_name} #{@user.last_name}") %>
+<% provide(:title, "Dashboard") %>
 
 <div class="row">
 	<aside class="col-md-3">
@@ -16,9 +16,10 @@
 		</section>
 	</aside>
 
-	<div class="col-md-9">
+	<section class="col-md-9">
     <div class="row">
 
+      <!-- ===== CREATE NEW TOUR ===== -->
       <div class="col-sm-3 col-xs-6">
         <%= link_to new_tour_path(user_id: @user.id), class: "btn btn-default dashboard-btn", :'data-no-turbolink' => "true" do %>
           <i class="glyphicon-lg glyphicon glyphicon-plus-sign"></i>
@@ -27,6 +28,7 @@
         <% end %>
       </div>
 
+      <!-- ===== MANAGE TOURS ===== -->
       <div class="col-sm-3 col-xs-6">
         <%= link_to tours_path(user_id: @user.id), class: "btn btn-default dashboard-btn" do %>
           <i class="glyphicon-lg glyphicon glyphicon-home"></i>
@@ -35,6 +37,7 @@
         <% end %>
       </div>
 
+      <!-- ===== EDIT PROFILE ===== -->
       <div class="col-sm-3 col-xs-6">
         <%= link_to edit_user_path, class: "btn btn-default dashboard-btn" do %>
           <i class="glyphicon-lg glyphicon glyphicon-user"></i>
@@ -43,6 +46,7 @@
         <% end %>
       </div>
 
+      <!-- ===== SUPPORT ===== -->
       <div class="col-sm-3 col-xs-6">
         <%= link_to '/support', class: "btn btn-default dashboard-btn" do %>
           <i class="glyphicon-lg glyphicon glyphicon-wrench"></i>
@@ -51,7 +55,9 @@
         <% end %>
       </div>
 
-    </div>
+    </div> <!-- / .row -->
+
+    <!-- ===== RECENT TOURS TABLE ===== -->
     <div class="dashboard-tours">
       <h1 class="tours_title">My Recent Tours</h1>
         <% if @user.tours.any? %>
@@ -77,6 +83,7 @@
         <% else %>
         <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id) %></h1>
         <% end %>
-    </div>
-  </div>
-</div>
+    </div> <!-- / .dashboard-tours -->
+
+  </section>
+</div> <!-- / .row -->

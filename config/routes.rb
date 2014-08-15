@@ -1,6 +1,12 @@
 TourApp::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'registrations' }
+  devise_scope :user do
+    put 'update_card', :to => 'registrations#update_card'
+  end
   resources :users
+
+  # devise_for :users
+  # resources :users
   resources :tours do
     resources :photos, only: [:new, :create, :destroy] 
   end
@@ -9,7 +15,9 @@ TourApp::Application.routes.draw do
     collection { post :sort }  # from railscasts #147... not sure if I need this
   end
 
-  root  'static_pages#home'
+  root :to => 'static_pages#home' 
+
+ 
   match '/signup',    to: 'users#new',            via: 'get'
   match '/signin',    to: 'sessions#new',         via: 'get'
   match '/signout',   to: 'sessions#destroy',     via: 'delete'
