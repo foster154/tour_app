@@ -54,6 +54,7 @@
           <h2 class="modal-title">Change Credit Card</h2>
         </div>
         <div class="modal-body">
+          <div id="stripe_error" class="alert alert-error" style="display:none"></div>
           <div class="field">
             <%= label_tag :card_number, "Credit Card Number" %>
             <%= text_field_tag :card_number, nil, name: nil %>
@@ -73,7 +74,7 @@
           <%= f.hidden_field :stripe_token %>
         </div>
         <div class="modal-footer">
-          <%= f.submit "Change Credit Card", :class => "btn btn-primary" %>
+          <%= f.submit "Change Credit Card", :class => "btn btn-primary", :'data-no-turbolink' => "true" %>
           <a class="btn" data-dismiss="modal" href="#">Close</a>
         </div>
       </div> <!-- / .modal-content -->

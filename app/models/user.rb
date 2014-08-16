@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
     false
   end
 
-  def cancel_subscription
+  def cancel_subscription  # NOT CURRENTLY WORKING OR ENABLED
     unless customer_id.nil?
       customer = Stripe::Customer.retrieve(customer_id)
       unless customer.nil? or customer.respond_to?('deleted')

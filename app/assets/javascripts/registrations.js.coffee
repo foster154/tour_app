@@ -1,6 +1,12 @@
 # Stripe integration
 
 $(".registrations").ready ->
+
+  $("input#card_number.card-fields").payment "formatCardNumber"
+  $("input#card_number").payment "formatCardNumber"
+  $("input#card_code.card-fields").payment "formatCardCVC"
+  $("input#card_code").payment "formatCardCVC"
+
   $.externalScript("https://js.stripe.com/v2/").done (script, textStatus) ->
     Stripe.setPublishableKey $("meta[name=\"stripe-key\"]").attr("content")
     subscription =
