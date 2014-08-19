@@ -12,7 +12,7 @@
   				<li><%= @user.phone %></li>
   				<li><%= @user.user_url %></li>
   			</ul>
-			<%= link_to "Edit Profile", edit_user_path, class: "btn btn-default btn-sm" %>
+			<%= link_to "Edit Profile", profile_path, class: "btn btn-default btn-sm" %>
 		</section>
 	</aside>
 
@@ -21,7 +21,7 @@
 
       <!-- ===== CREATE NEW TOUR ===== -->
       <div class="col-sm-3 col-xs-6">
-        <%= link_to new_tour_path(user_id: @user.id), class: "btn btn-default dashboard-btn", :'data-no-turbolink' => "true" do %>
+        <%= link_to new_tour_path, class: "btn btn-default dashboard-btn", :'data-no-turbolink' => "true" do %>
           <i class="glyphicon-lg glyphicon glyphicon-plus-sign"></i>
           <br /><br />
           Create New Tour
@@ -30,7 +30,7 @@
 
       <!-- ===== MANAGE TOURS ===== -->
       <div class="col-sm-3 col-xs-6">
-        <%= link_to tours_path(user_id: @user.id), class: "btn btn-default dashboard-btn" do %>
+        <%= link_to tours_path, class: "btn btn-default dashboard-btn" do %>
           <i class="glyphicon-lg glyphicon glyphicon-home"></i>
           <br /><br />
           Manage Tours
@@ -39,7 +39,7 @@
 
       <!-- ===== EDIT PROFILE ===== -->
       <div class="col-sm-3 col-xs-6">
-        <%= link_to edit_user_path, class: "btn btn-default dashboard-btn" do %>
+        <%= link_to profile_path, class: "btn btn-default dashboard-btn" do %>
           <i class="glyphicon-lg glyphicon glyphicon-user"></i>
           <br /><br />
           Edit Profile

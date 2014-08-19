@@ -1,6 +1,7 @@
 class ToursController < ApplicationController
 
 	before_action :authenticate_user!, :except => [:show, :show_branded]
+	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded]
 	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
 	before_action :find_user, :only => [:index, :new]
 
@@ -28,7 +29,7 @@ class ToursController < ApplicationController
 	end
 
 	def new
-		@tour = Tour.new({:user_id => @user.id})
+		@tour = Tour.new({:user_id => current_user.id})
 	end
 
 	def create
@@ -77,12 +78,20 @@ class ToursController < ApplicationController
 	  		params.require(:tour).permit(:user_id, :address, :city, :state, :zip, :description, :price, :beds, :baths, :home_size, :lot_size, :year_built, photos_attributes: [:id, :tour_id, :photo])
 	  	end
 
+	  	# BEFORE FILTERS
+
+	    def correct_user
+	      unless current_user.id.to_i == Tour.find(params[:id]).user_id.to_i
+	        redirect_to root_url
+	      end
+	    end
+
 	  	def find_tour
       		@tour = Tour.find(params[:id])
     	end
 
 	  	def find_user
-	  		@user = User.find(params[:user_id])
+	  		@user = User.find(current_user.id)
     	end
 
 end

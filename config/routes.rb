@@ -4,11 +4,11 @@ TourApp::Application.routes.draw do
   devise_scope :user do
     put 'update_card', :to => 'registrations#update_card'
   end
-  resources :users
+  resources :users, :except => [:edit, :show]
 
   # devise_for :users
   # resources :users
-  resources :tours do
+  resources :tours, :except => [:index] do
     resources :photos, only: [:new, :create, :destroy] 
   end
 
@@ -24,7 +24,13 @@ TourApp::Application.routes.draw do
   match '/signout',   to: 'sessions#destroy',     via: 'delete'
   match '/support',   to: 'static_pages#support', via: 'get'
   match '/about',     to: 'static_pages#about',   via: 'get'
-  match 'tours/b/:id', to: 'tours#show_branded',  via: 'get'        
+  match 'tours/b/:id', to: 'tours#show_branded',  via: 'get' 
+
+  # new
+  match '/profile',   to: 'users#edit',           via: 'get'
+  match '/dashboard', to: 'users#show',           via: 'get'
+  match '/tours',     to: 'tours#index',          via: 'get'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

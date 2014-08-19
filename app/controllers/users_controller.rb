@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   before_action :admin_user,      only: [:destroy, :index]
+  before_action :authenticate_user!
+  #before_action :correct_user,    only: [:show, :edit, :update]
 
   def index
     @users = User.paginate(page: params[:page])
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     @tours = @user.tours.where(active: true).limit(5)
   end
 
@@ -26,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def update
@@ -54,5 +56,13 @@ class UsersController < ApplicationController
   	def user_params
   		params.require(:user).permit(:first_name, :last_name, :email, :phone, :company, :user_url, :password, :password_confirmation, :user_image)
   	end
+
+    # Before filters
+
+    def correct_user
+      unless current_user.id.to_i == params[:id].to_i
+        redirect_to root_url
+      end
+    end
     
 end
