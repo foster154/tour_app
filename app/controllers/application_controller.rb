@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+  	dashboard_path # takes user to dashboard after signing in (instead of root)
+  end
+
   protected
 
   def configure_permitted_parameters
