@@ -12,8 +12,8 @@ class User < ActiveRecord::Base
   before_destroy :cancel_subscription
 
   def update_stripe
-  	return if email.include?(ENV['foster154@gmail.com'])
-    return if email.include?(ENV['johntdunstan@gmail.com'])
+  	return if email.include?('foster154@gmail.com')
+    return if email.include?('johntdunstan@gmail.com')
     return if email.include?('@example.com') and not Rails.env.production?
     if customer_id.nil?
       if !stripe_token.present?
