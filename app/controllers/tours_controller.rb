@@ -15,7 +15,7 @@ class ToursController < ApplicationController
   			marker.lat tour.latitude
   			marker.lng tour.longitude
 		end
-		render layout: 'tour-elegant/tour-elegant'
+		render layout: 'tour-default/tour-default'
 	end
 
 	def show_branded
@@ -25,7 +25,7 @@ class ToursController < ApplicationController
   			marker.lng tour.longitude
 		end
 		@branded = true
-		render layout: 'tour-elegant/tour-elegant'
+		render layout: 'tour-default/tour-default'
 	end
 
 	def new

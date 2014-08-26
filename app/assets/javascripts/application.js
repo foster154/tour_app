@@ -19,8 +19,6 @@
 //= require s3_direct_upload
 //= require bootstrap
 //= require turbolinks
-//= require custom
-//= require custom2
 //= require underscore
 //= require gmaps/google
 //= require_tree .

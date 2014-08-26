@@ -256,6 +256,11 @@ input {
   @extend .has-error;
 }
 
+.card-fields {
+  float: right;
+  margin-top: -5px;
+}
+
 /* Dashboard */
 
 .profile-name {
@@ -452,6 +457,7 @@ input {
   margin: 10px 10px 0 0;
   float: right;
 }
+
 
 /* miscellaneous */
 

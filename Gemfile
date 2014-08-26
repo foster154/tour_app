@@ -7,8 +7,9 @@ gem 'pg', '0.15.1'
 gem 'sass-rails', '4.0.1'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
-gem 'jquery-rails', '3.0.4'
+gem 'jquery-rails', '~> 3.1.1'
 gem 'jquery-ui-rails', '4.2.1'
+gem 'autoprefixer-rails' # automatically adds browser prefixes
 gem 'turbolinks', '~> 2.2.1'
 gem 'jbuilder', '1.0.2'
 gem 'sprockets', '2.10.0'
@@ -27,8 +28,6 @@ gem 'will_paginate', '3.0.4' # pagination
 gem 'bootstrap-will_paginate', '0.0.9' # pagination - figure out which one I'm using, delete the other
 gem 'will_paginate-bootstrap', '1.0.0' # pagination - figure out which one I'm using, delete the other
 gem 'devise', '3.2.4' # user authentication
-gem 'cancancan', '~> 1.9' # authorization
-gem 'rolify', '3.4.0' # subscription roles (for future use)
 gem 'fog', '1.3.1'
 gem 'aws-sdk', '1.43.2' # S3 API
 gem 'paperclip', '4.1.1' # file attachment syntax and callbacks

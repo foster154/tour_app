@@ -79,7 +79,7 @@
           </tbody>
         </table>
         </div>
-        <%= link_to "All Tours ->", tours_path(user_id: @user.id) %>
+        <%= link_to "All Tours ->", tours_path %>
         <% else %>
         <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id) %></h1>
         <% end %>
