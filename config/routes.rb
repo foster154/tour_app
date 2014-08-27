@@ -16,7 +16,7 @@ TourApp::Application.routes.draw do
     collection { post :sort }  # from railscasts #147... not sure if I need this
   end
 
-  root :to => 'static_pages#home' 
+  root :to => 'static_pages#coming_soon' 
 
  
   match '/signup',    to: 'users#new',            via: 'get'

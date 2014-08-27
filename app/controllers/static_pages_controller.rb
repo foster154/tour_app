@@ -10,4 +10,9 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def coming_soon
+  	render layout: 'frontend'
+  end
+
 end
