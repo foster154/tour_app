@@ -35,7 +35,7 @@ TourApp::Application.configure do
   :address              => 'smtp.zoho.com', 
   :port                 => 465,                 
   :user_name            => ENV['EMAIL_USERNAME'],
-  :password             => ENV["EMAIL_PASSWORD"],         
+  :password             => ENV['EMAIL_PASSWORD'],         
   :authentication       => :login,
   :ssl                  => true,
   :tls                  => true,
