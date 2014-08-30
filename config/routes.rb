@@ -30,6 +30,7 @@ TourApp::Application.routes.draw do
   match '/profile',   to: 'users#edit',           via: 'get'
   match '/dashboard', to: 'users#show',           via: 'get'
   match '/tours',     to: 'tours#index',          via: 'get'
+  match '/survey',    to: 'static_pages#survey',  via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

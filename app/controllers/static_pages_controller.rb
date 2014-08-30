@@ -15,4 +15,8 @@ class StaticPagesController < ApplicationController
   	render layout: 'frontend'
   end
 
+  def survey
+    render layout: 'frontend'
+  end
+
 end
