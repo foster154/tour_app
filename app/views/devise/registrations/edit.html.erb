@@ -16,11 +16,11 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
+        <%= f.password_field :current_password, autocomplete: "off", label: "Current Password" %>
+
         <%= f.password_field :password, autocomplete: "off", label: "New Password" %>
 
         <%= f.password_field :password_confirmation, autocomplete: "off", label: "New Password (again)" %>
-
-        <%= f.password_field :current_password, autocomplete: "off", label: "Current Password" %>
 
         <div class="span7 text-center">
           <%= f.submit "Update", class: "btn btn-primary" %>
