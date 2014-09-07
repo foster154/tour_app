@@ -16,7 +16,6 @@ gem 'sprockets', '2.10.0'
 gem 'bootstrap-sass', '3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
-gem 'carrierwave', '0.10.0' # now used only for user images. will convert to paperclip and then delete
 gem 'mini_magick', '~> 3.7.0'
 gem 'bootstrap_form', '2.1.0'
 gem 'acts_as_list', '~> 0.4.0' # for re-ordering photos

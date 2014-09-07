@@ -1,5 +1,5 @@
 <% if @user.user_image.blank? %>
 	<%= image_tag("blank-person-180x120.jpg", class: "profile-pic") %>
 <% else %>
-	<%= image_tag @user.user_image_url, class: "profile-pic" %>
+	<%= image_tag @user.user_image.url(:square), class: "profile-pic" %>
 <% end %>

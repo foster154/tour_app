@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :tours, dependent: :destroy
 
-  mount_uploader :user_image, UserImageUploader
+  has_attached_file :user_image, :styles => { :square => "150x150#" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :user_image, :content_type => /\Aimage\/.*\Z/
 
   attr_accessor :stripe_token, :coupon
   before_save :update_stripe
