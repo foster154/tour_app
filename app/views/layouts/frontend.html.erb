@@ -19,5 +19,8 @@
 
 <body class="<%= controller_name %> <%= action_name %>">
     <%= yield %>
+    
+    <!-- Google Analytics -->
+	<%= render 'layouts/google_analytics' if Rails.env.production? %>
 </body>
 </html>

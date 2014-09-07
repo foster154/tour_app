@@ -57,11 +57,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-
 					<div class="i_header">
-						<div class="logo">
-							<%= image_tag "tour-default/tour-logo.png" %>
-						</div>
+						<%= render 'layouts/tour-default/logo' %>
 
 						<!-- Address Line 1 -->
 						<h1 class="tour-default"><%= @tour.address %></h1>
@@ -142,6 +139,22 @@
 	</section>
 
 	<!-- Intro section end -->
+
+	<% if @branded == true %>
+	<!-- AGENT INFO SECTION START -->
+	<section class="agent-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Presented By</h2>
+					<div class="header-deveider"></div>
+					<%= render 'layouts/tour-default/agent_info' %>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- AGENT INFO SECTION END -->
+	<% end %>
 
 	<!-- GALLERY SECTION START -->
 
@@ -269,7 +282,7 @@
 				</div>
 
 					<p class="copyright">
-						© 2014 Show & Tour, All Rights Reserved
+						© 2014 <a href="http://www.showandtour.com">Show & Tour</a>, All Rights Reserved
 					</p>
 				</div>
 
@@ -279,7 +292,8 @@
 
 	<!-- Footer end -->
 
-
+<!-- Google Analytics -->
+<%= render 'layouts/google_analytics' if Rails.env.production? %>
 
 </body>
 </html>

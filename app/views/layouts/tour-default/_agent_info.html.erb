@@ -1,0 +1,9 @@
+<!-- <span class="presented-by">Presented by:</span> -->
+
+<% unless @tour.user.user_image.blank? %>
+	<%= image_tag @tour.user.user_image_url, class: "agent-photo" %>
+<% end %>
+
+<span class="agent-name"><%= "#{@tour.user.first_name} #{@tour.user.last_name}" %></span>
+<span class="agent-company"><em><%= @tour.user.company %></em></span>
+<span class="agent-contact-info"><%= @tour.user.phone %> | <%= mail_to @tour.user.email, "Email" %> | <%= link_to "Website", @tour.user.user_url.to_s %></span>
