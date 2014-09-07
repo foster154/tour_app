@@ -16,7 +16,7 @@ gem 'sprockets', '2.10.0'
 gem 'bootstrap-sass', '3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
-gem 'mini_magick', '~> 3.7.0'
+# gem 'mini_magick', '~> 3.7.0'
 gem 'bootstrap_form', '2.1.0'
 gem 'acts_as_list', '~> 0.4.0' # for re-ordering photos
 gem 'geocoder', '~> 1.2.0' # for generating tour maps
