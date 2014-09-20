@@ -2,21 +2,15 @@ class StaticPagesController < ApplicationController
   def home
   end
 
-  def about
-  end
-
-  def support
-  end
-
-  def contact
+  def features
   end
 
   def coming_soon
-  	render layout: 'frontend'
+  	render layout: 'coming_soon'
   end
 
   def survey
-    render layout: 'frontend'
+    render layout: 'coming_soon'
   end
 
 end

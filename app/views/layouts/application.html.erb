@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application-all", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 
-  <!-- Fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Cabin:700,400' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:300' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <title><%= full_title(yield(:title)) %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <%= csrf_meta_tags %>
-  <%= render 'layouts/shim' %>
-  <%= yield(:head) %>
-</head>
-<body class="<%= controller_name %> <%= action_name %>">
-  <div class="container">
-      <%= render 'layouts/header' %>
-      <%= render 'layouts/messages' %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
+    <!-- stylesheets -->
+    <%= stylesheet_link_tag    "application-all", media: "all", "data-turbolinks-track" => true %>
 
-      <!-- Google Analytics -->
-      <%= render 'layouts/google_analytics' if Rails.env.production? %>
-  </div>
-</body>
+    <!-- javascript -->
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+
+  <body id="<%= yield(:body_id) %>" class="<%= controller_name %> <%= action_name %>">
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/messages' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
+    <!-- Google Analytics -->
+    <%= render 'layouts/google_analytics' if Rails.env.production? %>
+  </body>
+
 </html>
