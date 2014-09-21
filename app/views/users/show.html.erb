@@ -1,11 +1,11 @@
 <% provide(:title, "Dashboard") %>
-
+<div class="container-fluid">
 <div class="row">
 	<aside class="col-md-3">
 		<section>
-			<h1 class="profile-name"><%= "#{@user.first_name} #{@user.last_name}" %></h1>
-			<div>
+			<div class="profile-info-wrapper">
          <%= render partial: 'user_image' %>
+         <h1 class="profile-name"><%= "#{@user.first_name} #{@user.last_name}" %></h1>
   			 <ul class="profile-info">
   				<li><%= @user.company %></li>
   				<li><%= @user.email %></li>
@@ -87,3 +87,4 @@
 
   </section>
 </div> <!-- / .row -->
+</div> <!-- / .container -->
