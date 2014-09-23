@@ -1,6 +1,7 @@
 <% provide(:title, 'Create Tour') %>
-<h1>Create a Tour</h1>
+<h1><i class="fa fa-edit" style="margin-right: 15px;"></i>Create a Tour</h1>
 
+<div class="container">
 <div class="row">
 
 	<%= bootstrap_form_for(@tour, user_id: @user.id) do |f| %>
@@ -9,7 +10,7 @@
 	<div class="col-md-4">
 			<h2 class="center">Address:</h2>
 			<br />
-			<%= f.text_field :address, hide_label: true, placeholder: 'Street Address' %>
+			<%= f.text_field :address, hide_label: true, placeholder: 'Street Address', required: true %>
 			<%= f.text_field :city, layout: :inline, hide_label: true, placeholder: 'City' %>
 			<%= f.select :state, [
 		      ['(select)', ' '],
@@ -76,15 +77,15 @@
 		<%= f.text_area :description, size: "24x10", hide_label: true %>
 	</div>
 
-	<div class="col-md-4">
+	<div class="col-md-4" id="other-tour-info-fields">
 		<h2 class="center">Other Info:</h2>
 		<br />
-		<%= f.number_field :price, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
-		<%= f.text_field :beds, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
-		<%= f.text_field :baths, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
-		<%= f.number_field :home_size, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8", label: "Home Size (sq ft)" %>
-		<%= f.text_field :lot_size, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8", label: "Lot Size (acres)" %>
-		<%= f.text_field :year_built, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
+		<%= f.number_field :price, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6" %>
+		<%= f.text_field :beds, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6" %>
+		<%= f.text_field :baths, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6" %>
+		<%= f.number_field :home_size, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Home Size (sq ft)" %>
+		<%= f.text_field :lot_size, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Lot Size (acres)" %>
+		<%= f.text_field :year_built, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6" %>
 	</div>
 </div>
 
@@ -93,4 +94,5 @@
 		<%= f.submit "Save Tour Info", class: "btn btn-large btn-primary", :'data-no-turbolink' => "true" %>
 		<% end %>
 	</div>
+</div>
 </div>
