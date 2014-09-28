@@ -26,7 +26,7 @@
 
       <%= f.text_field :company, label: "Company/Agency", layout: :default %>
 
-      <%= f.text_field :user_url, label: "Homepage/Website", layout: :default %>
+      <%= f.text_field :user_url, label: "Homepage/Website", layout: :default, type: :url, placeholder: "http://www.example.com" %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
