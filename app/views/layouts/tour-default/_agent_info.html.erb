@@ -15,6 +15,6 @@
 	<%= mail_to @tour.user.email, "Email" %> |
 
 	<% if @tour.user.user_url %>
-		<%= link_to "Website", @tour.user.user_url.to_s %>
+		<a href="<%= @tour.user.user_url.to_s %>">Website</a>
 	<% end %>
 </span>

@@ -228,6 +228,15 @@ aside {
 
 /* footer */
 
+footer {
+  margin: 30px 0;
+  color: #797979;
+  text-align: center;
+  .white {
+    color: white;
+  }
+}
+
 #simple-footer-text {
   text-align:center;
 }
@@ -309,6 +318,10 @@ input {
   font-size: 1.2em !important;
   vertical-align: middle;
   font-family: "Lato", "Helvetica Neue", Arial;
+  span {
+    color: $grayLight;
+    font-size: .6em;
+  }
 }
 
 .glyphicon-lg {
