@@ -1,6 +1,10 @@
 # Stripe integration
 
+# alert "registrations.js #1"
+
 $(".registrations").ready ->
+
+  # alert "Hello world from within"
 
   $("input#card_number.card-fields").payment "formatCardNumber"
   $("input#card_number").payment "formatCardNumber"
@@ -43,4 +47,3 @@ $(".registrations").ready ->
     subscription.setupForm()
 
   return
-
