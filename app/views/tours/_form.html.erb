@@ -1,5 +1,5 @@
 <h4>Address:</h4>
-<%= f.text_field :address, hide_label: true, placeholder: 'Street Address' %>
+<%= f.text_field :address, hide_label: true, placeholder: 'Street Address', required: true %>
 
 <%= f.text_field :city, layout: :inline, hide_label: true, placeholder: 'City' %>
 
@@ -72,6 +72,8 @@
 
 <h4>Other Info:</h4>
 
+<div id="field-group-padding">
+
 <%= f.number_field :price, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
 
 <%= f.text_field :beds, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
@@ -83,4 +85,5 @@
 <%= f.text_field :lot_size, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
 
 <%= f.text_field :year_built, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8" %>
+</div>
 

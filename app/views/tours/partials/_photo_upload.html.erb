@@ -1,3 +1,11 @@
+<p>For best results, upload photos that are 1280px by 960px or larger.</p>
+
+<!-- New Photos Processing -->
+<div id="new-photos-processing-wrapper">
+	<div class="alert alert-notice">Please do not refresh or close this page until all photos have uploaded.</div>
+	<ul id="new-photos-processing"></ul>
+</div>
+
 <%= render 'shared/photo_error_messages' %>
 <%= s3_uploader_form callback_url: tour_photos_url(tour_id: @tour.id),
   id: "s3_uploader",

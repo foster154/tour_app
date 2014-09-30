@@ -279,6 +279,10 @@ input {
   margin-top: -5px;
 }
 
+#field-group-padding .form-group {
+  padding-bottom: 30px;
+}
+
 /* Dashboard */
 
 .profile-info-wrapper {
@@ -382,12 +386,6 @@ input {
 .upload-btn {
   border: none;
   padding: 20px 0 0 0;
-}
-
-// New Tour
-
-#other-tour-info-fields .form-group {
-  padding-bottom: 30px;
 }
 
 /* Edit Tour */
