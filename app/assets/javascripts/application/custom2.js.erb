@@ -11,6 +11,7 @@ $(function() {
     $('#s3_uploader').bind('s3_upload_complete', function(e, content) {
 	//insert any post progress bar complete stuff here.
 	$('#no-photos-found').hide();
+  $('#photos-uploading-warning').show();
   $('#new-photos-processing-wrapper').show();
 	$('#new-photos-processing').append(
 		'<li>' + 
