@@ -10,7 +10,7 @@
 			</p>
 			<div class="cta animated fadeInDown">
 				<a href="features.html" class="button-outline">Learn More</a>
-				<a href="/users/sign_up" class="button">Sign Up</a>
+				<%= link_to "Sign Up", new_user_registration_path, class: "button", :'data-no-turbolink' => "true" %>
 			</div>
 			<div class="img"></div>
 		</div>
@@ -115,7 +115,7 @@
 			<div class="row center">
 				<a class="button-clear" href="features.html">
 							<span>Learn More</span></a>
-				<a href="/users/sign_up" class="button">Sign Up</a>
+				<%= link_to "Sign Up", new_user_registration_path, class: "button", :'data-no-turbolink' => "true" %>
 			</div>
 		</div>
 
@@ -126,7 +126,7 @@
 					<h3>$29/month for unlimited tours.</h3>
 					<p>No contract. Cancel when you want. 30 day money back guarantee.</p>
 					<a class="button-clear" href="features.html"><span>Learn More</span></a>
-					<a href="/users/sign_up" class="button">Sign Up</a>
+					<%= link_to "Sign Up", new_user_registration_path, class: "button", :'data-no-turbolink' => "true" %>
 				</div>
 			</div>
 		</div>
