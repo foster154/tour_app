@@ -13,12 +13,20 @@
 <div class="alert alert-info"><i class="fa fa-magic" style="margin-right: 10px;"></i> Some magic is happening in the background, and some of your photos are still processing. Refresh the page to check the progress.</div>
 <% end %>
 
+<!-- photo-related instructions -->
+<% if @tour.photos.any? %>
+	<div class="photo-instructions">
+		<i class="fa fa-arrows-v"></i>Change the order of photos via drag-and-drop with the arrows to the left. <br />
+		<i class="fa fa-tag"></i>To add a label to a photo, click "add label", enter text, and hit return.
+	</div>
+<% end %>
+
 <!-- list of uploaded photos -->
 <ul id="photo-preview-list" data-update-url="<%= sort_photos_url %>">
 	<% @photos.each do |photo| %>
 		<%= content_tag_for :li, photo do %>
 			<div class="drag-handle">
-				<i class="light-grey glyphicon-lg glyphicon glyphicon-resize-vertical"></i>
+				<i class="fa fa-arrows-v"></i>
 			</div>
 
 			<!-- photo -->
