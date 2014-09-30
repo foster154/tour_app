@@ -1,4 +1,4 @@
-<!-- New Photos Processing -->
+<!-- New Photos Uploading -->
 <div id="new-photos-processing-wrapper">
 	<div class="alert alert-notice">Please do not refresh or close this page until all photos have uploaded.</div>
 	<ul id="new-photos-processing"></ul>
@@ -7,6 +7,11 @@
 <!-- if no photos have been added -->
 <% unless @tour.photos.any? %>
 	<div id="no-photos-found">No photos found.</div>
+<% end %>
+
+<!-- if any photos processing -->
+<% if @tour.photos.where("processed = ?", "false").any? %>
+<div class="alert alert-notice"><i class="fa fa-magic" style="margin-right: 15px;"></i> Some magic is happening in the background, and some of your photos are still processing. Refresh the page to check the progress.</div>
 <% end %>
 
 <!-- list of uploaded photos -->
