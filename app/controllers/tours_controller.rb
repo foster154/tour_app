@@ -21,6 +21,7 @@ class ToursController < ApplicationController
 
 	def show_branded
 		@photos = @tour.photos.where(processed: true).order(:position)
+		@bg_photo = @photos[0]
 		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
   			marker.lat tour.latitude
   			marker.lng tour.longitude
