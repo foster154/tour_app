@@ -448,7 +448,7 @@ input {
   clear: both;
 }
 
-.photo-instructions {
+.tour-instructions-box {
   display: inline-block;
   line-height: 2;
   margin: 8px 10px;
@@ -456,6 +456,7 @@ input {
   border-radius: 3px;
   padding: 10px;
   background-color: #FDFFEB;
+  color: $grayLight;
   i {
     font-size: 1.5em;
     margin-right: 12px;
