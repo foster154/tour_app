@@ -53,7 +53,8 @@
 	</div>
 
 	<!-- Make Background Photo available to JS -->
-	<div id="bg_photo_url" data-url="<%= @tour.photos[0].upload.url(:slider).to_s %>"></div>
+	<div id="bg_photo_url" data-url="<%= @bg_photo.upload.url(:slider).to_s %>"></div>
+	<!-- <div id="bg_photo_url" data-url="<%= @tour.photos[0].upload.url(:slider).to_s %>"></div> -->
 
 	<!-- Intro section start -->
 
