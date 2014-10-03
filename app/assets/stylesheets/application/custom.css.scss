@@ -287,13 +287,7 @@ input {
 
 .profile-info-wrapper {
   margin-left: 20px;
-  font-family: "Lato", "Helvetica Neue", Arial;
-}
-
-.profile-name {
-  font-size: 1.8em;
-  font-weight: 700;
-  margin: 20px 0 5px 3px;
+  text-align: center;
 }
 
 .profile-pic-wrapper {
@@ -301,9 +295,16 @@ input {
 }
 
 .profile-pic {
-  margin: 20px auto;
+  margin: 45px 0 20px 0;
   width: 80px;
   border-radius:100%;
+}
+
+.profile-name {
+  font-size: 1.8em;
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0 5px 3px;
 }
 
 .profile-info {
