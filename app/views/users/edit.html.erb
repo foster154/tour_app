@@ -33,6 +33,15 @@
 
   </div>
 
+  <script type="text/javascript">
+    var url = document.querySelector('input[type="url"]');
+    url.oninvalid = function(e) {
+    e.target.setCustomValidity("");
+    if (!e.target.validity.valid) {
+    e.target.setCustomValidity("Please enter a valid URL, starting with http://"); }
+    };
+  </script>
+
   <div class="col-md-4 col-md-offset-1
               col-sm-5 col-sm-offset-1">
     <h3>Profile Image:</h3>

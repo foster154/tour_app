@@ -20,7 +20,7 @@
     <%= yield(:head) %>
   </head>
 
-  <body id="<%= yield(:body_id) %>" class="<%= controller_name %> <%= action_name %>">
+  <body id="<%= yield(:body_id) %>" class="<%= controller_name %> <%= action_name %> <%= yield(:body_class) %>">
     <%= render 'layouts/header' %>
     <%= render 'layouts/messages' %>
     <%= yield %>

@@ -9,9 +9,9 @@ class Photo < ActiveRecord::Base
   
   belongs_to :tour
   acts_as_list scope: :tour
-  has_attached_file :upload, :styles => { 
-      :thumb => "114x85>", 
-      :slider => "1280x960>" }
+  has_attached_file :upload, 
+    :styles => { :thumb => "114x85>", :slider => "1280x960>" }
+    
 
   validates_attachment_content_type :upload, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 

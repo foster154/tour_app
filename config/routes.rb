@@ -33,4 +33,6 @@ TourApp::Application.routes.draw do
 
   match 'tours/b/:id', to: 'tours#show_branded',  via: 'get'
 
+  get "*any", via: :all, to: "errors#not_found" # to capture any request that doesn't match a routing rule above
+
 end
