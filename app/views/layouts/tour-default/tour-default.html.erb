@@ -246,6 +246,11 @@
 
 					<script type="text/javascript">
 				        function initializeMap() {
+				        	var isDraggable = $(document).width() > 480 ? true : false;
+				        	var mapOptions = {
+        						draggable: isDraggable, // improve scrolling on mobile
+								scrollwheel: false, // Prevent users to start zooming the map when scrolling down the page
+    							};
 				        handler = Gmaps.build('Google');
 				        handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 				          markers = handler.addMarkers(<%=raw @hash.to_json %>);

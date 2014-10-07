@@ -1,5 +1,3 @@
-<!-- <span class="presented-by">Presented by:</span> -->
-
 <% unless @tour.user.user_image.blank? %>
 	<%= image_tag @tour.user.user_image.url(:square), class: "agent-photo" %>
 <% end %>
