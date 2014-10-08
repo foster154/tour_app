@@ -1,7 +1,7 @@
 class ToursController < ApplicationController
 
 	before_action :authenticate_user!, :except => [:show, :show_branded]
-	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded]
+	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded, :sample_tour]
 	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
 	before_action :find_user, :only => [:index, :new]
 
@@ -27,6 +27,17 @@ class ToursController < ApplicationController
   			marker.lng tour.longitude
 		end
 		@branded = true
+		render layout: 'tour-default/tour-default'
+	end
+
+	def sample_tour
+		@tour = Tour.find(12)
+		@photos = @tour.photos.where(processed: true).order(:position)
+		@bg_photo = @photos[0]
+		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
+  			marker.lat tour.latitude
+  			marker.lng tour.longitude
+		end
 		render layout: 'tour-default/tour-default'
 	end
 
