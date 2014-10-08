@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
 
-	before_action :authenticate_user!, :except => [:show, :show_branded]
+	before_action :authenticate_user!, :except => [:show, :show_branded, :sample_tour]
 	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded, :sample_tour]
 	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
 	before_action :find_user, :only => [:index, :new]
