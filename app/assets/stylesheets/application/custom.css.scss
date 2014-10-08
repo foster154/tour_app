@@ -283,7 +283,9 @@ input {
   padding-bottom: 30px;
 }
 
-/* Dashboard */
+/* ---------------------------------------------- /*
+ * Dashboard
+/* ---------------------------------------------- */
 
 .profile-info-wrapper {
   margin-left: 20px;
@@ -314,6 +316,16 @@ input {
     padding: 10px 0;
     margin: 0 0 0 -30px;
   }
+}
+
+.feedback-blurb {
+  margin-top: 25px;
+  span {
+    font-weight: 700;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+
 }
 
 .dashboard-btn {
