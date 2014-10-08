@@ -22,8 +22,10 @@ TourApp::Application.routes.draw do
   match '/features',  to: 'static_pages#features',  via: 'get'
   match '/survey',    to: 'static_pages#survey',    via: 'get'
   match '/signup',    to: 'users#new',              via: 'get'
+  match '/home',      to: 'static_pages#home' ,     via: 'get'
 
   # App
+
   match '/signin',    to: 'sessions#new',         via: 'get'
   match '/signout',   to: 'sessions#destroy',     via: 'delete'
   match '/dashboard', to: 'users#show',           via: 'get'
