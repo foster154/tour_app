@@ -63,20 +63,20 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="i_header">
-						<%= render 'layouts/tour-default/logo' %>
-
-						<!-- Address Line 1 -->
-						<h1 class="tour-default"><%= @tour.address %></h1>
-						<!-- Address Line 2 -->
-						<h3 class="subhead">
-							<% if @tour.city.blank? && @tour.state.blank? && @tour.zip.blank? %>
-						      	(location coming soon)
-						    <% elsif @tour.city.blank? | @tour.state.blank? %>
-						    	<%= "#{@tour.city} #{@tour.state} #{@tour.zip}" %>
-						    <% else %>
-						      <%= "#{@tour.city}, #{@tour.state} #{@tour.zip}" %>
-						    <% end %>
-						</h3>
+						<div class="tour-address">
+							<!-- Address Line 1 -->
+							<h1 class="tour-default"><%= @tour.address %></h1>
+							<!-- Address Line 2 -->
+							<h3 class="subhead">
+								<% if @tour.city.blank? && @tour.state.blank? && @tour.zip.blank? %>
+							      	(location coming soon)
+							    <% elsif @tour.city.blank? | @tour.state.blank? %>
+							    	<%= "#{@tour.city} #{@tour.state} #{@tour.zip}" %>
+							    <% else %>
+							      <%= "#{@tour.city}, #{@tour.state} #{@tour.zip}" %>
+							    <% end %>
+							</h3>
+						</div>
 						<br />
 						<p>~ <%= number_to_currency(@tour.price, precision: 0) %> ~</p>
 					</div>

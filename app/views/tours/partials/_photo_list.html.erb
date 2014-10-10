@@ -28,14 +28,20 @@
 		<%= content_tag_for :li, photo do %>
 			<div class="drag-handle">
 				<i class="fa fa-arrows-v"></i>
-			</div>
 
-			<!-- photo -->
-			<% if photo.processed %>
-			<div class="photo-preview-photo"><%= image_tag photo.upload.url(:thumb) %></div>
-			<% else %>
-			<div class="photo-preview-photo"><%= image_tag "photo-processing.png" %></div>
-			<% end %>
+
+				<!-- photo -->
+				<% if photo.processed %>
+					<div class="photo-preview-photo">
+						<a href="#" data-featherlight="<%= photo.upload.url(:slider).to_s %>">
+							<div class="photo-magnify-icon"><i class="fa fa-search-plus"></i></div>
+							<%= image_tag photo.upload.url(:thumb) %>
+						</a>
+					</div>
+				<% else %>
+				<div class="photo-preview-photo"><%= image_tag "photo-processing.png" %></div>
+				<% end %>
+			</div>
 
 			<!-- title -->
 			<div class="photo-preview-title">
@@ -51,6 +57,7 @@
 				<%= photo.label || "(add label)" %>
 				</span>
 			</div>
+
 
 			<div class="clear"></div>
 		<% end %>

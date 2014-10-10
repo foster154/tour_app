@@ -1,4 +1,7 @@
-<p>For best results, upload photos that are 1280px by 960px or larger.</p>
+<div class="alert alert-info" style="display:inline-block">
+	<i class="fa fa-warning" style="margin-right: 10px;"></i>
+	<strong>1280px by 960px</strong> photos (or larger) are recommended for best results.
+</div>
 
 <%= render 'shared/photo_error_messages' %>
 <%= s3_uploader_form callback_url: tour_photos_url(tour_id: @tour.id),

@@ -4,3 +4,5 @@ jQuery ->
 		handle: '.drag-handle'
 		update: ->
 			$.post($(this).data('update-url'), $(this).sortable('serialize'))
+
+	$("#tour_price").payment "restrictNumeric"
