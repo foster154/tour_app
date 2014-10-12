@@ -10,7 +10,7 @@
 
 <!-- if any photos processing -->
 <% if @tour.photos.where("processed = ?", "false").any? %>
-<div class="alert alert-info"><i class="fa fa-magic" style="margin-right: 10px;"></i> Some magic is happening in the background, and some of your photos are still processing. Refresh the page to check the progress.</div>
+<div class="alert alert-info" style="display: inline-block;">Some of your photos are still processing. Refresh the page to check the progress.</div>
 <% end %>
 
 <!-- photo-related instructions -->

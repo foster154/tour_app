@@ -25,14 +25,14 @@ class User < ActiveRecord::Base
           :email => email,
           :description => first_name,
           :card => stripe_token,
-          :plan => 'standard'
+          :plan => 'earlyadopter'
         )
       else
         customer = Stripe::Customer.create(
           :email => email,
           :description => first_name,
           :card => stripe_token,
-          :plan => 'standard',
+          :plan => 'earlyadopter',
           :coupon => coupon
         )
       end
