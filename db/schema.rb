@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907221916) do
+ActiveRecord::Schema.define(version: 20141013035109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20140907221916) do
   add_index "photos", ["tour_id"], name: "index_photos_on_tour_id", using: :btree
 
   create_table "tours", force: true do |t|
-    t.boolean  "active",         default: true, null: false
+    t.boolean  "active",          default: true, null: false
     t.integer  "days_remaining"
     t.integer  "user_id"
     t.string   "address"
@@ -67,6 +67,9 @@ ActiveRecord::Schema.define(version: 20140907221916) do
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "autoplay_music",  default: true, null: false
+    t.integer  "music_selection"
+    t.integer  "theme",           default: 1,    null: false
   end
 
   add_index "tours", ["user_id", "created_at"], name: "index_tours_on_user_id_and_created_at", using: :btree

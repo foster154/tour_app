@@ -90,6 +90,14 @@
 </div>
 
 <div class="row">
+	<div class="col-md-4">
+		<h2 class="center">Tour Options:</h2>
+		<br />
+		<%= f.check_box :autoplay_music, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Play background music" %>
+	</div>
+</div>
+
+<div class="row">
 	<div class="center">
 		<%= f.submit "Save Tour Info", class: "btn btn-large btn-primary", :'data-no-turbolink' => "true" %>
 		<% end %>

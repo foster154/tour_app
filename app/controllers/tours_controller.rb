@@ -88,7 +88,7 @@ class ToursController < ApplicationController
 	private
 
 		def tour_params
-	  		params.require(:tour).permit(:user_id, :address, :city, :state, :zip, :description, :price, :beds, :baths, :home_size, :lot_size, :year_built, photos_attributes: [:id, :tour_id, :photo])
+	  		params.require(:tour).permit( :user_id, :address, :city, :state, :zip, :description, :price, :beds, :baths, :home_size, :lot_size, :year_built, :autoplay_music, :music_selection, :theme, photos_attributes: [:id, :tour_id, :photo] )
 	  	end
 
 	  	# BEFORE FILTERS

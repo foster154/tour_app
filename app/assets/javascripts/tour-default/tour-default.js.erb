@@ -112,3 +112,21 @@
 	});
 
 })(jQuery);
+
+/* ---------------------------------------------- /*
+ * Tour Background Music
+/* ---------------------------------------------- */
+
+function audio_play() {
+	var audioPlayer = document.getElementsByTagName('audio')[0];
+	audioPlayer.play();
+	document.getElementById('sound-off').style.display='none';
+	document.getElementById('sound-on').style.display='block';
+	}
+		
+function audio_pause() {
+	var audioPlayer = document.getElementsByTagName('audio')[0];
+	audioPlayer.pause();
+	document.getElementById('sound-on').style.display='none';
+	document.getElementById('sound-off').style.display='block';
+	}
