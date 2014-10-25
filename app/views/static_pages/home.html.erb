@@ -1,13 +1,18 @@
 <% provide(:body_id, 'home') %>
+<% content_for :head do %>
+	<meta name="description" content="Looking for the best online virtual tour software for real estate? Use Show and Tour to build elegant virtual tours for any house or home on the market.">
+<% end %>
+
 
 	<div id="hero">
 		<div class="container">
 			<h1 class="hero-text animated fadeInDown">
-				Virtual Tours<br /> Worth Looking At
+				Virtual Tour Software <br /> for Real Estate
 			</h1>
-			<p class="sub-text animated fadeInDown">
-				Harness the power of the modern web for your listings.
-			</p>
+			<h2 class="sub-text animated fadeInDown">
+				Create beautiful online virtual tours to
+				showcase your<br /> real estate listings.
+			</h2>
 			<div class="cta animated fadeInDown">
 				<a href="features.html" class="button-outline">Learn More</a>
 				<%= link_to "Sign Up", new_user_registration_path, class: "button", :'data-no-turbolink' => "true" %>

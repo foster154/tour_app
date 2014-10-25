@@ -1,11 +1,11 @@
 module ApplicationHelper
 	# Returns the full title on a per page basis.
 	def full_title(page_title)
-		base_title = "Show & Tour"
+		base_title = "Show & Tour Virtual Tours for Real Estate"
 		if page_title.empty?
 			base_title
 		else
-			"#{base_title} | #{page_title}"
+			" #{page_title} | #{base_title}"
 		end
 	end
 
