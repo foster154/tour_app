@@ -11,12 +11,12 @@
 // about supported directives.
 //
 //= require jquery
-//= require 'rest_in_place'
 //= require jquery.turbolinks
 //= require jquery.ui.sortable
 //= require jquery.ui.all
 //= require jquery_ujs
-//= require s3_direct_upload
 //= require bootstrap
 //= require turbolinks
-//= require_tree ./application
+//= require underscore
+//= require gmaps/google
+//= require_tree ./tour-graphista

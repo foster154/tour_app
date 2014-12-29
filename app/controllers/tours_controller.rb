@@ -16,7 +16,7 @@ class ToursController < ApplicationController
   			marker.lat tour.latitude
   			marker.lng tour.longitude
 		end
-		render layout: 'tour-default/tour-default'
+		set_tour_theme
 	end
 
 	def show_branded
@@ -27,7 +27,7 @@ class ToursController < ApplicationController
   			marker.lng tour.longitude
 		end
 		@branded = true
-		render layout: 'tour-default/tour-default'
+		set_tour_theme
 	end
 
 	def sample_tour
@@ -105,6 +105,18 @@ class ToursController < ApplicationController
 
 	  	def find_user
 	  		@user = User.find(current_user.id)
+    	end
+
+    	def set_tour_theme
+			tour_theme = @tour.theme
+			case tour_theme
+			when 1
+				render layout: 'tour-default/tour-default'
+			when 2
+				render layout: 'tour-graphista/tour-graphista'
+			else
+				render layout: 'tour-default/tour-default'
+			end
     	end
 
 end

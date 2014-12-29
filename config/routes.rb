@@ -26,7 +26,6 @@ TourApp::Application.routes.draw do
   match '/sample',    to: 'tours#sample_tour',     via: 'get'
 
   # App
-
   match '/signin',    to: 'sessions#new',         via: 'get'
   match '/signout',   to: 'sessions#destroy',     via: 'delete'
   match '/dashboard', to: 'users#show',           via: 'get'

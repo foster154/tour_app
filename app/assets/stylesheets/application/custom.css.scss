@@ -134,6 +134,46 @@ p {
   margin-right: 10px;
 }
 
+.strikethrough {
+  text-decoration: line-through;
+  color: #FA7878 !important;
+}
+
+.discount {
+  color: #FA7878;
+  font-size: 15px;
+  margin: -42px 0 0 598px;
+  border: 2px solid #FA7878;
+  padding: 3px;
+  border-radius: 3px;
+  position: absolute;
+  -webkit-transform: rotate(15deg); /* Safari */
+  -moz-transform: rotate(15deg); /* Firefox */
+  -ms-transform: rotate(15deg); /* IE */
+  -o-transform: rotate(15deg); /* Opera */
+  span {
+    font-size: 13px
+  }
+  @media (max-width: 990px) {
+    margin: -42px 0 0 462px;
+  }
+  @media (max-width: 730px) {
+    margin: -42px 0 0 440px;
+  }
+  @media (max-width: 600px) {
+    margin: 5px;
+    border: 2px solid #FA7878;
+    padding: 3px;
+    border-radius: 3px;
+    position: relative;
+    display: inline-block;
+    -webkit-transform: rotate(0deg); /* Safari */
+    -moz-transform: rotate(0deg); /* Firefox */
+    -ms-transform: rotate(0deg); /* IE */
+    -o-transform: rotate(15deg); /* Opera */
+  }
+}
+
 /* Effects */
 
 .img-shadow {

@@ -77,8 +77,8 @@
 						        </div>
 						        <span>Music</span>
 						    </div>
-						   	<!-- End Tour Music -->
-						   	<% end %>
+							<% end %>
+							<!-- End Tour Music -->
 						<div class="tour-address">
 							<!-- Address Line 1 -->
 							<h1 class="tour-default"><%= @tour.address %></h1>
@@ -162,19 +162,8 @@
 	<!-- Intro section end -->
 
 	<% if @branded == true %>
-	<!-- AGENT INFO SECTION START -->
-	<section class="agent-info">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h2>Presented By</h2>
-					<div class="header-deveider"></div>
-					<%= render 'layouts/tour-default/agent_info' %>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- AGENT INFO SECTION END -->
+		<!-- AGENT INFO SECTION START -->
+		<%= render 'layouts/tour-default/agent_info' %>
 	<% end %>
 
 	<!-- GALLERY SECTION START -->
@@ -214,7 +203,7 @@
 						<p><%= number_to_currency(@tour.price, precision: 0) %></p>
 						<br />
 						<p><a href="http://www.bankrate.com/calculators/mortgages/mortgage-calculator.aspx" target="_blank">Mortgage Calculator</a></p>
-						<p>(provided by bankrate.com)
+						<p>(provided by bankrate.com)</p>
 					</div>
 				</div>
 
