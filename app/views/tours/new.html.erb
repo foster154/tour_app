@@ -94,8 +94,8 @@
 		<h2 class="center">Tour Options:</h2>
 		<br />
 		<div class="choose-theme">
-			<%= f.form_group :theme, label: { text: "Themes (hover to see preview)"} do %>
-			  <%= f.radio_button :theme, 2, label: "Full Screen", checked: true %>
+			<%= f.form_group :theme, label: { text: "Theme:" } do %>
+			  <%= f.radio_button :theme, 2, label: "Slider", checked: true %>
 			  <%= f.radio_button :theme, 1, label: "Circles" %>
 			<% end %>
 		</div>
