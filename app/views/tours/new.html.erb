@@ -93,6 +93,12 @@
 	<div class="col-md-4">
 		<h2 class="center">Tour Options:</h2>
 		<br />
+		<div class="choose-theme">
+			<%= f.form_group :theme, label: { text: "Themes (hover to see preview)"} do %>
+			  <%= f.radio_button :theme, 2, label: "Full Screen", checked: true %>
+			  <%= f.radio_button :theme, 1, label: "Circles" %>
+			<% end %>
+		</div>
 		<%= f.check_box :autoplay_music, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Play background music" %>
 	</div>
 </div>

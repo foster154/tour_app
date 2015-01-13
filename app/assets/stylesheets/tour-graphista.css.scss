@@ -1401,7 +1401,7 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
     
     #main-nav .container,
     #main-nav.scrolled .container{
-        padding:5px 20px;
+        padding:12px 20px;
     }
 
     #main-nav .nav a,
@@ -1418,14 +1418,18 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
     }
 
     #main-nav .navbar-brand{
-        padding-top: 5px;
-        font-size: 21px;
+        padding-top: 0;
+        font-size: 24px;
         color:#6d6d6d;
     }
     
     #main-nav .navbar-brand img{
         margin-right: 10px;
         max-width: 40px;
+    }
+
+    .navbar-brand span {
+        font-size: 14px;
     }
 
     #home .container{

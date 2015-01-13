@@ -462,6 +462,15 @@ input {
   margin-top: 15px;
 }
 
+.choose-theme {
+  padding-left: 20px;
+  .radio {
+    margin-left:20px;
+  }
+  .control-label {
+    margin-bottom: 0;
+  }
+}
 /* upload progress bars */
 .upload {
   border-top: solid 1px #CCC;

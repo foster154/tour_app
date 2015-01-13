@@ -28,7 +28,15 @@
 			        <% else %>
 			        	<li><%= link_to "Home", root_path %></li>
 						<li><%= link_to "Features & Pricing", features_path %></li>
-						<li><%= link_to "Sample Tour", sample_path, target: "_blank" %></li>
+						<li id="fat-menu" class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	                		  Sample Tours <b class="caret"></b>
+	              			</a>
+	              			<ul class="dropdown-menu">
+	              				<li><%= link_to "Sample Theme: Circles", sample1_path, target: "_blank" %></li>
+	              				<li><%= link_to "Sample Theme: Slider", sample2_path, target: "_blank" %></li>
+				            </ul>
+			            </li>
 						<li><%= link_to "Sign Up", new_user_registration_path, :'data-no-turbolink' => "true" %></li>
 						<li><%= link_to "Sign In", new_user_session_path %></li>
 					<% end %>

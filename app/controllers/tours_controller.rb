@@ -1,7 +1,7 @@
 class ToursController < ApplicationController
 
-	before_action :authenticate_user!, :except => [:show, :show_branded, :sample_tour]
-	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded, :sample_tour]
+	before_action :authenticate_user!, :except => [:show, :show_branded, :sample_tour1, :sample_tour2]
+	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded, :sample_tour1, :sample_tour2]
 	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
 	before_action :find_user, :only => [:index, :new]
 
@@ -30,7 +30,7 @@ class ToursController < ApplicationController
 		set_tour_theme
 	end
 
-	def sample_tour
+	def sample_tour1
 		@tour = Tour.find(12)
 		@photos = @tour.photos.where(processed: true).order(:position)
 		@bg_photo = @photos[0]
@@ -38,7 +38,18 @@ class ToursController < ApplicationController
   			marker.lat tour.latitude
   			marker.lng tour.longitude
 		end
-		render layout: 'tour-default/tour-default'
+		render template: 'tours/sample_tour', layout: 'tour-default/tour-default'
+	end
+
+	def sample_tour2
+		@tour = Tour.find(12)
+		@photos = @tour.photos.where(processed: true).order(:position)
+		@bg_photo = @photos[0]
+		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
+  			marker.lat tour.latitude
+  			marker.lng tour.longitude
+		end
+		render template: 'tours/sample_tour', layout: 'tour-graphista/tour-graphista'
 	end
 
 	def new
@@ -52,7 +63,7 @@ class ToursController < ApplicationController
 			redirect_to edit_tour_path(id: @tour.id)
 		else
 			flash[:danger] = 'Could not create tour.'
-			redirect_to :back
+			redirect_to root_url
 		end
 	end
 

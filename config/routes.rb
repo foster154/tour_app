@@ -23,7 +23,8 @@ TourApp::Application.routes.draw do
   match '/survey',    to: 'static_pages#survey',    via: 'get'
   match '/signup',    to: 'users#new',              via: 'get'
   match '/home',      to: 'static_pages#home' ,     via: 'get'
-  match '/sample',    to: 'tours#sample_tour',     via: 'get'
+  match '/sample1',    to: 'tours#sample_tour1',     via: 'get'
+  match '/sample2',    to: 'tours#sample_tour2',     via: 'get'
 
   # App
   match '/signin',    to: 'sessions#new',         via: 'get'
