@@ -22,7 +22,9 @@
 
   <body id="<%= yield(:body_id) %>" class="<%= controller_name %> <%= action_name %> <%= yield(:body_class) %>">
     <%= render 'layouts/header' %>
-    <%= render 'layouts/messages' %>
+    <% unless controller_name == 'static_pages' # don't show flash messages on home page (it breaks layout) %>
+      <%= render 'layouts/messages' %> 
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
