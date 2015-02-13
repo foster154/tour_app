@@ -118,6 +118,7 @@
             <li>
               <a href="#main-footer" class="scrollto">Share</a>
             </li>
+            <% if @branded == true %>
             <li>
               <a href="#agent" class="scrollto">
                 <% unless @tour.user.user_image.blank? %>
@@ -125,6 +126,7 @@
                 <% end %>
               </a>
             </li>
+            <% end %>
           </ul>
         </div><!--End navbar-collapse -->
         
@@ -144,6 +146,15 @@
       </div>
       
     </header><!--End header -->
+
+    <!-- ==============================================
+    Agent info
+    =============================================== -->
+
+    <% if @branded == true %>
+      <!-- AGENT INFO SECTION START -->
+      <%= render 'layouts/tour-graphista/agent_info' %>
+    <% end %>
     
     <!-- ==============================================
     GALLERY
@@ -220,15 +231,6 @@
       <div id="gmap"></div>
     
     </section>
-
-    <!-- ==============================================
-    Agent info
-    =============================================== -->
-
-    <% if @branded == true %>
-      <!-- AGENT INFO SECTION START -->
-      <%= render 'layouts/tour-graphista/agent_info' %>
-    <% end %>
     
     <!-- ==============================================
     FOOTER
