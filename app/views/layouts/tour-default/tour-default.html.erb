@@ -46,6 +46,12 @@
 </head>
 <body class="tour-default">
 
+	<% if @tour.inactive %>
+
+	<%= render 'layouts/inactive' %>
+
+	<% else %>
+
 	<!-- Preloader -->
 
 	<div id="preloader">
@@ -301,6 +307,8 @@
 	</footer>
 
 	<!-- Footer end -->
+
+	<% end # tour active if statement %>
 
 <!-- Google Analytics -->
 <%= render 'layouts/google_analytics' if Rails.env.production? %>

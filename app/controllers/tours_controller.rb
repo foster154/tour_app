@@ -6,7 +6,7 @@ class ToursController < ApplicationController
 	before_action :find_user, :only => [:index, :new]
 
 	def index
-		@tours = @user.tours.where(active: true).page(params[:page]).per_page(20)
+		@tours = @user.tours.page(params[:page]).per_page(20)
 	end
 
 	def show
@@ -98,10 +98,6 @@ class ToursController < ApplicationController
 
 	private
 
-		def tour_params
-	  		params.require(:tour).permit( :user_id, :address, :city, :state, :zip, :description, :price, :beds, :baths, :home_size, :lot_size, :year_built, :autoplay_music, :music_selection, :theme, photos_attributes: [:id, :tour_id, :photo] )
-	  	end
-
 	  	# BEFORE FILTERS
 
 	    def correct_user
@@ -129,5 +125,25 @@ class ToursController < ApplicationController
 				render layout: 'tour-default/tour-default'
 			end
     	end
+
+    	def tour_params
+	  		params.require(:tour).permit( :user_id, 
+	  									  :address, 
+	  									  :city, 
+	  									  :state, 
+	  									  :zip, 
+	  									  :description, 
+	  									  :price, 
+	  									  :beds, 
+	  									  :baths, 
+	  									  :home_size, 
+	  									  :lot_size, 
+	  									  :year_built, 
+	  									  :autoplay_music, 
+	  									  :music_selection, 
+	  									  :theme, 
+	  									  :inactive,
+	  									  photos_attributes: [:id, :tour_id, :photo] )
+	  	end
 
 end

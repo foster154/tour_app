@@ -1,4 +1,4 @@
-<tr>
+<tr <%= tour.inactive ? 'class=inactive' : "" %>>
   <td><%= tour.created_at.strftime("%m/%d/%y") %></td>
   <td><%= tour.address %></td>
   <td>
@@ -9,7 +9,9 @@
     <% end %>
   </td>
   <td><%= number_to_currency(tour.price, precision: 0) %></td>
-  <% if tour.photos.any? %>
+  <% if tour.inactive %>
+    <td>(inactive)</td>
+  <% elsif tour.photos.any? %>
     <td>
       Unbranded: <%= link_to "http://www.showandtour.com/tours/#{tour.id}", tour_path(tour.id), :target => '_blank' %> <br />
       Branded:  <%= link_to "http://www.showandtour.com/tours/b/#{tour.id}", "../tours/b/#{tour.id}", :target => '_blank' %>

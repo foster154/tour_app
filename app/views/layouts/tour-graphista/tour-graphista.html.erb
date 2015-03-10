@@ -49,6 +49,12 @@
 
 <body class="tour-graphista" data-spy="scroll" data-target="#main-nav" data-offset="200">
 
+  <% if @tour.inactive %>
+
+  <%= render 'layouts/inactive' %>
+
+  <% else %>
+
 <!--=== PAGE PRELOADER ===-->
     <div id="page-loader"><span class="page-loader-gif"></span></div>
 
@@ -278,5 +284,7 @@
         };
       
     </script>
+
+    <% end # tour active if statement %>
 
 </body>
