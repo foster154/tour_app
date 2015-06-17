@@ -1,0 +1,17 @@
+<div class="container">
+	<article>
+	  <h1>
+	    <%= @article.title %>
+	  </h1>
+	  <div class="text-center">
+	  	<%= render partial: "meta", locals: { article: @article } %>
+	  </div>
+	  <div class="mar-top30">
+	  	<%= markdown @article.content_full %>
+	  </div>
+	  <hr/>
+	  <p class="action">
+	    <%= link_to "← Back to Overview", blog_articles_path %>
+	  </p>
+	</article>
+</div>

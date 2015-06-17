@@ -22,6 +22,7 @@ class ToursController < ApplicationController
 	def show_branded
 		@photos = @tour.photos.where(processed: true).order(:position)
 		@bg_photo = @photos[0]
+		@lead = Lead.new
 		@hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
   			marker.lat tour.latitude
   			marker.lng tour.longitude
@@ -143,6 +144,8 @@ class ToursController < ApplicationController
 	  									  :music_selection, 
 	  									  :theme, 
 	  									  :inactive,
+	  									  :scheduler,
+	  									  :scheduler_auto_display,
 	  									  photos_attributes: [:id, :tour_id, :photo] )
 	  	end
 

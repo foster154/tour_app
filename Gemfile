@@ -36,6 +36,8 @@ gem 'figaro', '0.7.0' # managing env and secret keys
 gem 'stripe', '1.14.0' # payment processing
 gem 'stripe_event', '1.3.0' # for Stripe webhooks
 gem 'font-awesome-rails' # adds font awesome icons
+gem 'redcarpet' # For the Markdown parsing (for blog)
+gem 'pygments.rb' # Syntax highlighting (for blog)
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'

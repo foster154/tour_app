@@ -20,3 +20,4 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree ./tour-default
+//= require_tree ./tour-shared

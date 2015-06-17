@@ -1,0 +1,14 @@
+<h1>Show and Tour has generated a new lead!</h1>
+
+<p>The following individual has requested that you follow up with them about your listing at <strong><%= @lead.tour.address %></strong>:
+
+<p>
+	Name: <strong><%= @lead.name %></strong><br />
+	Email/Phone: <strong><%= @lead.contact_info %></strong><br />
+	Source: <strong>Show and Tour</strong>
+</p>
+<p>
+	<strong>Want to schedule a showing:</strong> <%= @lead.schedule_showing %><br />
+	<strong>Want more info:</strong> <%= @lead.get_more_info %><br />
+	<strong>Want to see list of similar homes:</strong> <%= @lead.send_list %><br />
+</p>

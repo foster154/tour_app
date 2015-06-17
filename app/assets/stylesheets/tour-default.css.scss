@@ -77,7 +77,7 @@ a,
 
 .form-control {
 	background: #FFF;
-	border: 0 !important;
+	// border: 0 !important;
 }
 
 /* Custom button style
@@ -106,6 +106,10 @@ a,
 	border: 2px solid #19B5FE;
 	outline: inherit !important; 
 	color: #FFF;	
+}
+
+.modal-footer .btn {
+	color: black;
 }
 
 /* Typography

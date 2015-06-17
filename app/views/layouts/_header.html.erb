@@ -13,12 +13,13 @@
       				<% if user_signed_in? %>
 						<li><%= link_to "Dashboard", dashboard_path %></li>
 						<li><%= link_to "Manage Tours", tours_path %></li>
+						<li><%= link_to "My Leads", leads_path %></li>
 						<li id="fat-menu" class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	                		  Account <b class="caret"></b>
 	              			</a>
 	              			<ul class="dropdown-menu">
-	                			<li><%= link_to "Edit Profile", profile_path %></li>
+	                			<li><%= link_to "Profile & Settings", profile_path %></li>
 	                			<li><%= link_to "Password & Billing", edit_user_registration_path, :'data-no-turbolink' => "true"  %></li>
 				                <li>
 				                  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
@@ -37,6 +38,7 @@
 	              				<li><%= link_to "Sample Theme: Slider", sample2_path, target: "_blank" %></li>
 				            </ul>
 			            </li>
+			            <!-- <li><%  link_to "Blog", "/blog" %></li> -->
 						<li><%= link_to "Sign Up", new_user_registration_path, :'data-no-turbolink' => "true" %></li>
 						<li><%= link_to "Sign In", new_user_session_path %></li>
 					<% end %>

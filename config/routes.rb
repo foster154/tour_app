@@ -16,6 +16,8 @@ TourApp::Application.routes.draw do
     collection { post :sort }  # from railscasts #147... not sure if I need this
   end
 
+  resources :leads, only: [:create, :index]
+
   root :to => 'static_pages#home' 
 
   # Sales Pages
@@ -25,6 +27,11 @@ TourApp::Application.routes.draw do
   match '/home',      to: 'static_pages#home' ,     via: 'get'
   match '/sample1',    to: 'tours#sample_tour1',     via: 'get'
   match '/sample2',    to: 'tours#sample_tour2',     via: 'get'
+
+  # Blog
+  namespace :blog do
+    resources :articles, path: '', only: [:index, :show]
+  end
 
   # App
   match '/signin',    to: 'sessions#new',         via: 'get'

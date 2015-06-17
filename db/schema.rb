@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310043550) do
+ActiveRecord::Schema.define(version: 20150615130422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 20150310043550) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "leads", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "tour_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "contact_info"
+    t.boolean  "schedule_showing"
+    t.boolean  "get_more_info"
+    t.boolean  "send_list"
+  end
+
+  add_index "leads", ["user_id"], name: "index_leads_on_user_id", using: :btree
 
   create_table "photos", force: true do |t|
     t.integer  "tour_id",                             null: false
@@ -66,10 +80,12 @@ ActiveRecord::Schema.define(version: 20150310043550) do
     t.datetime "updated_at"
     t.float    "latitude"
     t.float    "longitude"
-    t.boolean  "autoplay_music",  default: true,  null: false
+    t.boolean  "autoplay_music",         default: true,  null: false
     t.integer  "music_selection"
-    t.integer  "theme",           default: 1,     null: false
-    t.boolean  "inactive",        default: false, null: false
+    t.integer  "theme",                  default: 1,     null: false
+    t.boolean  "inactive",               default: false, null: false
+    t.boolean  "scheduler",              default: true
+    t.boolean  "scheduler_auto_display", default: true
   end
 
   add_index "tours", ["user_id", "created_at"], name: "index_tours_on_user_id_and_created_at", using: :btree
@@ -101,6 +117,7 @@ ActiveRecord::Schema.define(version: 20150310043550) do
     t.string   "user_image_content_type"
     t.integer  "user_image_file_size"
     t.datetime "user_image_updated_at"
+    t.boolean  "email_scheduler_leads",               default: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

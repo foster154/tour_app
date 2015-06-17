@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :tours, dependent: :destroy
+  has_many :leads
 
   has_attached_file :user_image, :styles => { :square => "150x150#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :user_image, :content_type => /\Aimage\/.*\Z/

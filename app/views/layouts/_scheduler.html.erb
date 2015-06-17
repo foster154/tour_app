@@ -1,0 +1,72 @@
+<div class="schedule-btn" data-toggle="modal" data-target="#scheduleShowingModal">
+
+		<i class="fa fa-calendar"></i>
+
+		<p>Schedule a<br>Showing</p>
+
+</div>
+
+
+<!-- ========= 'Schedule a Showing' Modal =========== -->
+<div id="scheduleShowingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a class="close" data-dismiss="modal">&#215;</a>
+          <h2 class="modal-title">Schedule & Learn More</h2>
+        </div>
+        <div class="modal-body">
+        Homes in this area are going fast! Schedule a showing or learn more about this home (and others like it) before it disappears. 
+        <br><br>
+          <div class="lead-form">
+            <%= bootstrap_form_for(@lead, layout: :horizontal) do |f| %>
+            	
+              <%= f.hidden_field :user_id, value: @tour.user.id %>
+              <%= f.hidden_field :tour_id, value: @tour.id %>
+              
+              <div class="row">
+                <div class="col-sm-6">
+            	    <%= f.text_field :name, hide_label: true, placeholder: "Name", label_col: "col-xs-0", control_col: "col-xs-12" %>
+                </div>
+                <div class="col-sm-6">
+            	    <%= f.text_field :contact_info, hide_label: true, placeholder: "Email/Phone", label_col: "col-xs-0", control_col: "col-xs-12" %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <%= f.check_box :schedule_showing, label: "I want to schedule a showing" %>
+                  <%= f.check_box :get_more_info, label: "Send me more info about this home" %>
+                  <%= f.check_box :send_list, label: "Send me a list of similar homes" %>
+                </div>
+              </div>
+              <div class="scheduler-submit-btn">
+            	 <%= f.submit "Submit", class: "btn btn-large btn-info", :'data-no-turbolink' => "true" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-xsmall btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div> <!-- / .modal-content -->
+    </div> <!-- / .modal-dialog -->
+</div>  <!-- ========= / 'Schedule a Showing' Modal =========== -->
+
+<% if @tour.scheduler? && @tour.scheduler_auto_display? %>
+
+<!-- Scheduler Auto Display -->
+<script>
+  $(document).ready(function() {
+    if ($.cookie('st_modal_shown') == null) {
+        $('.schedule-btn').hide();
+        $.cookie('st_modal_shown', 'yes', { expires: 7, path: '' });
+        setTimeout(function(){
+          $('.schedule-btn').show();
+          $('.schedule-btn').trigger('click');
+        }, 15000);
+    }
+  });
+</script>
+
+<% end %>

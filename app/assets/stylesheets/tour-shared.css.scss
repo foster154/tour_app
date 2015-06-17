@@ -1,0 +1,39 @@
+.schedule-btn {
+	position: fixed;
+	bottom: 0;
+	margin: 0 0 10px 10px;
+	background-color: white;
+	border: 3px solid #6d6d6d;
+	border-radius: 50%;
+	padding: 15px;
+	text-align: center;
+	z-index: 1000;
+	//wfont-weight: 500;
+	font: 500 16px/1.4 'Lato', sans-serif;
+	color: #6d6d6d;
+	cursor: pointer;
+	@media (max-width:767px){
+		font-size: .8em;
+		padding: 10px;
+	}
+}
+
+#scheduleShowingModal {
+	font: 500 16px/1.4 'Lato', sans-serif;
+	a {
+		color: #6d6d6d;
+	}
+}
+
+.lead-form {
+	width: 80%;
+	margin: 0 auto;
+	.form-group {
+		clear: both;
+	}
+}
+
+.scheduler-submit-btn {
+	margin-top: 20px;
+	text-align:center;
+}

@@ -1,5 +1,5 @@
-<% provide(:title, "Edit Profile") %>
-<h1>Edit Profile</h1>
+<% provide(:title, "Profile and Settings") %>
+<h1>Profile & Settings</h1>
 
 <div class="row">
   <div class="col-md-9 col-md-offset-2">
@@ -12,7 +12,7 @@
   <div class="col-md-4 col-md-offset-2
               col-sm-5
               col-xm-10 col-xs-offset-1">
-    <h3>Your Information:</h3>
+    <h2>Profile Information:</h2>
     <br />
     <%= bootstrap_form_for @user, layout: :horizontal do |f| %>
 
@@ -28,7 +28,19 @@
 
       <%= f.text_field :user_url, label: "Homepage/Website", layout: :default, type: :url, placeholder: "http://www.example.com" %>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <%= f.submit "Save changes", class: "btn btn-primary float-right" %>
+    <% end %>
+
+    <br><br>
+
+    <h2 class="mar-top30">Profile Image:</h2>
+    <p class="small grey">This can be your photo, logo, or a combination of the two. The preferred image dimensions are 120x120; your image will be scaled to fit within that size.</p>
+    <%= render partial: 'user_image' %>
+    <br /> 
+    <%= form_for @user, :html => { :multipart => true } do |f| %>
+      <%= f.file_field :user_image, class: 'upload-btn' %>
+      <br />
+      <%= f.submit "Upload Photo", class: "btn btn-primary" %>
     <% end %>
 
   </div>
@@ -44,15 +56,19 @@
 
   <div class="col-md-4 col-md-offset-1
               col-sm-5 col-sm-offset-1">
-    <h3>Profile Image:</h3>
-    <p class="small grey">This can be your photo, logo, or a combination of the two. The preferred image dimensions are 120x120; your image will be scaled to fit within that size.</p>
-    <%= render partial: 'user_image' %>
-    <br /> 
-    <%= form_for @user, :html => { :multipart => true } do |f| %>
-      <%= f.file_field :user_image, class: 'upload-btn' %>
-      <br />
-      <%= f.submit "Upload Photo", class: "btn btn-primary" %>
-    <% end %>
+
+    <h2>Settings</h2>
+
+      <%= bootstrap_form_for @user, layout: :horizontal do |f| %>
+
+        <%= f.check_box :email_scheduler_leads, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Email me with leads from the Scheduler widget" %>
+
+        <br>
+
+        <%= f.submit "Save changes", class: "btn btn-primary float-right" %>
+
+      <% end %>
+
 
   </div>
 </div>
