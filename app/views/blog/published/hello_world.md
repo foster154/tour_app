@@ -8,7 +8,7 @@ author: "Torsten Bühl"
 
 <!--more-->
 
-![Trail picture](/assets/photo-processing.jpg)
+![Trial picture](/assets/blog/club1.png)
 
 Ligula vestibulum sem, posuere ullamco. Mauris pede. Est malesuada, ullamcorper augue quam. Nunc laoreet. Eleifend euismod. Arcu quis, mollis in, ut sed.
 Iaculis a, quam odio. Odio massa et, integer wisi. Quam risus. Ac massa neque. 
