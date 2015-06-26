@@ -13,7 +13,22 @@
   				<li><%= @user.user_url %></li>
   			</ul>
 			<%= link_to "Edit Profile", profile_path, class: "btn btn-default btn-sm" %>
-      <br /><hr style="margin: 20px;" />
+      <br />
+
+      <% if @user.company.blank? || @user.phone.blank? %>
+
+        <div class="incomplete-profile">
+
+        <%= link_to profile_path do %>
+          <i class="fa fa-exclamation-triangle"></i><br>
+          Your profile is incomplete! Before publishing your first tour, click here to complete it.
+        <% end %>
+
+        </div>
+
+      <% end %>
+
+      <hr style="margin: 20px;" />
 
       <div class="feedback-blurb">
         <span>
