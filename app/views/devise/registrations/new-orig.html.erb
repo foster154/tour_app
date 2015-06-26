@@ -39,6 +39,38 @@
 
 		  <%= f.password_field :password_confirmation, autocomplete: "off", label: "Confirm Password", required: true %>
 
+		  <br /><hr />
+		  <h4><i class="fa fa-credit-card" style="margin-right: 10px;"></i>Payment Information</h4>
+		  <p>$12/month. Your subscription and access to Show & Tour will begin today. Cancel anytime. If you're not satisfied within the first 7 days, we're happy to provide a refund.</p>
+		  <br />
+
+		  	<div id="stripe_error" class="alert alert-error" style="display:none"></div>
+
+		  	<% if @user.stripe_token %>
+  				<p> Credit card has been provided. </p>
+			<% else %>
+			  <div class="field margin-top25">
+			    <%= label_tag :card_number, "Credit Card Number" %>
+			    <%= text_field_tag :card_number, nil, name: nil, class: "card-fields" %>
+			  </div>
+			  <div class="field margin-top25 clear">
+			    <%= label_tag :card_code, "Card Security Code (CVV)" %>
+			    <%= text_field_tag :card_code, nil, name: nil, size: 6, class: "card-fields" %>
+			  </div>
+			  <div class="field margin-top25 clear">
+			    <%= label_tag :card_month, "Card Expiration" %>
+			    <div class="card-fields">
+			    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+			    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+			    </div>
+			  </div>
+			  <div class="field margin-top25 clear">
+			    <% f.text_field :coupon, label: "Promotional Coupon (if any)" %>
+			  </div>
+			<% end %>
+
+			<%= f.hidden_field :stripe_token %>
+
 		  <br />
 		  <div class="span7 clear text-center">
 		  	<%= f.submit "Sign up", class: "btn btn-primary", :'data-no-turbolink' => "true" %>

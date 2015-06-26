@@ -4,6 +4,8 @@ class ToursController < ApplicationController
 	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded, :sample_tour1, :sample_tour2]
 	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
 	before_action :find_user, :only => [:index, :new]
+	before_action :check_for_tour_credit, only: [:create]
+	after_action :remove_tour_credit, only: [:create]
 
 	def index
 		@tours = @user.tours.page(params[:page]).per_page(20)
@@ -90,7 +92,7 @@ class ToursController < ApplicationController
 	end
 
 	def destroy
-		@tour.active = false
+		@tour.inactive = true
 		@tour.save
 		@tour.delay.destroy
 		flash[:success] = "'#{@tour.address}' tour has been deleted."
@@ -125,6 +127,20 @@ class ToursController < ApplicationController
 			else
 				render layout: 'tour-default/tour-default'
 			end
+    	end
+
+    	def check_for_tour_credit
+    		unless current_user.tour_available?
+    			flash[:danger] = 'No tour credits available. Purchase one below to proceed.'
+    			redirect_to dashboard_path
+    		end
+    	end
+
+    	def remove_tour_credit
+    		unless current_user.tours_unlimited
+    			current_user.tour_credits = current_user.tour_credits - 1
+    			current_user.save
+    		end
     	end
 
     	def tour_params

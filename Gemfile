@@ -33,7 +33,8 @@ gem 'paperclip', '4.1.1' # file attachment syntax and callbacks
 gem 's3_direct_upload', '0.1.7' # direct upload form helper and assets
 gem 'delayed_job_active_record', '4.0.1' # processing background jobs (photo processing, photo deleting)
 gem 'figaro', '0.7.0' # managing env and secret keys
-gem 'stripe', '1.14.0' # payment processing
+#gem 'stripe', '1.14.0' # payment processing
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby' # payment processing
 gem 'stripe_event', '1.3.0' # for Stripe webhooks
 gem 'font-awesome-rails' # adds font awesome icons
 gem 'redcarpet' # For the Markdown parsing (for blog)

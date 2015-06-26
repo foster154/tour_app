@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
       sign_in @user
-  		flash[:success] = "Welcome to TourApp!"
+  		flash[:success] = "Welcome to Show & Tour!"
   		redirect_to @user
   	else
   		render 'new'
@@ -63,6 +63,8 @@ class UsersController < ApplicationController
                                    :password, 
                                    :password_confirmation, 
                                    :user_image,
+                                   :tour_credits,
+                                   :tours_unlimited,
                                    :email_scheduler_leads)
   	end
 

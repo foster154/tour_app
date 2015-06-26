@@ -12,7 +12,7 @@
       			<ul class="nav navbar-nav navbar-right">
       				<% if user_signed_in? %>
 						<li><%= link_to "Dashboard", dashboard_path %></li>
-						<li><%= link_to "Manage Tours", tours_path %></li>
+						<li><%= link_to "My Tours", tours_path %></li>
 						<li><%= link_to "My Leads", leads_path %></li>
 						<li id="fat-menu" class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -20,7 +20,7 @@
 	              			</a>
 	              			<ul class="dropdown-menu">
 	                			<li><%= link_to "Profile & Settings", profile_path %></li>
-	                			<li><%= link_to "Password & Billing", edit_user_registration_path, :'data-no-turbolink' => "true"  %></li>
+	                			<li><%= link_to "Change Password", edit_user_registration_path, :'data-no-turbolink' => "true"  %></li>
 				                <li>
 				                  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 				                </li>

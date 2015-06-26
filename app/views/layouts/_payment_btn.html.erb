@@ -1,0 +1,9 @@
+<%= form_tag charges_path do %>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+  data-description="Virtual Tour"
+  data-name="Show & Tour"
+  data-image="/blog-images/logo-128x128.png"
+  data-email="<%= current_user.email %>"
+  data-amount="1200"></script>
+<% end %>

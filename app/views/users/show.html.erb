@@ -31,10 +31,23 @@
 
       <!-- ===== CREATE NEW TOUR ===== -->
       <div class="col-sm-3 col-xs-6">
-        <%= link_to new_tour_path, class: "btn btn-default dashboard-btn", :'data-no-turbolink' => "true" do %>
-          <i class="glyphicon-lg glyphicon glyphicon-plus-sign"></i>
-          <br /><br />
-          Create New Tour
+        <% if @user.tour_available? %>
+        
+          <%= link_to new_tour_path, class: "btn btn-default dashboard-btn", :'data-no-turbolink' => "true" do %>
+            <i class="glyphicon-lg glyphicon glyphicon-plus-sign"></i>
+            <br /><br />
+            Create New Tour
+          <% end %>
+
+        <% else %>
+
+          <div class="purchase-tour-btn dashboard-btn">
+            To create a new tour:
+            <div class="mar-top30">            
+              <%= render "layouts/payment_btn" %>
+            </div>
+          </div>
+
         <% end %>
       </div>
 
@@ -43,7 +56,7 @@
         <%= link_to tours_path, class: "btn btn-default dashboard-btn" do %>
           <i class="glyphicon-lg glyphicon glyphicon-home"></i>
           <br /><br />
-          Manage Tours
+          My Tours
         <% end %>
       </div>
 
@@ -91,7 +104,13 @@
         </div>
         <%= link_to "All Tours ->", tours_path %>
         <% else %>
-        <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id), :'data-no-turbolink' => "true" %></h1>
+        <h1 class="no_tours_found">
+          No tours found!
+          <% if @user.tour_available? %>
+            <%= link_to "Create one.", new_tour_path(user_id: @user.id), :'data-no-turbolink' => "true" %></h1>
+          <% else %>
+            <%= link_to "Purchase a new tour", "#", :'data-no-turbolink' => "true" %></h1>
+          <% end %>
         <% end %>
     </div> <!-- / .dashboard-tours -->
 

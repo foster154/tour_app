@@ -18,6 +18,8 @@ TourApp::Application.routes.draw do
 
   resources :leads, only: [:create, :index]
 
+  resources :charges
+
   root :to => 'static_pages#home' 
 
   # Sales Pages

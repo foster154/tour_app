@@ -1,8 +1,17 @@
-<% provide(:title, 'Manage Tours') %>
+<% provide(:title, 'My Tours') %>
 <div class="container">
 	<div class="dashboard-tours">
-	    <h1 class="tours_title">Manage Tours</h1>
-        <%= link_to "Create New Tour", new_tour_path(user_id: @user.id), class: "btn btn-primary btn-lg float-right", :'data-no-turbolink' => "true" %>
+	    <h1 class="tours_title">My Tours</h1>
+        <% if @user.tour_available? %>
+            <%= link_to "Create New Tour", new_tour_path(user_id: @user.id), class: "btn btn-primary btn-lg float-right", :'data-no-turbolink' => "true" %>
+        <% else %>
+            <div class="float-right">
+                To create a new tour:
+                <div class="mar-top10 mar-bot20">            
+                  <%= render "layouts/payment_btn" %>
+                </div>
+            </div>
+        <% end %>
         <% if @user.tours.any? %>
         <div class="table-responsive">
             <table class="tours table">
@@ -24,7 +33,11 @@
         </div>
         <%= will_paginate @tours, renderer: BootstrapPagination::Rails %>
         <% else %>
-        <h1 class="no_tours_found"> No tours found! <%= link_to "Create one.", new_tour_path(user_id: @user.id), :'data-no-turbolink' => "true" %></h1>
+        <h1 class="no_tours_found"> 
+            No tours found! 
+            <% if @user.tour_available? %>
+                <%= link_to "Create one.", new_tour_path(user_id: @user.id), :'data-no-turbolink' => "true" %></h1>
+            <% end %>
         <% end %>
 	</div>
 </div>
