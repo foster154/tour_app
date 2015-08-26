@@ -7,11 +7,11 @@
 	<div id="hero">
 		<div class="container">
 			<h1 class="hero-text animated fadeInDown">
-				Online Virtual Tours <br /> for Real Estate
+				Real Estate Virtual Tours... <br>
+				<span>Market your listings, generate leads.<span>
 			</h1>
 			<h2 class="sub-text animated fadeInDown">
-				Create beautiful online virtual tours to
-				showcase your<br /> real estate listings.
+				Beautiful, elegant, and powerful. Get started for free.
 			</h2>
 			<div class="cta animated fadeInDown">
 				<a href="features.html" class="button-outline">Learn More</a>
@@ -25,54 +25,23 @@
 		<div class="container">
 			<div class="row header">
 				<div class="col-md-12">
-					<h2>Use better tools, get more listings.</h2>
-					<p>Create lasting impressions with fresh, modern, and cutting-edge virtual tours.</p>
+					<h2>Sell homes this month, while preparing your pipeline for next month.</h2>
+					<p>Use fresh, modern, and cutting-edge virtual tours to help market homes and generate leads.</p>
 				</div>
 			</div>
 			<div class="row feature">
 				<div class="col-md-6 info">
-					<h4>A place on the web to showcase every aspect of your real estate listing.</h4>
-					<p>
-						Cookie-cutter tours no more! Instead, choose fresh and elegant design, mobile friendly features, and high-resolution photos. Virtual tours to help you gain leads, attract clients, and find buyers.
-					</p>
+					<h4 class="mar-top30">Beautiful, elegant, and value packed...<br>including effective lead capture tools.</h4>
 				</div>
-				<div class="col-md-6 image">
-					<%= image_tag("home/agent-with-computer.jpg", class: "img-responsive", alt: "Show and Tour Real Estate Agent") %>
+				<div class="col-md-6 info">
+					<%= link_to sample2_path, target: "_blank" do %>
+					<%= image_tag "sample-tour.jpg" %>
+					<div class="sample-tour-subtext">See a Sample Tour ></div>
+					<% end %>
 				</div>
 			</div>
 		</div>		
 	</div>
-
-<!-- 	<div id="slider">
-		<div class="container">
-			<div class="row header">
-				<h3>Includes all pages that a complete theme should have</h3>
-			</div>
-			<div class="row">
-				<div class="col-md-12 slide-wrapper">
-					<div class="slideshow">
-						<div class="btn-nav prev"></div>
-						<div class="btn-nav next"></div>
-						<div class="slide active">
-							<img src="images/slider/slide3.png" alt="slide" />
-						</div>
-						<div class="slide">
-							<img src="images/slider/slide4.png" alt="slide" />
-						</div>
-						<div class="slide">
-							<img src="images/slider/slide1.png" alt="slide" />
-						</div>
-						<div class="slide">
-							<img src="images/slider/slide5.png" alt="slide" />
-						</div>
-						<div class="slide">
-							<img src="images/slider/slide2.png" alt="slide" />
-						</div>
-					</div>
-				</div>	
-			</div>
-		</div>
-	</div> -->
 
 	<div id="features">
 	<div id="second-option" class="front-page-features">
@@ -115,20 +84,14 @@
 	</div>
 	</div>
 
-	<div class="container">
-			<div class="row center">
-				<a class="button-clear" href="features.html">
-							<span>Learn More</span></a>
-				<%= link_to "Sign Up for Free", new_user_registration_path, class: "button", :'data-no-turbolink' => "true" %>
-			</div>
-		</div>
+
 
 	<div id="pricing">
 		<div class="container">
 			<div class="row header">
 				<div class="col-md-12">
 					<h3>Your first tour is FREE!</h3>
-					<h4 style="color: white;">Then, it's just $12/tour. No monthly charges, no extra fees.</h4>
+					<h4 style="color: white;">Then, just $12/tour. No monthly charges, no extra fees.</h4>
 					<br>
 					<a class="button-clear" href="features.html"><span>Learn More</span></a>
 					<%= link_to "Sign Up for Free", new_user_registration_path, class: "button", :'data-no-turbolink' => "true" %>

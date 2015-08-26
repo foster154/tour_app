@@ -708,21 +708,31 @@ a:focus, button:focus {
     z-index: 33; }
   #home #hero .hero-text {
     font-family: "Lato", "Helvetica Neue", Arial;
-    line-height: 52px;
+    line-height: 63px;
     text-align: left;
-    font-size: 37px;
+    font-size: 45px;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: .4px;
     color: #FFF;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    -webkit-animation-duration: 1s; }
+    -webkit-animation-duration: 1s; 
+    span {
+      font-size: 32px;
+    }
+  }
+
     @media (max-width: 767px) {
       #home #hero h1.hero-text {
         font-size: 25px;
         line-height: 38px;
         margin-top: 0;
-        text-align: center; } }
+        text-align: center;
+        span {
+          font-size: 25px;
+        }
+      } 
+    }
   #home #hero .sub-text {
     -webkit-font-smoothing: antialiased;
     width: 50%;
@@ -762,11 +772,11 @@ a:focus, button:focus {
           margin: 0px 15px 15px 0px; } }
   #home #hero .img {
     position: absolute;
-    top: 15px;
-    left: 625px;
-    width: 570px;
-    height: 333px;
-    background-image: image-url('home/macbook-screenshot.png');
+    top: 0px;
+    left: 484px;
+    width: 627px;
+    height: 431px;
+    background-image: image-url('home/happy-agent-nobg.png');
     background-repeat: no-repeat; }
     @media (max-width: 991px) {
       #home #hero .img {
@@ -809,7 +819,8 @@ a:focus, button:focus {
       font-weight: normal;
       font-size: 19px;
       line-height: 25px;
-      margin-top: 35px; }
+      margin-top: 72px;
+      text-align:center; }
       @media (max-width: 991px) {
         #home #features .feature .info h4 {
           text-align: center; } }

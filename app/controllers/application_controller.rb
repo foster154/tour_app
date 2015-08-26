@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation, :stripe_token, :coupon) }
   end
 
+  # def blog
+  #   redirect_to "https://brandfolder.com/blog#{request.fullpath.gsub('/blog','')}", :status => :moved_permanently
+  # end
+
 end

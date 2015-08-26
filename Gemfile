@@ -39,6 +39,7 @@ gem 'stripe_event', '1.3.0' # for Stripe webhooks
 gem 'font-awesome-rails' # adds font awesome icons
 gem 'redcarpet' # For the Markdown parsing (for blog)
 gem 'pygments.rb' # Syntax highlighting (for blog)
+gem 'rack-reverse-proxy', :require => 'rack/reverse_proxy' # for using Wordpress blog
 
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
