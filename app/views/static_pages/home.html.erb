@@ -17,7 +17,7 @@
 				<a href="features.html" class="button-outline">Learn More</a>
 				<%= link_to "Sign Up for Free", new_user_registration_path, class: "button", :'data-no-turbolink' => "true" %>
 			</div>
-			<div class="img"></div>
+			<div class="img animated fadeInDown"></div>
 		</div>
 	</div>
 
@@ -29,17 +29,30 @@
 					<p>Use fresh, modern, and cutting-edge virtual tours to help market homes and generate leads.</p>
 				</div>
 			</div>
+
+			<!-- Sample Tours -->
 			<div class="row feature">
-				<div class="col-md-6 info">
-					<h4 class="mar-top30">Beautiful, elegant, and value packed...<br>including effective lead capture tools.</h4>
+				<div class="col-sm-4 info">
+					<%= link_to sample2_path, target: "_blank" do %>
+					<%= image_tag "sample-tour.jpg" %>
+					<div class="sample-tour-subtext">See a Sample Tour ></div>
+					<% end %>
 				</div>
-				<div class="col-md-6 info">
+				<div class="col-sm-4 info">
+					<%= link_to sample2_path, target: "_blank" do %>
+					<%= image_tag "sample-tour.jpg" %>
+					<div class="sample-tour-subtext">See a Sample Tour ></div>
+					<% end %>
+				</div>
+				<div class="col-sm-4 info">
 					<%= link_to sample2_path, target: "_blank" do %>
 					<%= image_tag "sample-tour.jpg" %>
 					<div class="sample-tour-subtext">See a Sample Tour ></div>
 					<% end %>
 				</div>
 			</div>
+			<!-- end of Sample Tours -->
+			
 		</div>		
 	</div>
 

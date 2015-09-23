@@ -298,7 +298,9 @@ p {
     text-align: left;
  }
 
-/* header */
+/* ---------------------------------------------- /*
+ * HEADER & NAV
+/* ---------------------------------------------- */
 
 #logo {
   float: left;
@@ -314,6 +316,23 @@ p {
     color: #fff;
     text-decoration: none;
   }
+}
+
+.navbar-logo {
+  margin: -15px 15px 0 0;
+  float: left;
+}
+
+.navbar.white .navbar-collapse .navbar-nav > li > a.btn.btn-nav {
+  padding: 8px 10px;
+  color: #fff;
+  font-weight: 600;
+  margin-right: 12px;
+  background-color: #4589E3;
+}
+
+.navbar.white .navbar-collapse .navbar-nav > li > a.btn.btn-nav:hover {
+  background-color: #3e7ac9;
 }
 
 /* sidebar */

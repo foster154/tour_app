@@ -174,13 +174,18 @@ h4 { font-size: 18px; }
 	color: #FFF;
 }
 
+.intro {
+	background-size: cover;
+	height: 100vh;
+}
+
 .i_header, .i_cicle, .i_footer {
 	margin: 35px 0;
 }
 
 .i_header {
 	font-size: 20px;
-	margin: 0 0 25px;
+	margin: 50px 0 25px 0
 }
 
 .i_cicle {
@@ -190,6 +195,10 @@ h4 { font-size: 18px; }
 
 .logo {
 	margin: 0 0 25px;
+}
+
+.price {
+	
 }
 
 .sound-area {

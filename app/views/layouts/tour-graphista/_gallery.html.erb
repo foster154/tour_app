@@ -1,27 +1,124 @@
-<div id="gallery-wrapper">
-	<div id="bannerscollection_zoominout_generous">
-		<div class="myloader"></div>
-	    <!-- CONTENT -->
-	    <ul class="bannerscollection_zoominout_list">
-	    <% @photos.each do | photo | %>	
-	    	<li data-initialZoom="1" data-finalZoom="0.74" data-text-id="#bannerscollection_zoominout_photoText<%= photo.id %>" data-bottom-thumb="<%= photo.upload.url(:thumb).to_s %>" ><img src="<%= photo.upload.url(:slider).to_s %>" alt="" width="1280" height="960" /></li>
-	    <% end %>
+<div class="rev_slider_wrapper">
+				
+	<div id="st_rev_slider" class="rev_slider" data-version="5.0">
+		<ul>
+			<% @photos.each do | photo | %>
+				<!-- SLIDE  -->
+				<li data-transition="scaledownfromleft" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="<%= photo.upload.url(:thumb).to_s %>" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="" data-param1="" data-param2="" data-description="">
+					<!-- MAIN IMAGE -->
+					<img src="<%= photo.upload.url(:slider).to_s %>"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+				</li>
+			<% end %>
 		</ul>
-		       
-		<!-- TEXTS -->
-		<% @photos.each do | photo | %>	
-			<% if photo.label? %>
-				<div id="bannerscollection_zoominout_photoText<%= photo.id %>" class="bannerscollection_zoominout_texts"> 
-			   		<div class="bannerscollection_zoominout_text_line textElement12_generous"
-			        data-final-left="50" 
-			        data-final-top="50" 
-			        data-duration="0.5" 
-			        data-fade-start="0">
-			        <%= photo.label.to_s %>
-			        </div>
-				</div>
-		    <% end %>
-		<% end %>
-		
-	</div>
-</div>
+		<div class="tp-bannertimer tp-bottom" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>	
+	</div><!-- /#st_rev_slider -->
+</div><!-- /#rev_slider_wrapper -->	
+<script type="text/javascript">
+						var tpj=jQuery;
+			
+					var revapi2;
+					tpj(document).ready(function() {
+						if(tpj("#st_rev_slider").revolution == undefined){
+							revslider_showDoubleJqueryError("#st_rev_slider");
+						}else{
+							revapi2 = tpj("#st_rev_slider").show().revolution({
+								sliderType:"carousel",
+								jsFileLocation:"../../revolution/js/",
+								sliderLayout:"fullscreen",
+								dottedOverlay:"none",
+								delay:7000,
+								navigation: {
+									keyboardNavigation:"off",
+									keyboard_direction: "horizontal",
+									mouseScrollNavigation:"off",
+									onHoverStop:"off",
+                  arrows: {
+                      style: "hades",
+                      enable: true,
+                      hide_onmobile: false,
+                      hide_onleave: true,
+                      tmp: '<div class="tp-arr-allwrapper">	<div class="tp-arr-imgholder"></div></div>',
+                      left: {
+                          h_align: "left",
+                          v_align: "center",
+                          h_offset: 10,
+                          v_offset: 0
+                      },
+                      right: {
+                          h_align: "right",
+                          v_align: "center",
+                          h_offset: 10,
+                          v_offset: 0
+                      }
+                  }
+									,
+									thumbnails: {
+										style:"gyges",
+										enable:true,
+										width:60,
+										height:60,
+										min_width:60,
+										wrapper_padding:0,
+										wrapper_color:"transparent",
+										wrapper_opacity:"1",
+										tmp:'<span class="tp-thumb-img-wrap">  <span class="tp-thumb-image"></span></span>',
+										visibleAmount:5,
+										hide_onmobile:true,
+										hide_under:800,
+										hide_onleave:false,
+										direction:"horizontal",
+										span:false,
+										position:"inner",
+										space:5,
+										h_align:"center",
+										v_align:"bottom",
+										h_offset:0,
+										v_offset:20
+									}
+								},
+								carousel: {
+									horizontal_align: "center",
+									vertical_align: "center",
+									fadeout: "off",
+									maxVisibleItems: 3,
+									infinity: "on",
+									space: 0,
+									stretch: "on"
+								},
+								viewPort: {
+									enable:true,
+									outof:"pause",
+									visible_area:"80%"
+								},
+								responsiveLevels:[1240,1024,778,480],
+								gridwidth:[1240,1024,778,480],
+								gridheight:[600,600,500,400],
+								lazyType:"smart",
+								parallax: {
+									type:"mouse",
+									origo:"slidercenter",
+									speed:2000,
+									levels:[2,3,4,5,6,7,12,16,10,50],
+								},
+								shadow:5,
+								spinner:"off",
+								stopLoop:"off",
+								stopAfterLoops:-1,
+								stopAtSlide:-1,
+								shuffle:"off",
+								autoHeight:"off",
+								hideThumbsOnMobile:"on",
+								hideSliderAtLimit:0,
+								hideCaptionAtLimit:0,
+								hideAllCaptionAtLilmit:0,
+								debugMode:false,
+								fallbacks: {
+									simplifyAll:"off",
+									nextSlideOnWindowFocus:"off",
+									disableFocusListener:false,
+								}
+							});
+						}
+					});	/*ready*/
+				</script>		
+	

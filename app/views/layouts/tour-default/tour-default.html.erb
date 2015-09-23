@@ -60,9 +60,6 @@
 
 	<!-- Make Background Photo available to JS -->
 	<div id="bg_photo_url" data-url="<%= @bg_photo.upload.url(:slider).to_s %>"></div>
-	<!-- <div id="bg_photo_url" data-url="<%= @tour.photos[0].upload.url(:slider).to_s %>"></div> -->
-
-
 
 	<% if @tour.autoplay_music == true %>
 	<!-- Tour Music -->
@@ -79,11 +76,6 @@
 	        <span>Music</span>
 	    </div>
 	<% end %>
-
-
-
-
-
 
 	<!-- Intro section start -->
 
@@ -107,7 +99,7 @@
 							</h3>
 						</div>
 						<br />
-						<p>~ <%= number_to_currency(@tour.price, precision: 0) %> ~</p>
+						<h3 class="subhead">~ <%= number_to_currency(@tour.price, precision: 0) %> ~</h3>
 					</div>
 				</div>
 			</div>

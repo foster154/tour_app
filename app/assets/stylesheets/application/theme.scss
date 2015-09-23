@@ -772,11 +772,12 @@ a:focus, button:focus {
           margin: 0px 15px 15px 0px; } }
   #home #hero .img {
     position: absolute;
-    top: 0px;
-    left: 484px;
-    width: 627px;
-    height: 431px;
-    background-image: image-url('home/happy-agent-nobg.png');
+    top: -117px;
+    left: 633px;
+    width: 600px;
+    height: 600px;
+    //background-image: image-url('home/imac-screenshot.png');
+    background-image: url(image-path('home/imac-screenshot.png'));
     background-repeat: no-repeat; }
     @media (max-width: 991px) {
       #home #hero .img {
