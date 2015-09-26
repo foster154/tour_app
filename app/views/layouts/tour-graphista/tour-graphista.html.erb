@@ -62,21 +62,27 @@
     <div id="bg_photo_url" data-url="<%= @bg_photo.upload.url(:slider).to_s %>"></div>
     
 
-<% if @tour.autoplay_music == true %>
-<!-- Tour Music -->
-  <div class="sound-area">
-      <audio autoplay="true" loop>
-          <source src="http://www.panoractives.com/sound/stay-17.mp3" />
-          <source src="http://www.panoractives.com/sound/stay-17.ogg" />
-          <source src="http://www.panoractives.com/sound/stay-17.swf" />
-      </audio>
-      <div class="sound-icon">
-          <i class="glyphicon glyphicon-pause" id="sound-on" onclick='audio_pause()' style="display:block;"></i>
-          <i class="glyphicon glyphicon-play" id="sound-off" onclick='audio_play()'></i>
+  <% if @tour.autoplay_music == true %>
+  <!-- Tour Music -->
+    <audio autoplay="true" loop>
+      <source src="<%= asset_path "music/stay-17.mp3" %>" />
+      <source src="<%= asset_path "music/stay-17.ogg" %>" />
+      <source src="<%= asset_path "music/stay-17.swf" %>" />
+    </audio>
+      <div class="sound-area" id="sound-on" onclick='audio_pause()' style="display:block;">
+          <div class="sound-icon">
+              <i class="glyphicon glyphicon-pause"></i>
+          </div>
+          <span>Music</span>
       </div>
-      <span>Music</span>
-  </div>
-<% end %>
+
+      <div class="sound-area" id="sound-off" onclick='audio_play()' style="display:none;">
+          <div class="sound-icon">
+              <i class="glyphicon glyphicon-play"></i>
+          </div>
+          <span>Music</span>
+      </div>
+  <% end %>
 
 
 <% if @branded == true && @tour.scheduler == true %>

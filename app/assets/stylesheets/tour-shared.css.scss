@@ -1,3 +1,29 @@
+.sound-area {
+    font-family: "Lato";
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    width: 60px;
+    line-height: 1.3;
+    border-radius: 10px 10px 0 0;
+    z-index: 5000;
+    i {
+        color: white;
+        margin-top: 10px;
+    }
+    span {
+        padding-bottom: 10px;
+        line-height: 2;
+        color: white;
+    }
+    #sound-off {
+        display: none;
+    }
+}
+
 .schedule-btn {
 	position: fixed;
 	bottom: 0;
@@ -8,7 +34,6 @@
 	padding: 15px;
 	text-align: center;
 	z-index: 1000;
-	//wfont-weight: 500;
 	font: 500 16px/1.4 'Lato', sans-serif;
 	color: #6d6d6d;
 	cursor: pointer;
