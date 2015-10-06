@@ -1,6 +1,6 @@
 TourApp::Application.routes.draw do
   mount StripeEvent::Engine => '/stripe'
-  devise_for :users, :controllers => { :registrations => 'registrations' }
+  devise_for :users, :controllers => { :registrations => 'users/registrations' }
   devise_scope :user do
     put 'update_card', :to => 'registrations#update_card'
   end

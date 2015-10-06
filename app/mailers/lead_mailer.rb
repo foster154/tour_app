@@ -7,6 +7,6 @@ class LeadMailer < ActionMailer::Base
     	mail to: lead.tour.user.email, cc: "info@showandtour.com", subject: "New Lead from Show & Tour"
     else
     	mail to: lead.tour.user.email, cc: "info@showandtour.com", subject: "(DEV) New Lead from Show & Tour"
-	end
+		end
   end
 end
