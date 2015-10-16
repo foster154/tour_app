@@ -30,18 +30,10 @@ TourApp::Application.routes.draw do
   match '/sample1',    to: 'tours#sample_tour1',     via: 'get'
   match '/sample2',    to: 'tours#sample_tour2',     via: 'get'
 
-  # Blog OLD
-  # namespace :blog do
-  #   resources :articles, path: '', only: [:index, :show]
-  # end
-
-
-  # Blog NEW
-  # constraints Constraints::CustomSubdomain do
-  #   get '(*path)' => 'application#blog', :constraints => {subdomain: 'blog'}
-  # end
-
-  #get '/blog' => redirect("https://www.showandtour.com/blog/")
+  # Blog
+  namespace :blog do
+    resources :articles, path: '', only: [:index, :show]
+  end
 
   # App
   match '/signin',    to: 'sessions#new',         via: 'get'
