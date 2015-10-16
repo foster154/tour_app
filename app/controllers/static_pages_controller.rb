@@ -5,6 +5,12 @@ class StaticPagesController < ApplicationController
   def features
   end
 
+  def about
+  end
+
+  def contact
+  end
+
   def coming_soon
   	render layout: 'coming_soon'
   end

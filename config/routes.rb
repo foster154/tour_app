@@ -23,12 +23,14 @@ TourApp::Application.routes.draw do
   root :to => 'static_pages#home' 
 
   # Sales Pages
+  match '/home',      to: 'static_pages#home' ,     via: 'get'
   match '/features',  to: 'static_pages#features',  via: 'get'
+  match '/about',     to: 'static_pages#about',     via: 'get'
+  match '/contact',   to: 'static_pages#contact',     via: 'get'
   match '/survey',    to: 'static_pages#survey',    via: 'get'
   match '/signup',    to: 'users#new',              via: 'get'
-  match '/home',      to: 'static_pages#home' ,     via: 'get'
-  match '/sample1',    to: 'tours#sample_tour1',     via: 'get'
-  match '/sample2',    to: 'tours#sample_tour2',     via: 'get'
+  match '/sample1',   to: 'tours#sample_tour1',     via: 'get'
+  match '/sample2',   to: 'tours#sample_tour2',     via: 'get'
 
   # Blog
   namespace :blog do

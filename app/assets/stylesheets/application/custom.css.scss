@@ -39,6 +39,12 @@ textarea {
   }
 }
 
+.center-img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 .float-right {
   float: right;
 }
@@ -182,8 +188,11 @@ h2 {
 
 p {
   font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   line-height: 1.7em;
+  margin: 0 0 20px 0;
+  color: #545454;
+  font-weight: 300;
 }
 
 .grey {
@@ -265,6 +274,11 @@ p {
 
 .btn-spacer {
   margin-top: 5px;
+}
+
+a.contact {
+  display: block;
+  margin: 30px auto;
 }
 
 /* Flash Messages */
