@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619202625) do
+ActiveRecord::Schema.define(version: 20151021031019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agents", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "company"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "website"
+    t.string   "agent_image_file_name"
+    t.string   "agent_image_content_type"
+    t.integer  "agent_image_file_size"
+    t.datetime "agent_image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "agents", ["user_id"], name: "index_agents_on_user_id", using: :btree
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false

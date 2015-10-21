@@ -1,4 +1,6 @@
 TourApp::Application.routes.draw do
+  resources :agents
+
   mount StripeEvent::Engine => '/stripe'
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   devise_scope :user do
