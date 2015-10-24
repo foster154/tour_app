@@ -3,6 +3,7 @@ class Tour < ActiveRecord::Base
 	has_many :photos, :inverse_of => :tour, dependent: :destroy # Added 'inverse_of' on 4/29, from Hasnan Tut
 	accepts_nested_attributes_for :photos, allow_destroy: true # Added on 4/29, from Hasnan Tut for multi-photo uploads
 	has_many :leads
+	has_one :agent
 	
 	geocoded_by :address
 	after_validation :geocode

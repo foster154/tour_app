@@ -1,12 +1,11 @@
 <% provide(:title, 'My Leads') %>
+
 <div class="container-fluid">
     <h1 class="tours_title">My Leads</h1>
     <br>
-
     <p class="center mar-bot20">These are individuals who have submitted the "Schedule a Showing" form on one of your tours.</p>
-	<div class="leads-table">
 
-        <% if @user.leads.any? %>
+    <% if @user.leads.any? %>
         <div class="table-responsive">
             <table class="tours table">
                 <thead>
@@ -27,8 +26,7 @@
             </table>
         </div>
         <%= will_paginate @leads, renderer: BootstrapPagination::Rails %>
-        <% else %>
-        <h1> No leads found!</h1>
-        <% end %>
-	</div>
+    <% else %>
+        <h2> No leads found!</h2>
+    <% end %>
 </div>

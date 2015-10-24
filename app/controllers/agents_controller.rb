@@ -1,10 +1,13 @@
 class AgentsController < ApplicationController
   before_action :set_agent, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :create, :edit]
 
   # GET /agents
   # GET /agents.json
   def index
-    @agents = Agent.all
+    @user = User.find(current_user.id)
+    @agents = @user.agents.page(params[:page]).per_page(20)
+    @agent = Agent.new #this will need to change to account for editing!
   end
 
   # GET /agents/1
@@ -13,9 +16,9 @@ class AgentsController < ApplicationController
   end
 
   # GET /agents/new
-  def new
-    @agent = Agent.new
-  end
+  # def new
+  #   @agent = Agent.new
+  # end
 
   # GET /agents/1/edit
   def edit
@@ -67,8 +70,12 @@ class AgentsController < ApplicationController
       @agent = Agent.find(params[:id])
     end
 
+    def set_user
+      @user = User.find(current_user.id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def agent_params
-      params.require(:agent).permit(:user_id, :name, :company, :phone, :email, :website)
+      params.require(:agent).permit(:user_id, :name, :company, :phone, :email, :website, :agent_image)
     end
 end

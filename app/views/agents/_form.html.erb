@@ -1,41 +1,33 @@
-<%= form_for(@agent) do |f| %>
-  <% if @agent.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
+<%= bootstrap_form_for(@agent, html: {"data-type" => :json, multipart: true}) do |f| %>
 
-      <ul>
-      <% @agent.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="clearfix">
+    <% if @agent.errors.any? %>
+      <div id="error_explanation">
+        <p><%= pluralize(@agent.errors.count, "error") %> prohibited this agent from being saved:</p>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+        <ul>
+        <% @agent.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.hidden_field :user_id, value: @user.id %>
+
+    <%= f.text_field :name, placeholder: "Name", hide_label: true %>
+
+    <%= f.text_field :company, placeholder: "Company/Brokerage", hide_label: true %>
+
+    <%= f.text_field :phone, placeholder: "Phone", hide_label: true %>
+
+    <%= f.text_field :email, placeholder: "Email", hide_label: true %>
+
+    <%= f.text_field :website, placeholder: "Website (http://www.example.com)", hide_label: true %>
+
+    <%= f.file_field :agent_image %>
+
+    <%= f.submit class: "btn btn-primary float-right", id: "modal_save_agent" %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :company %><br>
-    <%= f.text_field :company %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :website %><br>
-    <%= f.text_field :website %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

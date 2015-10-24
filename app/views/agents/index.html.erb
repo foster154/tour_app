@@ -1,35 +1,53 @@
-<h1>Listing agents</h1>
+<% provide(:title, 'Manage Agents') %>
+<div class="container">
+  <h1>Manage Agents</h1>
+  <div data-toggle="modal" data-target="#newAgentModal" class="btn btn-primary float-right">New Agent</div>
+  <br>
+  <p class="center mar-bot20">Each virtual tour is associated with a real estate agent. <br>When you create a tour, you can select yourself as the agent, or someone from this list.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Name</th>
-      <th>Company</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Website</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% if @user.agents.any? %>
+    <table class="table table-striped agents-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Company</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Website</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @agents.each do |agent| %>
-      <tr>
-        <td><%= agent.user_id %></td>
-        <td><%= agent.name %></td>
-        <td><%= agent.company %></td>
-        <td><%= agent.phone %></td>
-        <td><%= agent.email %></td>
-        <td><%= agent.website %></td>
-        <td><%= link_to 'Show', agent %></td>
-        <td><%= link_to 'Edit', edit_agent_path(agent) %></td>
-        <td><%= link_to 'Destroy', agent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @agents.each do |agent| %>
+          <tr>
+            <td>
+              <% if agent.agent_image.present? %>
+                <%= image_tag agent.agent_image.url(:small), class: "img-round" %>
+              <% end %>
+            </td>
+            <td><%= agent.name %></td>
+            <td><%= agent.company %></td>
+            <td><%= agent.phone %></td>
+            <td><%= agent.email %></td>
+            <td>
+              <% if agent.website.present? %>
+                <a href="<%= agent.website %>">Link</a>
+              <% end %>
+            </td>
+            <td><%= link_to 'Edit', edit_agent_path(agent.id) %></td>
+            <td><%= link_to 'View', agent_path(agent.id) %></td>
+            <td><%= link_to 'Delete', agent, method: :delete, data: { confirm: 'Are you sure you would like to permenantly delete this agent?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @agents, renderer: BootstrapPagination::Rails %>
+  <% else %>
+      <h4 class="center mar-top50"> No agents created yet. <a class="cursor-pointer" data-toggle="modal" data-target="#newAgentModal">Create One</a>.</h4>
+  <% end %>
 
-<br>
+</div>
 
-<%= link_to 'New Agent', new_agent_path %>
+<%= render 'agents/form_modal' %>

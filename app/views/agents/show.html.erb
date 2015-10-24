@@ -1,34 +1,42 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @agent.user_id %>
-</p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @agent.name %>
-</p>
+  <%= link_to '<- All Agents', agents_path, class: "float-left" %>
 
-<p>
-  <strong>Company:</strong>
-  <%= @agent.company %>
-</p>
+  <h1 class="clear"><%= @agent.name %></h1>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @agent.phone %>
-</p>
+  <div class="row mar-top40">
+    <div class="col-sm-3 col-sm-offset-2">
+      <% if @agent.agent_image.present? %>
+        <%= image_tag @agent.agent_image.url(:large), class: "img-round" %>
+      <% end %>
+    </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @agent.email %>
-</p>
+    <div class="col-sm-6 col-sm-offset-1">
 
-<p>
-  <strong>Website:</strong>
-  <%= @agent.website %>
-</p>
+      <p>
+        <strong>Company:</strong>
+        <%= @agent.company %>
+      </p>
 
-<%= link_to 'Edit', edit_agent_path(@agent) %> |
-<%= link_to 'Back', agents_path %>
+      <p>
+        <strong>Phone:</strong>
+        <%= @agent.phone %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @agent.email %>
+      </p>
+
+      <p>
+        <strong>Website:</strong>
+        <%= @agent.website %>
+      </p>
+
+      <%= link_to 'Edit', edit_agent_path(@agent), class: "btn btn-primary mar-top20" %>
+
+    </div>
+  </div>
+</div>
