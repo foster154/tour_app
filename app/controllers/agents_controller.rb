@@ -1,6 +1,6 @@
 class AgentsController < ApplicationController
   before_action :set_agent, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:index, :create, :edit]
+  before_action :set_user, only: [:index, :new, :create, :edit]
 
   # GET /agents
   # GET /agents.json
@@ -16,9 +16,9 @@ class AgentsController < ApplicationController
   end
 
   # GET /agents/new
-  # def new
-  #   @agent = Agent.new
-  # end
+  def new
+    @agent = Agent.new
+  end
 
   # GET /agents/1/edit
   def edit

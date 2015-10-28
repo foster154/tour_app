@@ -3,7 +3,9 @@ class ToursController < ApplicationController
 	before_action :authenticate_user!, :except => [:show, :show_branded, :sample_tour1, :sample_tour2]
 	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded, :sample_tour1, :sample_tour2]
 	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
+	before_action :find_tour_agent, only: [:show, :show_branded]
 	before_action :find_user, :only => [:index, :new]
+	before_action :create_agent_list, only: [:new, :edit]
 	before_action :check_for_tour_credit, only: [:create]
 	after_action :remove_tour_credit, only: [:create]
 
@@ -110,11 +112,23 @@ class ToursController < ApplicationController
 	    end
 
 	  	def find_tour
-      		@tour = Tour.find(params[:id])
+      	@tour = Tour.find(params[:id])
     	end
 
 	  	def find_user
 	  		@user = User.find(current_user.id)
+    	end
+
+    	def find_tour_agent
+    		if @tour.agent_id.present?
+    			@tour_agent = Agent.find(@tour.agent_id)
+    		else
+    			@tour_agent = @user
+    		end
+    	end
+
+    	def create_agent_list
+    		@agent_list = current_user.agents.all
     	end
 
     	def set_tour_theme
@@ -162,6 +176,7 @@ class ToursController < ApplicationController
 	  									  :inactive,
 	  									  :scheduler,
 	  									  :scheduler_auto_display,
+	  									  :agent_id,
 	  									  photos_attributes: [:id, :tour_id, :photo] )
 	  	end
 
