@@ -11,24 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024134418) do
+ActiveRecord::Schema.define(version: 20151028132050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "agents", force: true do |t|
     t.integer  "user_id"
-    t.string   "name"
     t.string   "company"
     t.string   "phone"
     t.string   "email"
     t.string   "website"
-    t.string   "agent_image_file_name"
-    t.string   "agent_image_content_type"
-    t.integer  "agent_image_file_size"
-    t.datetime "agent_image_updated_at"
+    t.string   "user_image_file_name"
+    t.string   "user_image_content_type"
+    t.integer  "user_image_file_size"
+    t.datetime "user_image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "agents", ["user_id"], name: "index_agents_on_user_id", using: :btree
@@ -114,7 +115,7 @@ ActiveRecord::Schema.define(version: 20151024134418) do
     t.boolean  "admin",                               default: false
     t.string   "phone",                   limit: 25
     t.string   "company",                 limit: 50
-    t.string   "user_url",                limit: 100
+    t.string   "website",                 limit: 100
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                               default: "",    null: false

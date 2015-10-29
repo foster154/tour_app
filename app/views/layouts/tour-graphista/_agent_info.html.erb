@@ -3,20 +3,22 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h2 class="text-center">Presented By:</h2>
-				<% unless @tour.user.user_image.blank? %>
-					<%= image_tag @tour.user.user_image.url(:square), class: "agent-photo" %>
+				<% unless @tour_agent.user_image.blank? %>
+					<%= image_tag @tour_agent.user_image.url(:square), class: "agent-photo" %>
 				<% end %>
-				<span class="agent-name"><%= "#{@tour_agent.name} #{@tour.user.last_name}" %></span>
-				<span class="agent-company"><em><%= @tour.user.company %></em></span>
+				<span class="agent-name"><%= @tour_agent.full_name %></span>
+				<span class="agent-company"><em><%= @tour_agent.company %></em></span>
 				<span class="agent-contact-info">
-					<% if @tour.user.phone %>
-						<%= "#{@tour.user.phone} |" %>
+					<% if @tour_agent.phone %>
+						<%= "#{@tour_agent.phone} |" %>
 					<% end %>
 						
-					<%= mail_to @tour.user.email, "Email" %> |
+					<% if @tour_agent.email %>
+						<%= mail_to @tour_agent.email, "Email" %> |
+					<% end %>
 
-					<% if @tour.user.user_url %>
-						<a href="<%= @tour.user.user_url.to_s %>">Website</a>
+					<% if @tour_agent.website %>
+						<a href="<%= @tour_agent.website.to_s %>">Website</a>
 					<% end %>
 				</span>
 

@@ -123,7 +123,7 @@ class ToursController < ApplicationController
     		if @tour.agent_id.present?
     			@tour_agent = Agent.find(@tour.agent_id)
     		else
-    			@tour_agent = @user
+    			@tour_agent = @tour.user
     		end
     	end
 

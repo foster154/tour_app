@@ -15,7 +15,9 @@
 
     <%= f.hidden_field :user_id, value: @user.id %>
 
-    <%= f.text_field :name, placeholder: "Name", hide_label: true %>
+    <%= f.text_field :first_name, placeholder: "First Name", hide_label: true %>
+
+    <%= f.text_field :last_name, placeholder: "Last Name", hide_label: true %>
 
     <%= f.text_field :company, placeholder: "Company/Brokerage", hide_label: true %>
 
@@ -25,7 +27,7 @@
 
     <%= f.text_field :website, placeholder: "Website (http://www.example.com)", hide_label: true %>
 
-    <%= f.file_field :agent_image %>
+    <%= f.file_field :user_image %>
 
     <%= f.submit class: "btn btn-primary float-right", id: "modal_save_agent" %>
   </div>

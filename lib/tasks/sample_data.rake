@@ -5,7 +5,7 @@ namespace :db do
                  email:     "foster154@gmail.com",
                  phone:     "208-220-4905",
                  company:   "TourApp",
-                 user_url:  "http://www.tourapp.com",
+                 website:  "http://www.tourapp.com",
                  password:  "foobar",
                  password_confirmation: "foobar",
                  admin: true)
@@ -20,7 +20,7 @@ namespace :db do
                    email: email,
                    phone: phone,
                    company: company,
-                   user_url: url,
+                   website: url,
                    password: password,
                    password_confirmation: password)
     end

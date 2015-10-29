@@ -23,11 +23,11 @@
         <% @agents.each do |agent| %>
           <tr>
             <td>
-              <% if agent.agent_image.present? %>
-                <%= image_tag agent.agent_image.url(:small), class: "img-round" %>
+              <% if agent.user_image.present? %>
+                <%= image_tag agent.user_image.url(:square), class: "img-round" %>
               <% end %>
             </td>
-            <td><%= agent.name %></td>
+            <td><%= agent.full_name %></td>
             <td><%= agent.company %></td>
             <td><%= agent.phone %></td>
             <td><%= agent.email %></td>

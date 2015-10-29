@@ -1,15 +1,14 @@
 
 <div class="container">
-  <p id="notice"><%= notice %></p>
 
   <%= link_to '<- All Agents', agents_path, class: "float-left" %>
 
-  <h1 class="clear"><%= @agent.name %></h1>
+  <h1 class="clear"><%= @agent.full_name %></h1>
 
   <div class="row mar-top40">
     <div class="col-sm-3 col-sm-offset-2">
-      <% if @agent.agent_image.present? %>
-        <%= image_tag @agent.agent_image.url(:large), class: "img-round" %>
+      <% if @agent.user_image.present? %>
+        <%= image_tag @agent.user_image.url(:square), class: "img-round" %>
       <% end %>
     </div>
 
