@@ -59,7 +59,7 @@ class UsersController < ApplicationController
                                    :email, 
                                    :phone, 
                                    :company, 
-                                   :user_url, 
+                                   :website, 
                                    :password, 
                                    :password_confirmation, 
                                    :user_image,

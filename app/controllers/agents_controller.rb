@@ -1,6 +1,6 @@
 class AgentsController < ApplicationController
   before_action :set_agent, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:index, :create, :edit]
+  before_action :set_user, only: [:index, :new, :create, :edit]
 
   # GET /agents
   # GET /agents.json
@@ -16,9 +16,9 @@ class AgentsController < ApplicationController
   end
 
   # GET /agents/new
-  # def new
-  #   @agent = Agent.new
-  # end
+  def new
+    @agent = Agent.new
+  end
 
   # GET /agents/1/edit
   def edit
@@ -76,6 +76,6 @@ class AgentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agent_params
-      params.require(:agent).permit(:user_id, :name, :company, :phone, :email, :website, :agent_image)
+      params.require(:agent).permit(:user_id, :first_name, :last_name, :company, :phone, :email, :website, :user_image)
     end
 end

@@ -716,10 +716,19 @@ tr.inactive {
   float: right;
 }
 
+/* ---------------------------------------------- /*
+ * AGENTS AREA
+/* ---------------------------------------------- */
 
 table.agents-table>tbody>tr>td {
   vertical-align: middle;
+  img {
+    width: 64px;
+    height: 64px;
+  }
 }
+
+
 
 /* miscellaneous */
 

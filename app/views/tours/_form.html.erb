@@ -89,6 +89,18 @@
 
 <br />
 
+<h2 class="grey"><i class="fa fa-user icon-pad"></i>Tour Agent:</h2>
+
+<div class="tour-instructions-box">
+      The "branded" tour will include the real estate agent's information. It will display your information by default, but if you need to use a different agent, select them from your list of agents. 
+</div>
+
+<div class="float-right">
+      <%= link_to "Add New Agent", new_agent_path, target: "_blank" %>
+</div>
+
+<%= f.collection_select :agent_id, current_user.agents.all, :id, :full_name, {include_blank: "#{current_user.first_name} #{current_user.last_name} (use my info)"} %>
+
 <h2 class="grey"><i class="fa fa-cog icon-pad"></i>Tour Options:</h2>
 
 <div class="choose-theme">

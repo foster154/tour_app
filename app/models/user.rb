@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   has_many :agents, dependent: :destroy
 
   has_attached_file :user_image, :styles => { :square => "150x150#" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :user_image, :content_type => /\Aimage\/.*\Z/
+  validates_attachment  :user_image,
+                        content_type: { content_type: /\Aimage\/.*\Z/ },
+                        size: { in: 0..1.megabyte }
 
   # attr_accessor :stripe_token, :coupon
   # before_save :update_stripe
@@ -16,6 +18,10 @@ class User < ActiveRecord::Base
 
   def tour_available?
     self.tour_credits > 0 || self.tours_unlimited
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 
   # disabled on 
