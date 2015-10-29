@@ -1,33 +1,32 @@
 ---
-title:  "A Brief Introduction"
-created_at: "2015-10-16"
+title:  "Origin Story"
+created_at: "2015-10-29"
 author: "Mark Foster"
 ---
 
-As the first post of the new Show & Tour blog, I thought it would be useful to take a step back and write about why Show & Tour was created. This will provide a good look into our perspective and priorities as we work to provide you with the best real estate virtual tour software and platform available.
+As the first post of the new Show & Tour blog, let's take a moment for introductions, and a bit of the story behind how and why Show & Tour was created. 
 
 <!--more-->
 
-First, a quick introduction:
+First, by way of introduction, I'm Mark, the founder of Show & Tour.
 <div class="float-left" style="margin: 5px 20px 5px 0;">
 ![Show and Tour Founder, Mark Foster](/blog-images/mark.png)
 </div>
 
-Meet Mark Foster, and the creator and founder of Show & Tour. I wear many hats here (especially as we are young), and there's a good chance you'll run into me often. I'm passionate about what we do, about real estate in general, and about the potential of value of virtual tours for both home buyers and real estate agents.
+I came into the world of real estate photography mostly by accident. A friend had read an article about virtual tours in Entrepreneur magazine, and it captured our imagination. It seemed to be a great blend of three of our interests (photography, web design, and real estate), and so we got together and began work on creating a small business.
 
-A logical question to ask when doing business with a company is *why* they do what they do in the first place. Asking "why" can help you see the heart of a company... where their priorities are, where future product development could lead, and how they will treat their customers. My "why" dates back to when my wife Sarah and I were looking to purchase a home for our (growing) family.
+Though we initially put a lot of effort toward building high-end (and fairly expensive) virtual tours, eventually we realized it was our photography that was generating the most interest from potential clients. We were being booked for more and more real estate photography shoots, but selling fewer virtual tours. Agents loved the innovative tours we created, but couldn't always justify the additional expense.
 
-Like most house hunting couples, we scoured the big online listing websites for potential homes in our price range. When we found one that looked interesting, we'd carefully review the pictures and read all the facts we could. Pretty normal stuff. If we were still interested in the home, we'd crave *more* details. We'd look on other sites, we'd do more Google searches for the address, we'd look at Google Street view, and so on.
+As a photographer, I loved the idea of the virtual tour. They had the potential to display the photos I took in a *much* more appealing way (full screen and high resolution). They could be built to incorporate panoramas, videos, home specs and neighborhood information. They were simply the best way to experience a home online. 
 
-Occasionally, we'd notice a listing had a virtual tour link. So we'd click on it... and we'd see a new site with the *same* pictures, the *same* description, and where the look and feel felt straight out of the 90's.
+They also had the possibility of building my reputation as a photographer. A virtual tour had the capability of giving me credit for the photos. Other real estate agents could then notice my work and know how to hire me for their next listing.
 
-I figured there had to be a better way to make virtual tours *valuable*. To make them *worth looking at*. So I got to work.
-<div class="float-right" style="margin: 5px 0 5px 20px;">
-![Show & Tour Real Estate virtual tour screenshot](/blog-images/tour-screenshot.png)
-</div>
+The idea began to grow in my head that I wanted *all* of my real estate photography shoots to include a virtual tour. It was a valuable service to the real estate agent, appreciated by home buyers, and helped me get my name out as a photographer and grow my business. Why not include a free virtual tour every time?
 
-Show and Tour aims to over-deliver on what a homebuyer expects to see when they click on a virtual tour link. Beautiful, full-screen, high resolution photography- with no limit to the number of photos that can be added. Cutting edge, modern design. A fully responsive layout that immediately adapts to whatever device they are using. 
+I wasn't able to find a virtual tour service that incorporated all these ideas into one package, and was priced in a way that made this feasible. So I got to work.
 
-Along with virtual tours that are valuable for homebuyers, we also strive to serve the real estate agents using our service. We've invested a lot of time creating software that is easy to learn and use. We also know the quality of our design will help sellers (as well as their friends and family) *want* to share the listing to their social networks, getting the agent more high-quality exposure. Additionally, our lead generation tools can help find future clients.
+We are still young, and are working hard to continue to move forward and realize the vision. We love real estate and architecture photographers. You are who we strive to serve, and who we want to hear from in regards to how we can improve.
 
-We have big plans to continue pushing in to our vision of adding incredible value to real estate agents and homebuyers through cutting edge virtual tours. Stay tuned!
+We'll use this blog to keep you updated on Show & Tour, as well as to deliver helpful tools and advice for growing your real estate photography business. 
+
+We'd love to hear you. You can always send any feedback or suggestions to support@showandtour.com, or drop me a line personally at mark@showandtour.com.
