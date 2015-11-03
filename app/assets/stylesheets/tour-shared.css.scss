@@ -1,3 +1,7 @@
+/* ======================================
+	Music button
+====================================== */
+
 .sound-area {
     font-family: "Lato";
     text-align: center;
@@ -23,6 +27,10 @@
         display: none;
     }
 }
+
+/* ======================================
+	Schedule button
+====================================== */
 
 .schedule-btn {
 	position: fixed;
@@ -62,3 +70,71 @@
 	margin-top: 20px;
 	text-align:center;
 }
+
+/* ======================================
+	Photo info
+====================================== */
+
+.photo-info-icon {
+	position: absolute;
+	right: 0;
+	margin: 20px;
+	cursor: pointer;
+}
+
+.photo-info-wrapper {
+	display: none;
+	position: absolute;
+	right: 110px;
+	margin-top: 10px;
+	width: 412px;
+	background-color: #f1f1f1;
+	border: 1px solid #e3e3e3;
+	z-index: 100;
+}
+
+.photo-info-logo {
+	padding: 10px 0 10px 10px;
+	float: left;
+	img {
+		height: 130px;
+		width: 130px;
+	}
+}
+
+.photo-info-text {
+	float: right;
+	width: 250px;
+	margin: 10px;
+	text-align: center;
+	font-family: "Lato", Verdana, Helvetica, sans-serif;
+	font-size: .8em;
+}
+
+.photo-info-text > div {
+	margin-bottom: 5px;
+}
+
+.photo-info-text > .photo-info-title {
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-bottom: 15px;
+	color: #3f3f3f;
+}
+
+.photo-info-text a {
+	color: #6d6d6d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

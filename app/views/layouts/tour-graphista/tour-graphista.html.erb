@@ -164,6 +164,11 @@
       </div>
     </section>
 
+    <% if @tour.show_photographer_info == true %>
+      <!-- Photogragher Info -->
+      <%= render 'layouts/tour-shared/photo_info' %>
+    <% end %>
+
     <!-- ==============================================
     Agent info
     =============================================== -->

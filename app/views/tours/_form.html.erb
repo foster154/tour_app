@@ -101,6 +101,12 @@
 
 <%= f.collection_select :agent_id, current_user.agents.all, :id, :full_name, {include_blank: "#{current_user.first_name} #{current_user.last_name} (use my info)"} %>
 
+<h2 class="grey"><i class="fa fa-camera icon-pad"></i>Photographer Info:</h2>
+
+<%= f.check_box :show_photographer_info, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: 'Include "Photo Info" icon/information' %>
+
+<%= f.collection_select :photographer_id, current_user.agents.all, :id, :full_name, {include_blank: "#{current_user.first_name} #{current_user.last_name} (use my info)"} %>
+
 <h2 class="grey"><i class="fa fa-cog icon-pad"></i>Tour Options:</h2>
 
 <div class="choose-theme">

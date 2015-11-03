@@ -1,9 +1,11 @@
 <% provide(:title, 'Manage Agents') %>
 <div class="container">
-  <h1>Manage Agents</h1>
-  <div data-toggle="modal" data-target="#newAgentModal" class="btn btn-primary float-right">New Agent</div>
+  <h1>Manage Agents & Photographers</h1>
+  
   <br>
-  <p class="center mar-bot20">Each virtual tour is associated with a real estate agent. <br>When you create a tour, you can select yourself as the agent, or someone from this list.</p>
+  <p class="center mar-bot20">Each virtual tour is associated with a real estate agent & photographer (optional). <br>When you create a tour, you can choose to use your own information, or someone from this list.</p>
+
+  <div data-toggle="modal" data-target="#newAgentModal" class="btn btn-primary float-right">Create</div>
 
   <% if @user.agents.any? %>
     <table class="table table-striped agents-table">

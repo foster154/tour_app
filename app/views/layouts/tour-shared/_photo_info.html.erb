@@ -1,0 +1,26 @@
+<%= image_tag "photo-info.png", class: "photo-info-icon" %>
+
+<div class="photo-info-wrapper">
+
+	<div class="photo-info-logo">
+		<% unless @tour_photographer.user_image.blank? %>
+			<%= image_tag @tour_photographer.user_image.url(:square), class: "" %>
+		<% end %>
+	</div>
+
+	<div class="photo-info-text">
+		<div class="photo-info-title"><%= @tour_photographer.company %></div>
+		<div>
+			<a href="<%= @tour_photographer.website %>" target="_blank">
+				<%= website_helper(@tour_photographer.website) %>
+			</a>
+		</div>
+		<div><%= @tour_photographer.phone %></div>
+		<div>
+			<a href="mailto:<%= @tour_photographer.email %>">
+				<%= email_helper(@tour_photographer.email) %>
+			</a>
+		</div>
+	</div>
+
+</div>

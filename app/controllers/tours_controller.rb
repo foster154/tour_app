@@ -3,7 +3,7 @@ class ToursController < ApplicationController
 	before_action :authenticate_user!, :except => [:show, :show_branded, :sample_tour1, :sample_tour2]
 	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded, :sample_tour1, :sample_tour2]
 	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
-	before_action :find_tour_agent, only: [:show, :show_branded]
+	before_action :find_tour_agents, only: [:show, :show_branded]
 	before_action :find_user, :only => [:index, :new]
 	before_action :create_agent_list, only: [:new, :edit]
 	before_action :check_for_tour_credit, only: [:create]
@@ -119,12 +119,21 @@ class ToursController < ApplicationController
 	  		@user = User.find(current_user.id)
     	end
 
-    	def find_tour_agent
+    	def find_tour_agents
+    		# real estate agent
     		if @tour.agent_id.present?
     			@tour_agent = Agent.find(@tour.agent_id)
     		else
     			@tour_agent = @tour.user
     		end
+
+    		# photographer
+    		if @tour.photographer_id.present?
+    			@tour_photographer = Agent.find(@tour.photographer_id)
+    		else
+    			@tour_photographer = @tour.user
+    		end
+
     	end
 
     	def create_agent_list
@@ -177,6 +186,8 @@ class ToursController < ApplicationController
 	  									  :scheduler,
 	  									  :scheduler_auto_display,
 	  									  :agent_id,
+	  									  :show_photographer_info,
+	  									  :photographer_id,
 	  									  photos_attributes: [:id, :tour_id, :photo] )
 	  	end
 
