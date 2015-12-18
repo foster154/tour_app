@@ -139,8 +139,8 @@
             <% if @branded == true %>
             <li>
               <a href="#agent" class="scrollto">
-                <% unless @tour.user.user_image.blank? %>
-                  <%= image_tag @tour.user.user_image.url(:square), class: "agent-photo-nav" %>
+                <% unless @tour_agent.user_image.blank? %>
+                  <%= image_tag @tour_agent.user_image.url(:square), class: "agent-photo-nav" %>
                 <% end %>
               </a>
             </li>
