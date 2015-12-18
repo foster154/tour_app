@@ -188,6 +188,7 @@ class ToursController < ApplicationController
 	  									  :agent_id,
 	  									  :show_photographer_info,
 	  									  :photographer_id,
+	  									  :video,
 	  									  photos_attributes: [:id, :tour_id, :photo] )
 	  	end
 

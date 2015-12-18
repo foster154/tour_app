@@ -177,11 +177,16 @@
 	<% end %>
 
 	<% if @branded == true %>
-		<!-- AGENT INFO SECTION START -->
+		<!-- ============== AGENT INFO ============== -->
 		<%= render 'layouts/tour-default/agent_info' %>
 	<% end %>
 
-	<!-- GALLERY SECTION START -->
+	<% if @tour.video.present? %>
+		<!-- ============== VIDEO ============== -->
+		<%= render 'layouts/tour-default/video' %>
+	<% end %>
+
+	<!-- ============== PHOTO GALLERY ============== -->
 
 	<section class="gallery">
 		<div class="container" id="gallery">
@@ -200,9 +205,7 @@
     <%= render 'layouts/tour-shared/photo_info' %>
   <% end %>
 
-	<!-- GALLERY SECTION END -->
-
-	<!-- PROPERTY INFO SECTION START -->
+	<!-- ============== PROPERTY INFO ============== -->
 
 	<section class="features" id="propertyinfo">
 		<div class="container">
@@ -257,9 +260,7 @@
 		</div>
 	</section>
 
-	<!-- PROPERTY INFO SECTION END -->
-
-	<!-- MAP SECTION START -->
+	<!-- ============== MAP ============== -->
 
 	<section class="map" id="maplink">
 		<div class="container">
@@ -286,9 +287,7 @@
 		</div>
 	</section>	
 
-	<!-- MAP SECTION END -->
-
-	<!-- Footer start -->
+	<!-- ============== FOOTER ============== -->
 
 	<footer class="footer">
 		<div class="container">
