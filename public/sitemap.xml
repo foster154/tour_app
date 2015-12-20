@@ -55,6 +55,10 @@
   <changefreq>daily</changefreq>
 </url>
 <url>
+  <loc>https://www.showandtour.com/blog/videos</loc>
+  <changefreq>daily</changefreq>
+</url>
+<url>
   <loc>https://www.showandtour.com/users/password/new</loc>
   <changefreq>daily</changefreq>
 </url>
