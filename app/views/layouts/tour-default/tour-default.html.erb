@@ -158,6 +158,9 @@
 					<!-- END INFO CIRCLES -->
 
 					<div class="i_footer">
+						<% if @tour.video.present? %>
+							<a href="#video" class="btn btn-default btn-lg btn-theme">Video</a>
+						<% end %>
 						<a href="#gallery" class="btn btn-default btn-lg btn-theme">Gallery</a>
 						<a href="#propertyinfo" class="btn btn-default btn-lg btn-theme">Info</a>
 						<a href="#maplink" class="btn btn-default btn-lg btn-theme">Map</a>

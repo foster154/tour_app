@@ -127,6 +127,11 @@
             <li>
               <a href="#photogallery" class="scrollto">Gallery</a>
             </li>
+            <% if @tour.video.present? %>
+              <li>
+                <a href="#video" class="scrollto">Video</a>
+              </li>
+            <% end %>
             <li>
               <a href="#info" class="scrollto">Info</a>
             </li>
