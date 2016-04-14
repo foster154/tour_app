@@ -567,6 +567,15 @@ tr.inactive {
 
 /* Edit Tour */
 
+ul.tour-edit-tabs {
+  margin: 20px auto;
+  width: 410px;
+}
+
+.tour-edit-tabs li {
+  font-size: 16px;
+}
+
 .tour-edit-subhead {
   background-color: white;
   padding: 8px 0;
@@ -637,12 +646,15 @@ tr.inactive {
   margin-left: -38px;
   background-color: white;
   clear: both;
+  img {
+    height: 60px;
+  }
 }
 
 .tour-instructions-box {
   display: inline-block;
   line-height: 2;
-  margin: 8px 10px;
+  // margin: 8px 10px;
   border: 1px dotted $grayLight;
   border-radius: 3px;
   padding: 10px;
@@ -659,7 +671,7 @@ tr.inactive {
   i {
     float: left;
     font-size: 2em;
-    margin: 30px 12px 0 0;
+    margin: 17px 12px 0 0;
     color: $grayLight;
   }
 }
@@ -667,7 +679,6 @@ tr.inactive {
 .photo-preview-photo {
   float: left;
   margin-right: 20px;
-  width: 140px;
 }
 
 .photo-magnify-icon {

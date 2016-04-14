@@ -1,0 +1,32 @@
+<%= bootstrap_form_for(@tour, :html => { :multipart => true }) do |f| %> <!-- TOUR INFO FORM -->
+
+	<div class="row mar-top50">
+		<div class="col-md-3 col-md-offset-2">
+			<h3>Theme</h3>
+			<br>
+			<div class="choose-theme">
+			      <%= f.form_group :theme do %>
+			        <%= f.radio_button :theme, 2, label: "Fullscreen" %>
+			        <%= f.radio_button :theme, 1, label: "Circles" %>
+			      <% end %>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<h3>Options</h3>
+			<br>
+			<%= f.check_box :autoplay_music, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Play background music" %>
+			<%= f.check_box :scheduler, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Use scheduler widget" %>
+			<%= f.check_box :scheduler_auto_display, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Auto-show lead generation form" %>
+		</div>
+
+		<div class="col-md-3">
+			<h3>Status</h3>
+			<br>
+			<%= f.check_box :inactive, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Make tour inactive" %>
+		</div>
+	</div>
+
+	<%= f.submit "Save", class: "btn btn-large btn-primary float-right" %>
+
+<% end %>
