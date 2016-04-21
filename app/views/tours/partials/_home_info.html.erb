@@ -1,8 +1,15 @@
-<div class="container">
-	<div class="row">
+<div class="container-fluid">
+	
+	<%= bootstrap_form_for(@tour, :html => { :multipart => true }) do |f| %>
+		<%= render 'shared/tour_error_messages' %>
 
-		<%= bootstrap_form_for(@tour, :html => { :multipart => true }) do |f| %>
-			<%= render 'shared/tour_error_messages' %>
+		<div class="row">
+			<div class="float-right">
+				<%= f.submit "Save Changes", class: "btn btn-lg btn-primary", :'data-no-turbolink' => "true" %>
+			</div>
+		</div>
+
+		<div class="row">
 
 			<div class="col-md-4">
 					<h2 class="center">Address:</h2>
@@ -67,7 +74,9 @@
 				%>
 				<%= f.text_field :zip, layout: :inline, hide_label: true, placeholder: 'Zip' %>
 
-				<br />
+				<div class="tour-instructions-box mar-top30">
+				  <i class="fa fa-map-marker"></i>Maps are generated automatically based on the address. If you need to correct a map location, please contact <a href="mailto:support@showandtour.com">support@showandtour.com</a>.
+				</div>
 
 			</div>
 
@@ -87,36 +96,40 @@
 				<%= f.text_field :lot_size, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: "Lot Size (acres)" %>
 				<%= f.text_field :year_built, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6" %>
 			</div>
-		</div>
+		</div> <!-- /.row -->
 
 		<br />
-
-		<!-- REAL ESTATE AGENT INFO -->
-		<div class="col-md-6">
-			<h2 class="grey"><i class="fa fa-user icon-pad"></i>Listing Agent:</h2>
-			<div class="float-right">
-			      <%= link_to "Add New Agent", new_agent_path, target: "_blank" %>
-			</div>
-			<%= f.collection_select :agent_id, current_user.agents.all, :id, :full_name, {include_blank: "#{current_user.first_name} #{current_user.last_name} (use my info)"} %>
-		</div>
-
-		<!-- PHOTOGRAPHER INFO -->
-		<div class="col-md-6">
-			<h2 class="grey"><i class="fa fa-camera icon-pad"></i>Photographer Info:</h2>
-			<%= f.collection_select :photographer_id, current_user.agents.all, :id, :full_name, {include_blank: "#{current_user.first_name} #{current_user.last_name} (use my info)"} %>
-			<%= f.check_box :show_photographer_info, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: 'Include "Photo Info" icon/information' %>
-		</div>
-
-		<div class="tour-instructions-box mar-top30">
-			<i class="fa fa-user"></i>The "branded" tour will include the listing real estate agent's information.<br>
-		  <i class="fa fa-map-marker"></i>Maps are generated automatically based on the address. If you need to correct a map location, please contact <a href="mailto:support@showandtour.com">support@showandtour.com</a>.
-		</div>
-
-		<br />
+		<hr>
 
 		<div class="row">
-			<div class="center">
-				<%= f.submit "Save Tour Info", class: "btn btn-large btn-primary", :'data-no-turbolink' => "true" %>
+			<!-- REAL ESTATE AGENT INFO -->
+			<div class="col-md-4 col-md-offset-4">
+				<h2 class="grey"><i class="fa fa-user icon-pad"></i>Listing Agent & Photographer</h2>
+				<br>
+				<div class="float-right">
+				      <%= link_to "Add New Agent", new_agent_path, target: "_blank" %>
+				</div>
+				<%= f.collection_select :agent_id, current_user.agents.all, :id, :full_name, {include_blank: "#{current_user.first_name} #{current_user.last_name} (use my info)"} %>
+				<br>
+				<%= f.check_box :show_photographer_info, layout: :horizontal, label_col: "col-sm-6", control_col: "col-sm-6", label: 'Show photographer info on tours' %>
+				<%= f.collection_select :photographer_id, current_user.agents.all, :id, :full_name, {include_blank: "#{current_user.first_name} #{current_user.last_name} (use my info)"} %>
+				<div class="tour-instructions-box mar-top30">
+					<i class="fa fa-info-circle"></i>The "branded" tour will include the listing real estate agent's information. If selected, both branded and unbranded tours will show the photographer's information.
+				</div>
+
+			</div>
+
+			<!-- PHOTOGRAPHER INFO -->
+			<div class="col-md-4 col-md-offset-1">
+
+			</div>
+		</div> <!-- /.row -->
+
+		<br /><br /><br />
+
+		<div class="row">
+			<div class="float-right">
+				<%= f.submit "Save Changes", class: "btn btn-lg btn-primary", :'data-no-turbolink' => "true" %>
 			</div>
 
 		<% end %>

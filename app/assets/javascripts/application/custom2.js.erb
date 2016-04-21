@@ -21,4 +21,16 @@ $(function() {
 
 		);
 	});
+  
+  //For remembering which tour#edit tab the user was on
+  $('a[data-toggle="pill"]').on('click', function (e) {
+    localStorage.setItem('lastTab', $(e.target).attr('href'));
+  });
+
+  //go to the latest tab, if it exists:
+  var lastTab = localStorage.getItem('lastTab');
+
+  if (lastTab) {
+      $('a[href="'+lastTab+'"]').click();
+  }
 });

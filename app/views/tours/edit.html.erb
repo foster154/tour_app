@@ -23,7 +23,7 @@
 				<div class="tour-link">Unbranded: <%= link_to "http://www.showandtour.com/tours/#{@tour.id}", tour_path(@tour.id), :target => '_blank' %></div>
 				<div class="tour-link">Branded: <%= link_to "http://www.showandtour.com/tours/b/#{@tour.id}", "/tours/b/#{@tour.id}", :target => '_blank' %></div>
 				<% else %>
-				<div class="mar-top15">Add photos below in order to view the tour!</div>
+				<div class="mar-top15">Add photos in order to view this tour</div>
 				<% end %>
 			</div>
 			</div>
@@ -37,10 +37,10 @@
 		<div class="col-md-10 col-md-offset-1">
 
   <!-- Nav tabs -->
-  <ul class="nav nav-pills tour-edit-tabs" role="tablist">
+  <ul class="nav nav-pills tour-edit-tabs" role="tablist" id="edit-tour-tabs">
     <li role="presentation" class="active">
-    	<a href="#home" aria-controls="home" role="tab" data-toggle="pill">
-    		<i class="fa fa-home icon-pad"></i>Listing Info
+    	<a href="#info" aria-controls="info" role="tab" data-toggle="pill">
+    		<i class="fa fa-home icon-pad"></i>Property & Listing Info
     	</a>
     </li>
     <li role="presentation">
@@ -57,7 +57,7 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="home">
+    <div role="tabpanel" class="tab-pane active" id="info">
     	<%= render 'tours/partials/home_info' %>
     </div>
 
