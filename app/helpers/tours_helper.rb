@@ -16,4 +16,12 @@ module ToursHelper
 		end
 	end
 
+	def photo_filename_limiter(filename)
+		if filename.length > 18
+			filename[0...16] + '...'
+		else
+			filename
+		end
+	end
+
 end

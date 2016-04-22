@@ -662,17 +662,6 @@ ul.tour-edit-tabs {
   margin-left: 10px;
 }
 
-#photo-preview-list li {
-  border-bottom: 1px solid #e8e8e8;
-  padding: 10px 0;
-  margin-left: -38px;
-  background-color: white;
-  clear: both;
-  img {
-    height: 60px;
-  }
-}
-
 .tour-instructions-box {
   display: inline-block;
   line-height: 2;
@@ -688,6 +677,25 @@ ul.tour-edit-tabs {
   }
 }
 
+#photo-preview-list {
+  margin-left: -38px;
+    
+  li {
+    margin: 10px;
+    padding: 3px;
+    width: 155px;
+    height: 130px;
+    background-color: white;
+    border-radius: 3px;
+    float: left;
+    img {
+      height: 80px;
+      width: 120px;
+      float: left;
+    }
+  }
+}
+
 .drag-handle {
   cursor: move;
   i {
@@ -700,17 +708,21 @@ ul.tour-edit-tabs {
 
 .photo-preview-photo {
   float: left;
-  margin-right: 20px;
+  //margin-right: 20px;
 }
 
-.photo-magnify-icon {
+.photo-delete-btn {
+  float: right;
+  width: 23px;
+}
+
+.photo-magnify-btn {
   text-align: center;
   font-size: 10px;
-  position: absolute;
-  margin: 28px 0 0 88px;
-  cursor: pointer;
+  float: right;
+  margin-top: 3px;
   i {
-    color:white;
+    color:black;
   }
 }
 
@@ -730,23 +742,24 @@ ul.tour-edit-tabs {
 }
 
 .photo-preview-label {
-  clear: right;
-  float: left;
-  margin: -15px 0 0 0;
+  position: absolute;
+  margin: 98px 0 0 0;
+  width: 145px;
+  height: 35px;
+  font-size: 13px;
+  overflow: hidden;
 }
 
 .rest-in-place {
   cursor: pointer;
 }
 
-.rip-active::after {
-  content: url(image-path('label-instr.png')) no-repeat scroll 5px 5px;
-
+.rip-active {
+  padding: 2px;
 }
 
-.photo-delete-btn {
-  margin: 10px 10px 0 0;
-  float: right;
+.rip-active::after {
+  content: url(image-path('label-instr.png')) no-repeat scroll 5px 5px;
 }
 
 /* ---------------------------------------------- /*

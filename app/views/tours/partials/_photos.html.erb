@@ -1,109 +1,123 @@
-<div class="col-md-6">
+<div class="row">
+	<div class="col-md-6">
 
-	<!-- Photo Uploader -->
-	<h3><i class="fa fa-camera icon-pad"></i>Upload Photos</h3>
+		<!-- Photo Uploader -->
+		<h3><i class="fa fa-camera icon-pad"></i>Upload Photos</h3>
 
-	<%= render 'shared/photo_error_messages' %>
-	<%= s3_uploader_form callback_url: tour_photos_url(tour_id: @tour.id),
-	  id: "s3_uploader",
-		callback_param: "photo[direct_upload_url]",
-		expiration: 24.hours.from_now.utc.iso8601,
-		max_file_size: 100.megabytes do %>
-		<%= file_field_tag :file, multiple: true %>
-	<% end %>
-
-	<div class="alert alert-info mar-top20" style="display:inline-block">
-		<i class="fa fa-warning" style="margin-right: 10px;"></i>
-		<strong>1280px by 960px</strong> photos (or larger) are recommended for best results.
-	</div>
-
-	<div id="photos-uploading-warning">
-		<div class="alert alert-notice" style="display: inline-block;">Please do not refresh or close this page until all photos have uploaded.</div>
-	</div>
-
-	<div id="uploads_container"></div>
-	<script id="template-upload" type="text/x-tmpl">
-		<div id="upload_{%=o.unique_id%}" class="upload">
-		  <h5>{%=o.name%}</h5>
-		  <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
-		</div>
-	</script>
-	<!-- end photo uploader -->
-
-	<!-- New Photos Uploading -->
-	<div id="new-photos-processing-wrapper">
-		<ul id="new-photos-processing"></ul>
-	</div>
-
-	<!-- if no photos have been added -->
-	<% unless @tour.photos.any? %>
-		<div id="no-photos-found">No photos found.</div>
-	<% end %>
-
-	<!-- if any photos processing -->
-	<% if @tour.photos.where("processed = ?", "false").any? %>
-	<div class="alert alert-info" style="display: inline-block;">Some of your photos are still processing. Refresh the page to check the progress.</div>
-	<% end %>
-
-	<hr>
-
-	<!-- photo-related instructions -->
-	<% if @tour.photos.any? %>
-		<div class="tour-instructions-box mar-top20">
-			<i class="fa fa-arrows-v"></i>Change the order of photos via drag-and-drop with the arrows to the left. <br />
-			<i class="fa fa-tag"></i>To add a label to a photo, click "add label", enter text, and hit return. <br />
-			<i class="fa fa-photo"></i>The first photo in your list will be used as the tour's background image.
-		</div>
-	<% end %>
-
-	<!-- list of uploaded photos -->
-	<ul id="photo-preview-list" class="mar-top20" data-update-url="<%= sort_photos_url %>">
-		<% @photos.each do |photo| %>
-			<%= content_tag_for :li, photo do %>
-				<div class="drag-handle">
-					<i class="fa fa-arrows-v"></i>
-
-					<!-- photo -->
-					<% if photo.processed %>
-						<div class="photo-preview-photo">
-							<a href="#" data-featherlight="<%= photo.upload.url(:slider).to_s %>">
-								<div class="photo-magnify-icon"><i class="fa fa-search-plus"></i></div>
-								<%= image_tag photo.upload.url(:thumb) %>
-							</a>
-						</div>
-					<% else %>
-					<div class="photo-preview-photo"><%= image_tag "photo-processing.png" %></div>
-					<% end %>
-				</div>
-
-				<!-- title -->
-				<div class="photo-preview-title">
-					<span class="photo-preview-filename"><%= photo.upload.original_filename %></span>
-				</div>
-
-				<!-- delete -->
-				<%= link_to "X", tour_photo_path(tour_id: photo.tour.id, id: photo.id), method: :delete, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger btn-sm photo-delete-btn" %>
-
-				<!-- label -->
-				<div class="photo-preview-label">
-					<span class="rest-in-place" data-url="/photos/<%= photo.id %>" data-object="photo" data-attribute="label">
-					<%= photo.label || "(add label)" %>
-					</span>
-				</div>
-
-
-				<div class="clear"></div>
-			<% end %>
+		<%= render 'shared/photo_error_messages' %>
+		<%= s3_uploader_form callback_url: tour_photos_url(tour_id: @tour.id),
+		  id: "s3_uploader",
+			callback_param: "photo[direct_upload_url]",
+			expiration: 24.hours.from_now.utc.iso8601,
+			max_file_size: 100.megabytes do %>
+			<%= file_field_tag :file, multiple: true %>
 		<% end %>
 
-	</ul>
+		<div class="alert alert-info mar-top20" style="display:inline-block">
+			<i class="fa fa-warning" style="margin-right: 10px;"></i>
+			<strong>1280px by 960px</strong> photos (or larger) are recommended for best results.
+		</div>
 
-</div>
+		<div id="photos-uploading-warning">
+			<div class="alert alert-notice" style="display: inline-block;">Please do not refresh or close this page until all photos have uploaded.</div>
+		</div>
 
-<div class="col-md-6">
-	<%= bootstrap_form_for(@tour, :html => { :multipart => true }) do |f| %>
-		<h3><i class="fa fa-film icon-pad"></i>Video:</h3>
-		<p>Simply paste the embed code from YouTube or Vimeo (<a href="/blog/videos" target="_blank">learn more</a>)</p>
-		<%= f.text_area :video, size: "24x3", hide_label: true %>
-	<% end %>
-</div>
+		<div id="uploads_container"></div>
+		<script id="template-upload" type="text/x-tmpl">
+			<div id="upload_{%=o.unique_id%}" class="upload">
+			  <h5>{%=o.name%}</h5>
+			  <div class="progress progress-striped active"><div class="bar" style="width: 0%"></div></div>
+			</div>
+		</script>
+		<!-- end photo uploader -->
+
+		<!-- New Photos Uploading -->
+		<div id="new-photos-processing-wrapper">
+			<ul id="new-photos-processing"></ul>
+		</div>
+
+		<!-- if any photos processing -->
+		<% if @tour.photos.where("processed = ?", "false").any? %>
+		<div class="alert alert-info" style="display: inline-block;">Some of your photos are still processing. Refresh the page to check the progress.</div>
+		<% end %>
+	</div>
+
+	<div class="col-md-6">
+		<!-- photo-related instructions -->
+		<% if @tour.photos.any? %>
+			<div class="tour-instructions-box mar-top20">
+				<i class="fa fa-arrows"></i>Change the order of photos via drag-and-drop with the arrows to the left. <br />
+				<i class="fa fa-tag"></i>To add a label to a photo, click "add label", enter text, and hit return. <br />
+				<i class="fa fa-photo"></i>The first photo in your list will be used as the tour's background image.
+			</div>
+		<% end %>
+	</div>
+
+</div> <!-- /.row -->
+
+<hr>
+
+<div class="row">
+	<div class="col-md-12">
+
+		<!-- if no photos have been added -->
+		<% unless @tour.photos.any? %>
+			<div id="no-photos-found">No photos have been added.</div>
+		<% end %>
+
+		<!-- list of uploaded photos -->
+		<ul id="photo-preview-list" class="mar-top20" data-update-url="<%= sort_photos_url %>">
+			<% @photos.each do |photo| %>
+				<%= content_tag_for :li, photo do %>
+					<div class="drag-handle">
+
+						<!-- photo -->
+						<% if photo.processed %>
+							<div class="photo-preview-photo"><%= image_tag photo.upload.url(:thumb) %></div>
+						<% else %>
+							<div class="photo-preview-photo"><%= image_tag "photo-processing.png" %></div>
+						<% end %>
+					</div>
+
+					<!-- delete btn -->
+					<%= link_to "X", tour_photo_path(tour_id: photo.tour.id, id: photo.id), method: :delete, data: { confirm: "Are you sure you want to delete this photo?" }, class: "btn btn-danger btn-xs photo-delete-btn" %>
+
+					<!-- magnify btn -->
+
+					<a href="#" data-featherlight="<%= photo.upload.url(:slider).to_s %>">
+						<div class="photo-magnify-btn btn btn-xs btn-default"><i class="fa fa-search-plus"></i></div>
+					</a>
+
+					<!-- filename -->
+					<div class="photo-preview-title">
+						<span class="photo-preview-filename"><%= photo_filename_limiter(photo.upload.original_filename) %></span>
+					</div>
+
+					<!-- label -->
+					<div class="photo-preview-label">
+						<span class="rest-in-place" data-url="/photos/<%= photo.id %>" data-object="photo" data-attribute="label">
+							<%= photo.label || "(add label)" %>
+						</span>
+					</div>
+					
+				<% end %>
+			<% end %>
+
+		</ul>
+
+	</div>
+</div> <!-- /.row -->
+
+<hr>
+
+<div class="row">
+
+	<div class="col-md-6">
+		<%= bootstrap_form_for(@tour, :html => { :multipart => true }) do |f| %>
+			<h3><i class="fa fa-film icon-pad"></i>Video:</h3>
+			<p>Simply paste the embed code from YouTube or Vimeo (<a href="/blog/videos" target="_blank">learn more</a>)</p>
+			<%= f.text_area :video, size: "24x3", hide_label: true %>
+		<% end %>
+	</div>
+
+</div> <!-- /.row -->

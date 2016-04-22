@@ -17,7 +17,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'faker', '1.1.2'
 # gem 'mini_magick', '~> 3.7.0'
 gem 'bootstrap_form', '2.1.0'
-gem 'acts_as_list', '~> 0.4.0' # for re-ordering photos
+gem 'acts_as_list'#, '~> 0.4.0' # for re-ordering photos
 gem 'geocoder', '~> 1.2.0' # for generating tour maps
 gem 'gmaps4rails', '2.1.2' # for generating tour maps
 gem 'jquery-turbolinks', '2.0.2'
