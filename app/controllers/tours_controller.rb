@@ -2,7 +2,7 @@ class ToursController < ApplicationController
 
 	before_action :authenticate_user!, :except => [:show, :show_branded, :sample_tour1, :sample_tour2]
 	before_action :correct_user, :except => [:index, :new, :create, :show, :show_branded, :sample_tour1, :sample_tour2]
-	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy]
+	before_action :find_tour, :only => [:show, :show_branded, :edit, :update, :destroy, :delete_photos]
 	before_action :find_tour_agents, only: [:show, :show_branded]
 	before_action :find_user, :only => [:index, :new]
 	before_action :create_agent_list, only: [:new, :edit]
@@ -100,6 +100,11 @@ class ToursController < ApplicationController
 		flash[:success] = "'#{@tour.address}' tour has been deleted."
 		redirect_to :back
 	end
+
+	def delete_photos
+    @tour.photos.delete_all
+    redirect_to :back
+  end
 
 	private
 

@@ -105,6 +105,10 @@
 
 		</ul>
 
+		<% if @tour.photos.any? %>
+			<%= link_to "Delete All", "/tours/#{@tour.id}/delete_photos", :method => :get, data: { confirm: "Are you sure you want to permanentaly delete ALL photos? This cannot be undone." }, class: "btn btn-danger btn-sm delete-all-photos-btn" %>
+		<% end %>
+
 	</div>
 </div> <!-- /.row -->
 

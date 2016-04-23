@@ -14,6 +14,8 @@ TourApp::Application.routes.draw do
     resources :photos, only: [:new, :create, :destroy] 
   end
 
+  match '/tours/:id/delete_photos', to: 'tours#delete_photos', via: 'get'
+
   resources :photos do
     collection { post :sort }  # from railscasts #147... not sure if I need this
   end
